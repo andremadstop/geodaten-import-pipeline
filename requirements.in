@@ -1,7 +1,7 @@
 # Direkte Abhängigkeiten. requirements.txt (exakte Versionen mit Prüfsummen) wird daraus erzeugt:
 #   uv pip compile requirements.in --generate-hashes --python-version 3.12 --python-platform linux -o requirements.txt
 # Untergrenzen schließen bekannte Lücken aus (pip-audit, 30.10.2026: lxml < 6.1.0, requests < 2.33.0).
-psycopg[binary]>=3.2
+psycopg[binary]>=3.3.8
 lxml>=6.1.0
 PyYAML>=6.0.2
 requests>=2.33.0
