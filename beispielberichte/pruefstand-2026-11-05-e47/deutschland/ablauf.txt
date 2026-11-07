@@ -1,0 +1,13 @@
+# pipeline 74458df1aabeaff70640812fec569e1ab2f71fb2
+# config fc6f74c4c393c3da3d4ab481c69dd1d5e73d3c40
+# sql c7062db0702a61378d36debc27207f3244556ab4
+# tests 331bf7d09b1255ff40a5fa069a081a56cd4fca59
+# Dockerfile 2953066ba034c0772b8647fcb89c9a710cb5028a
+PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+POSTGIS="3.6.4 94d984b" [EXTENSION] PGSQL="160" GEOS="3.14.1-CAPI-1.20.5" (compiled against GEOS 3.13.1) PROJ="9.8.1 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/var/lib/postgresql/.local/share/proj DATABASE_PATH=/usr/share/proj/proj.db" (compiled against PROJ 9.6.0) LIBXML="2.9.14" LIBJSON="0.18" LIBPROTOBUF="1.5.1" WAGYU="0.5.0 (Internal)"
+einrichten rc=0
+lauf1: Rechnerlast davor (1/5/15 min): 2.65 2.43 2.37
+lauf1: Argumente '--alle', Rückgabe 0, Wandzeit 305.321898218 s (einschließlich Containerstart), Rechnerlast danach (1/5/15 min): 1.71 1.93 2.16, 16 Kerne
+lauf2: Rechnerlast davor (1/5/15 min): 1.71 1.93 2.16
+lauf2: Argumente '--alle', Rückgabe 0, Wandzeit 262.142849871 s (einschließlich Containerstart), Rechnerlast danach (1/5/15 min): 1.86 1.75 2.01, 16 Kerne
+fertig

@@ -1,0 +1,426 @@
+== Version
+                            split_part                             
+-------------------------------------------------------------------
+ PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu
+(1 row)
+
+== Kennzahlen je Herausgeber (dashboard_data_de)
+ source |  granularity  | data_type |  zeilen  | indikatoren | kennziffern | min  | max  
+--------+---------------+-----------+----------+-------------+-------------+------+------
+ INKAR  | Gemeindeebene | indikator | 33547606 |         355 |       10978 | 1995 | 2024
+(1 row)
+
+== Indikatornamen INKAR (E40: Langtext, außer ZOM mit Bereich)
+                                   indikator                                    | zeilen 
+--------------------------------------------------------------------------------+--------
+ 5- und mehr Raum-Wohnungen (LRB)                                               | 140033
+ Abhängigenquote Alte (LRB)                                                     | 247824
+ Abhängigenquote Junge (LRB)                                                    | 247824
+ Absolutzahlen (NA)                                                             |  10964
+ ALG II-Leistungen an SGBII (LRB)                                               |  21075
+ Alleinerziehende erwerbsfähige Leistungsberechtigte (LRB)                      |  21006
+ Allgemeinärzte                                                                 |  64650
+ Allgemeinärzte (LRB)                                                           |  86200
+ Allgemeinbildende Schulen                                                      |  65868
+ Allgemeinbildende Schulen mit Förderschwerpunkt                                |  65868
+ Ältere Arbeitslose (LRB)                                                       | 247767
+ Ältere erwerbsfähige Leistungsberechtigte (LRB)                                |  21006
+ Amtsgerichte                                                                   |  65868
+ Anteil ältere Arbeitslose (LRB)                                                | 278036
+ Anteil jüngere Arbeitslose (LRB)                                               | 278036
+ Anteil männliche ältere Arbeitslose (LRB)                                      | 274751
+ Anteil männliche jüngere Arbeitslose (LRB)                                     | 273898
+ Anteil Minijobs an den Beschäftigungsverhältnissen (LRB)                       |  57764
+ Anteil Minijobs (ausschließlich) an den Beschäftigungsverhältnissen (LRB)      |  56713
+ Anteil Minijobs (ausschließlich) an geringfügig Beschäftigten (LRB)            |  56626
+ Anteil Minijobs (Frauen) (LRB)                                                 |  47593
+ Anteil Minijobs (Männer) (LRB)                                                 |  47593
+ Anteil Minijobs (Nebenverdienst) an den Beschäftigungsverhältnissen (LRB)      |  56674
+ Anteil Minijobs (Nebenverdienst) (LRB)                                         |  56587
+ Anteil weibliche ältere Arbeitslose (LRB)                                      | 273083
+ Anteil weibliche jüngere Arbeitslose (LRB)                                     | 271202
+ Apotheken                                                                      |  59054
+ Arbeitsagenturen                                                               |  32934
+ Arbeitslose Frauen (LRB)                                                       | 277958
+ Arbeitslose (LRB)                                                              | 284618
+ Arbeitslose Männer (LRB)                                                       | 277976
+ Arbeitslose mit Anforderungsniveau Experte (LRB)                               |  73652
+ Arbeitslose mit Anforderungsniveau Fachkraft (LRB)                             |  73652
+ Arbeitslose mit Anforderungsniveau Helfer (LRB)                                |  73652
+ Arbeitslose mit Anforderungsniveau Spezialist (LRB)                            |  73652
+ Arbeitslose ohne Ausbildung (LRB)                                              |  73683
+ Arbeitslosigkeit                                                               |  75423
+ Arbeitslosigkeit - Allgemein (LRB)                                             |  10964
+ Arbeitslosigkeit - Altersgruppen (LRB)                                         |  10964
+ Arbeitslosigkeit (LRB)                                                         |  10964
+ Arbeitslosigkeit - Struktur (LRB)                                              |  10964
+ Arbeitsmarktverwaltungseinrichtungen                                           |  32934
+ Arbeitsplatzzentralität                                                        |  73023
+ Ärzte                                                                          |  64650
+ Ärzte (LRB)                                                                    |  86200
+ Ausgaben für Sachinvestitionen (LRB)                                           |  15744
+ Ausländische Arbeitslose (LRB)                                                 | 278036
+ Ausländische männliche Arbeitslose (LRB)                                       | 259956
+ Ausländische Studierende (LRB)                                                 |   2247
+ Ausländische weibliche Arbeitslose (LRB)                                       | 269645
+ Auspendler (LRB)                                                               | 289126
+ Bäder                                                                          |  21956
+ Bahn-Abfahrten                                                                 |  32681
+ Bahnhaltestellen                                                               |  32681
+ Bandbreitenverfügbarkeit mindestens 1.000 Mbit/s                               |  43396
+ Bandbreitenverfügbarkeit mindestens 1.000 Mbit/s (LRB)                         |  43396
+ Bandbreitenverfügbarkeit mindestens 100 Mbit/s                                 |  54339
+ Bandbreitenverfügbarkeit mindestens 100 Mbit/s (LRB)                           |  54339
+ Bandbreitenverfügbarkeit mindestens 50 Mbit/s                                  |  54339
+ Bandbreitenverfügbarkeit mindestens 50 Mbit/s (LRB)                            |  54339
+ Bauen und Wohnen - Baulandmarkt und Bautätigkeit (LRB)                         |  10964
+ Bauen und Wohnen - Gebäude- und Wohnungsbestand (LRB)                          |  10964
+ Bauen und Wohnen (LRB)                                                         |  10964
+ Baugenehmigungen für Wohnungen in Ein- und Zweifamilienhäusern (LRB)           | 172236
+ Baugenehmigungen für Wohnungen in Mehrfamilienhäusern (LRB)                    | 171507
+ Baugenehmigungen für Wohnungenje Einwohner (LRB)                               | 224379
+ Bedarfsgemeinschaften mit Kindern (LRB)                                        |  20979
+ Berufsbildende Schulen                                                         |  54890
+ Beschäftigtendichte (AO)                                                       |  73076
+ Beschäftigtendichte (WO)                                                       |  75415
+ Beschäftigtenquote Frauen (LRB)                                                | 236992
+ Beschäftigtenquote (LRB)                                                       | 247814
+ Beschäftigtenquote Männer (LRB)                                                | 236981
+ Beschäftigung und Erwerbstätigkeit - Atypische Beschäftigung (LRB)             |  10964
+ Beschäftigung und Erwerbstätigkeit (LRB)                                       |  10964
+ Beschäftigung und Erwerbstätigkeit - Qualifikation (LRB)                       |  10964
+ Beschäftigung und Erwerbstätigkeit – Struktur (LRB)                            |  10964
+ Beschäftigung und Erwerbstätigkeit – Wirtschafts- und Berufszweige (LRB)       |  10964
+ Bevölkerung                                                                    |  76846
+ Bevölkerung – Altersstruktur (LRB)                                             |  10964
+ Bevölkerung – Bevölkerungsstruktur (LRB)                                       |  10964
+ Bevölkerung (EU)                                                               |  10964
+ Bevölkerung gesamt (LRB)                                                       | 318362
+ Bevölkerung in Mittelzentren (LRB)                                             |  53875
+ Bevölkerung in Oberzentren (LRB)                                               |  53875
+ Bevölkerung (LRB)                                                              |  10964
+ Bevölkerung männlich (LRB)                                                     | 318361
+ Bevölkerung (mit BBSR-Zensuskorrekturen) (LRB)                                 | 318362
+ Bevölkerung - Natürliche Bevölkerungsbewegungen (LRB)                          |  10964
+ Bevölkerungsentwicklung                                                        |  75425
+ Bevölkerungsentwicklung (10 Jahre) (LRB)                                       | 204749
+ Bevölkerungsentwicklung (5 Jahre) (LRB)                                        | 258624
+ Bevölkerung – Wanderungen (LRB)                                                |  10964
+ Bevölkerung weiblich (LRB)                                                     | 318361
+ Bibliotheken                                                                   |  43912
+ Bibliotheksentleihungen                                                        |  43912
+ Bildung – Ausbildungsangebot (LRB)                                             |  10964
+ Bildung (EU)                                                                   |  10964
+ Bildung (LRB)                                                                  |  10964
+ Bildung - Schulische Bildung (LRB)                                             |  10964
+ Bildungsversorgungs- und Kulturfunktion                                        |  10964
+ Bodenfläche gesamt qkm                                                         |  76846
+ Bodenfläche gesamt qkm (LRB)                                                   | 208582
+ Bundestagswahlen (LRB)                                                         |  10964
+ Bus-Abfahrten                                                                  |  32681
+ Bushaltestellen                                                                |  32681
+ Durchschnittsalter der Bevölkerung (LRB)                                       | 247837
+ Einkommensteuer (LRB)                                                          | 312497
+ Einpendler (LRB)                                                               | 275714
+ Einpersonen-Bedarfsgemeinschaften (LRB)                                        |  20979
+ Einpersonenhaushalte (LRB)                                                     | 118481
+ Ein- und Zweifamilienhäuser (LRB)                                              | 140041
+ Ein- und Zweiraumwohnungen (LRB)                                               | 138073
+ Einwohner 65 Jahre und älter, Frauen (LRB)                                     | 247811
+ Einwohner 65 Jahre und älter (LRB)                                             | 247837
+ Einwohner 75 Jahre und älter, Frauen (LRB)                                     | 247745
+ Einwohner 75 Jahre und älter (LRB)                                             | 247837
+ Einwohner-Arbeitsplatz-Dichte (LRB)                                            | 194623
+ Einwohnerdichte                                                                |  76843
+ Einwohnerdichte (LRB)                                                          | 208153
+ Einwohner je Arzt                                                              |  35414
+ Einwohner unter 3 Jahren (LRB)                                                 | 247837
+ Einwohner unter 6 Jahre (LRB)                                                  | 247837
+ Einwohner von 18 bis unter 25 Jahren, Frauen (LRB)                             | 247532
+ Einwohner von 18 bis unter 25 Jahren (LRB)                                     | 247837
+ Einwohner von 25 bis unter 30 Jahren, Frauen (LRB)                             | 247250
+ Einwohner von 25 bis unter 30 Jahren (LRB)                                     | 247837
+ Einwohner von 30 bis unter 50 Jahren (LRB)                                     | 247837
+ Einwohner von 3 bis unter 6 Jahren (LRB)                                       | 247837
+ Einwohner von 50 bis unter 65 Jahren (LRB)                                     | 247837
+ Einwohner von 65 bis unter 75 Jahren, Frauen (LRB)                             | 247734
+ Einwohner von 65 bis unter 75 Jahren (LRB)                                     | 247837
+ Einwohner von 6 bis unter 18 Jahren (LRB)                                      | 247837
+ Einzelhandelsrelevante Kaufkraft (LRB)                                         |  86178
+ Entfernung zum Hausarzt (LRB)                                                  |  10856
+ Entfernung zum Supermarkt/Discounter (LRB)                                     |  10859
+ Entfernung zur Apotheke (LRB)                                                  |  10857
+ Entfernung zur Grundschule (LRB)                                               |  10859
+ Entfernung zur ÖV Haltestelle (LRB)                                            |  10847
+ Erholungsfläche je Einwohner (LRB)                                             |  86200
+ Erholungsfläche (LRB)                                                          |  87813
+ Erreichbarkeit Autobahnen                                                      |  10775
+ Erreichbarkeit Flughäfen                                                       |  10775
+ Erreichbarkeit KV-Terminal                                                     |  10978
+ Erreichbarkeit (LRB)                                                           |  10964
+ Erreichbarkeit von Autobahnen (LRB)                                            |  10775
+ Erreichbarkeit von Flughäfen (LRB)                                             |  10775
+ Erreichbarkeit von IC-/EC-/ICE-Bahnhöfen                                       |  10775
+ Erreichbarkeit von IC/EC/ICE-Bahnhöfen (LRB)                                   |  10775
+ Erreichbarkeit von Mittelzentren                                               |  10978
+ Erreichbarkeit von Mittelzentren (LRB)                                         |  10978
+ Erreichbarkeit von Oberzentren                                                 |  10978
+ Erreichbarkeit von Oberzentren (LRB)                                           |  10978
+ Erwerbsfähige Bevölkerung (15 bis unter 65 Jahre) (LRB)                        | 252494
+ Erwerbsfähige Leistungsberechtigte (Frauen) (LRB)                              |  21006
+ Erwerbsfähige Leistungsberechtigte (LRB)                                       |  21046
+ Fertiggestellte Wohnungen je Wohnung im Bestand (LRB)                          | 137985
+ Finanzämter                                                                    |  21956
+ Flächenneuinanspruchnahme (LRB)                                                |  76843
+ Flächennutzung (LRB)                                                           |  10964
+ Flächennutzung und Umwelt (LRB)                                                |  10964
+ Frauenanteil 20 bis unter 40 Jahre (LRB)                                       | 247802
+ Frauenanteil (LRB)                                                             | 312499
+ Freifläche je Einwohner (LRB)                                                  |  86200
+ Freifläche (LRB)                                                               |  87813
+ Gästeübernachtungen in Beherbergungsbetrieben (LRB)                            |  84887
+ Geborene (LRB)                                                                 | 301303
+ Gemeindeverwaltungen                                                           |  43912
+ Gerichte                                                                       |  65868
+ Gesamtwanderungssaldo (LRB)                                                    | 312408
+ Gestorbene (LRB)                                                               | 312499
+ Gesundheit (EU)                                                                |  10964
+ Gesundheitsversorgungsfunktion                                                 |  10964
+ Getötete im Straßenverkehr (LRB)                                               | 171266
+ Gewerbesteuer (LRB)                                                            | 312344
+ Große Bedarfsgemeinschaften (LRB)                                              |  20979
+ Grundschulen                                                                   |  65868
+ Hausärzte                                                                      |  64650
+ Hausärzte (LRB)                                                                |  86200
+ Haushalte mit hohem Einkommen (LRB)                                            | 118481
+ Haushalte mit Kindern (LRB)                                                    | 118481
+ Haushalte mit mittlerem Einkommen (LRB)                                        | 118481
+ Haushalte mit niedrigem Einkommen (LRB)                                        | 118481
+ Haushaltsgröße (LRB)                                                           | 118481
+ hochfrequentierte Bahnhaltestellen                                             |  21703
+ hochfrequentierte Bushaltestellen                                              |  21703
+ hochfrequentierte ÖV-Haltestellen                                              |  21703
+ hochfrequentierte U-/Strassenbahnhaltestellen                                  |  21703
+ Hochschulen gesamt                                                             |  21956
+ Internisten                                                                    |  64650
+ Internisten (LRB)                                                              |  86200
+ Jobcenter                                                                      |  32934
+ Junge erwerbsfähige Leistungsberechtigte (LRB)                                 |  21006
+ Jüngere Arbeitslose (LRB)                                                      | 247690
+ Kaufkraft (LRB)                                                                | 118500
+ Kinderarmut (LRB)                                                              |  21538
+ Kinderärzte                                                                    |  64614
+ Kinderärzte (LRB)                                                              |  86154
+ Kindertagesstätten                                                             |  76846
+ Kinos                                                                          |  21925
+ Kinosäle                                                                       |  21925
+ Kinositzplätze                                                                 |  21925
+ Krankenhausbetten                                                              |  23142
+ Krankenhausbetten je 1.000 Einwohner                                           |  22735
+ Krankenhäuser der Basisnotfallversorgung                                       |  23142
+ Krankenhäuser der Erweiterten Notfallversorgung                                |  23142
+ Krankenhäuser der Umfassenden Notfallversorgung                                |  23142
+ Krankenhäuser insgesamt                                                        |  23142
+ Krankenhäuser mit Nofallversorgung Kinder                                      |  23142
+ Krankenhäuser mit Schlaganfallversorgung                                       |  23142
+ Krankenhäuser mit Schwerverletztenversorgung                                   |  23142
+ Krankenhäuser mit Spezialversorgung                                            |  23142
+ Krankenhäuser mit Versorgung für akute Herzerkrankungen                        |  23142
+ Krankenhäuser ohne allg. stationäre Notfallversorgung                          |  23142
+ Kreisverwaltungen                                                              |  43912
+ Landgerichte                                                                   |  65868
+ Ländlichkeit (LRB)                                                             |  53875
+ Landwirtschaftsfläche (LRB)                                                    |  87813
+ Langzeitarbeitslose (LRB)                                                      | 278036
+ Leistungen für Unterkunft an SGBII (LRB)                                       |  21075
+ Männliche ältere Arbeitslose (LRB)                                             | 246564
+ Männliche jüngere Arbeitslose (LRB)                                            | 245478
+ Männliche Langzeitarbeitslose (LRB)                                            | 275252
+ Männliche Studierende (LRB)                                                    |   2247
+ Medizinische und soziale Versorgung (LRB)                                      |  10964
+ Medizinische Versorgung (LRB)                                                  |  10964
+ Mehrfamilienhäuser (LRB)                                                       | 140041
+ Nahversorgung Apotheke                                                         |  10857
+ Nahversorgung Apotheke (LRB)                                                   |  10857
+ Nahversorgung Grundschule (LRB)                                                |  10859
+ Nahversorgung Hausarzt (LRB)                                                   |  10856
+ Nahversorgung ÖV Haltestelle (LRB)                                             |  10847
+ Nahversorgung Supermarkt/Discounter (LRB)                                      |  10859
+ NA (NA)                                                                        |  10964
+ Natürlicher Saldo (LRB)                                                        | 301303
+ Naturnähere Fläche je Einwohner (LRB)                                          |  86200
+ Naturnähere Fläche (LRB)                                                       |  87813
+ Nebenstelle eines Amtsgerichts                                                 |  65868
+ Nebenstelle eines Landgerichts                                                 |  65868
+ Nebenstelle eines Oberlandesgerichts                                           |  65868
+ Neubauwohnungen in Ein- und Zweifamilienhäusern je Einwohner (LRB)             | 165250
+ Neubauwohnungen in Ein- und Zweifamilienhäusern (LRB)                          |  72181
+ Neubauwohnungen in Mehrfamilienhäusern je Einwohner (LRB)                      | 285721
+ Neubauwohnungen je Einwohner (LRB)                                             | 224226
+ Neue Ein- und Zweifamilienhäuser (LRB)                                         | 168865
+ Nicht öffentliche Bäder                                                        |  21956
+ Oberlandesgerichte                                                             |  65868
+ Öffentliche Bäder                                                              |  21956
+ Öffentliche Bibliotheken                                                       |  43912
+ Öffentliche Finanzen (LRB)                                                     |  10964
+ Öffentliche Verwaltungsfunktion                                                |  10964
+ ÖV-Abfahrten                                                                   |  32681
+ ÖV-Haltestellen                                                                |  32681
+ Pendler mit Arbeitsweg 150 km und mehr (LRB)                                   |  53831
+ Pendler mit Arbeitsweg 300 km und mehr (LRB)                                   |  53831
+ Pendler mit Arbeitsweg 50 km und mehr (LRB)                                    |  53831
+ Pendlersaldo                                                                   |  65835
+ Pendlersaldo (LRB)                                                             | 275714
+ Personen in Bedarfsgemeinschaften (LRB)                                        |  21550
+ Polizeidienststellen                                                           |  10978
+ Polizeidienststellen, durchgehend besetzt                                      |  10978
+ Polizeidienststellen, teilweise besetzt                                        |  10978
+ Postagenturen der Deutschen Post AG                                            |  27494
+ Postfilialen der Deutschen Post AG                                             |  27494
+ Postfillialen insgesamt                                                        |  10978
+ Privateinkommen und private Schulden (LRB)                                     |  10964
+ Quote ältere Beschäftigte (LRB)                                                | 161427
+ Raumwirksame Mittel (LRB)                                                      |  10964
+ Schlafgelegenheiten in Beherbergungsbetrieben (LRB)                            | 108184
+ Schlüsselzuweisungen (LRB)                                                     |  14729
+ Schüler an allgemeinbildenden Schulen                                          |  65868
+ Schüler an allgemeinbildenden Schulen je 1.000 Einwohner                       |  64650
+ Schüler an allgemeinbildenden Schulen mit Förderschwerpunkt                    |  65868
+ Schüler an allgemeinbildenden Schulen mit Förderschwerpunkt je 1.000 Einwohner |  64650
+ Schüler an berufsbildenden Schulen                                             |  54890
+ Schüler an berufsbildenden Schulen je 1.000 Einwohner                          |  53875
+ Schüler an Grundschulen                                                        |  65868
+ Schüler an Grundschulen je 1.000 Einwohner                                     |  64650
+ Schüler an weiterführenden Schulen                                             |  65868
+ Schüler an weiterführenden Schulen je 1.000 Einwohner                          |  64650
+ (SDG 11) Flächeninanspruchnahme (SDG)                                          |  87813
+ (SDG 11) Flächenneuinanspruchnahme (SDG)                                       |  76843
+ (SDG 11) Flächennutzungsintensität (SDG)                                       |  86200
+ (SDG 11) Naherholungsflächen (SDG)                                             |  86200
+ (SDG 11) Verunglückte im Verkehr (SDG)                                         | 160491
+ (SDG 11) Wohnungsnahe Grundversorgung - Supermarkt (SDG)                       |  21728
+ (SDG 16) Steuereinnahmen (SDG)                                                 | 312286
+ (SDG 1) Armut - Kinderarmut (SDG)                                              |  21538
+ (SDG 3) Wohnungsnahe Grundversorgung - Apotheke (SDG)                          |  32583
+ (SDG 3) Wohnungsnahe Grundversorgung - Hausarzt (SDG)                          |  21724
+ (SDG 4) Wohnungsnahe Grundversorgung - Grundschule (SDG)                       |  10859
+ (SDG 5) Verhältnis der Beschäftigungsquote von Frauen zu Männern (SDG)         | 236689
+ (SDG 8) Beschäftigungsquote - 15- bis 64-Jährige (SDG)                         | 247814
+ (SDG 8) Beschäftigungsquote - 55 Jahre und älter (SDG)                         | 161427
+ (SDG 9) Breitbandversorgung privater Haushalte (SDG)                           |  54228
+ Seniorenheime                                                                  |  10978
+ Sicherheit (LRB)                                                               |  10964
+ Siedlungsdichte in km²                                                         |  76814
+ Siedlungsdichte in km² (LRB)                                                   |  87781
+ Siedlungsstruktur (EU)                                                         |  10964
+ Siedlungsstruktur (LRB)                                                        |  10964
+ Siedlungs- und Verkehrsfläche                                                  |  76843
+ Siedlungs- und Verkehrsfläche (LRB)                                            |  87813
+ Sonstige Arbeitsmarktverwaltungseinrichtungen                                  |  32934
+ Soziale Versorgung (LRB)                                                       |  10964
+ Sozialleistungen – Bedarfsgemeinschaften (LRB)                                 |  10964
+ Sozialleistungen - Leistungsempfänger (LRB)                                    |  10964
+ Sozialleistungen (LRB)                                                         |  10964
+ Sozialleistungen - Transferleistungen (LRB)                                    |  10964
+ sozialversicherungspflichtig Beschäftigte am Arbeitsort                        |  74294
+ Sozialversicherungspflichtig Beschäftigte am Arbeitsort (LRB)                  | 293853
+ sozialversicherungspflichtig Beschäftigte am Wohnort                           |  76836
+ Sozialversicherungspflichtig Beschäftigte am Wohnort (LRB)                     | 296396
+ sozialversicherungspflichtig Beschäftigte Auspendler                           |  75584
+ sozialversicherungspflichtig Beschäftigte Binnenpendler                        |  72800
+ sozialversicherungspflichtig Beschäftigte Einpendler                           |  73995
+ Spezialbibliotheken                                                            |  43912
+ Steuereinnahmen (LRB)                                                          | 312286
+ Steuerkraft (LRB)                                                              | 312279
+ Straßenverkehrsunfälle (LRB)                                                   | 171266
+ Studierende an Fachhochschulen je 1.000 Einwohner                              |  75425
+ Studierende an FH (LRB)                                                        | 193955
+ Studierende an Hochschulen                                                     |  76846
+ Studierende an Hochschulen je 1.000 Einwohner                                  |  75425
+ Studierende im 1. Semester (LRB)                                               |   2247
+ Studierende je 100 Einwohner 18 bis 25 Jahre (LRB)                             |  86066
+ Studierende (LRB)                                                              |  86200
+ Umsatzsteuer (LRB)                                                             | 312492
+ Umwelt (LRB)                                                                   |  10964
+ U-/Straßenbahn-Abfahrten                                                       |  32681
+ U-/Strassenbahnhaltestellen                                                    |  32681
+ Verhältnis junge zu alte Erwerbsfähige (LRB)                                   | 247569
+ Verkehr (EU)                                                                   |  10964
+ Verkehrs- und Kommunikationsfunktion                                           |  10964
+ Verkehr und Erreichbarkeit (LRB)                                               |  10964
+ Verkehr und Erreichbarkeit - Pendler (LRB)                                     |  10964
+ Verkehr und Erreichbarkeit - Straßenverkehr (LRB)                              |  10964
+ Verunglückte im Straßenverkehr (LRB)                                           | 160491
+ Verweildauer in Beherbergungsbetrieben (LRB)                                   |  54066
+ Waldfläche (LRB)                                                               |  87813
+ Wasserfläche (LRB)                                                             |  87813
+ Weibliche ältere Arbeitslose (LRB)                                             | 245429
+ Weibliche jüngere Arbeitslose (LRB)                                            | 243290
+ Weibliche Langzeitarbeitslose (LRB)                                            | 263623
+ Weibliche Studierende (LRB)                                                    |   2247
+ Weiterführende Schulen                                                         |  65868
+ Wirtschaft (EU)                                                                |  10964
+ Wirtschaft – Fremdenverkehr (LRB)                                              |  10964
+ Wirtschaft (LRB)                                                               |  10964
+ Wirtschafts- und Arbeitsmarktfunktion                                          |  10964
+ Wirtschaft – Wirtschaftliche Leistung (LRB)                                    |  10964
+ Wissenschaftliche Bibliotheken                                                 |  43912
+ Wohnungen in Ein- und Zweifamilienhäusern (LRB)                                | 140041
+ Wohnungen in Mehrfamilienhäusern (LRB)                                         |  83226
+ Zuweisungen für Investitionsfördermaßnahmen (LRB)                              |  15250
+(355 rows)
+
+== Doppelte Zielschlüssel in dashboard_data_de (muss 0 sein)
+ count 
+-------
+     0
+(1 row)
+
+== Register: Zeilen und Quellschlüssel je Quelle
+           quelle           |      tabelle      |  zeilen  | mit_quellschluessel | verschiedene 
+----------------------------+-------------------+----------+---------------------+--------------
+ inkar_gemeinden_vollumfang | dashboard_data_de | 33547606 |            33547606 |     33547606
+(1 row)
+
+== Beispiele Register INKAR (Quellschlüssel -> Zielschlüssel), nur Schlüssel, keine Werte
+              quellschluessel               |                  schluessel                   
+--------------------------------------------+-----------------------------------------------
+ 01001000|LRB|q_bev_fl|Einwohnerdichte|1996 | ["01001000", "Einwohnerdichte (LRB)", "1996"]
+ 01001000|LRB|q_bev_fl|Einwohnerdichte|2000 | ["01001000", "Einwohnerdichte (LRB)", "2000"]
+ 01001000|LRB|q_bev_fl|Einwohnerdichte|2004 | ["01001000", "Einwohnerdichte (LRB)", "2004"]
+ 01001000|LRB|q_bev_fl|Einwohnerdichte|2008 | ["01001000", "Einwohnerdichte (LRB)", "2008"]
+(4 rows)
+
+== table_metadata
+ dct_catalog_publisher | dct_type  | count 
+-----------------------+-----------+-------
+ INKAR                 | indikator |   355
+(1 row)
+
+== Laufprotokoll
+     lauf_id      |           quelle           | status | gelesen  |   neu    | geaendert | entfernt | unveraendert | uebernommen | zurueckgehalten | dauer_s 
+------------------+----------------------------+--------+----------+----------+-----------+----------+--------------+-------------+-----------------+---------
+ 20261106T215119Z | inkar_gemeinden_vollumfang | ok     | 33547606 | 33547606 |         0 |        0 |            0 |           0 |               0 | 8792.71
+(1 row)
+
+== Größen
+ datenbank 
+-----------
+ 25 GB
+(1 row)
+
+                 relname                  | pg_size_pretty 
+------------------------------------------+----------------
+ bestand                                  | 13 GB
+ aenderung                                | 7380 MB
+ dashboard_data_de                        | 4683 MB
+ table_metadata                           | 192 kB
+ quellenstand                             | 32 kB
+ lauf                                     | 32 kB
+ quellenlauf                              | 32 kB
+ katalog_offen                            | 32 kB
+ Gebäude (ALKIS)                          | 16 kB
+ Kommunale Gebiete Deutschland            | 16 kB
+ Kommunale Gebiete Brandenburg (InNoWest) | 16 kB
+(11 rows)
+

@@ -1,0 +1,36 @@
+# Wertabgleich INKAR je Zeile (wertabgleich.py), Quelle inkar_2025.zip (inkar_2025.csv: 6762930064 Bytes entpackt, Packmethode 9), Zieltabelle aus werte-nach-lauf1.csv.gz (sha256 der gzip-Datei f964e6d5b45fa7441f5b1727f971a01ded1ab22644e5d90e148aebbd0c4617b3)
+# Auswahl: Raumbezug Gemeinden, Kennziffer 8 Ziffern, beginnt mit "", Kürzel alle, alle Jahre, Wert und Zeitbezug nicht leer; Indikatorname nach E40; Schlüssel (Kennziffer, Indikator, Zeitbezug)
+# Laufzeit 312 s (davon Lesen und Teilen 189 s), unzip rc=0
+
+## Quelle
+quelle_zeilen: 63426864
+quelle_feldzahl_falsch: 0
+quelle_gemeinden: 33547606
+ausgeschlossen_kennziffer_nicht_achtstellig: 0
+ausgeschlossen_kennziffer_anderes_land: 0
+ausgeschlossen_kuerzel_nicht_ausgewaehlt: 0
+ausgeschlossen_ohne_wert_oder_zeitbezug: 0
+quelle_soll: 33547606
+quelle_doppelter_zielschluessel: 0
+
+## Zieltabelle (dashboard_data_de, source INKAR, Gemeindeebene, nach Lauf 1)
+db_zeilen: 33547606
+db_feldzahl_falsch: 0
+db_doppelter_zielschluessel: 0
+
+## Abgleich je Zeile
+verglichen: 33547606
+fehlend: 0
+ueberzaehlig: 0
+wert_abweichend: 0
+wert_textgleich: 20909838
+wert_zahlgleich_andere_schreibweise: 12637768
+davon_nur_nachgestellte_nullen: 12637768
+davon_andere_schreibweise: 0
+wert_quelle_nicht_lesbar: 0
+wert_db_leer_oder_nicht_lesbar: 0
+
+## Soll-Zeilen je Land (erste zwei Stellen der Kennziffer)
+01:3389027 02:3200 03:2955061 04:6407 05:1256356 06:1330185 07:6987449 08:3462908 09:6581438 10:163736 11:3198 12:1285774 13:2232549 14:1307499 15:679963 16:1902856
+
+Ergebnis: fehlend 0, überzählig 0, abweichend 0 (0/0/0); Quellzeilen = verglichen + fehlend: 33547606 = 33547606

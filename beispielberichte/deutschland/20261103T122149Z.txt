@@ -1,0 +1,9 @@
+Importlauf 20261103T122149Z · 261.33 s
+  gemeinden_vg250          ok     neu 11103  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsSorting=FALSE, Seiten ohne feste Reihenfolge
+  inkar_gemeinden_de       ok     neu 1497742  geändert     0  gelöscht     0  unverändert     0
+      Warnung: 142678 Zeilen mit schon vorhandenem Schlüssel, jeweils die erste zählt: 01001000|ZOM|q_bev_fl|Einwohnerdichte|2017, 01001000|ZOM|q_bev_fl|Einwohnerdichte|2018, 01001000|ZOM|q_bev_fl|Einwohnerdichte|2019, 01001000|ZOM|q_bev_fl|Einwohnerdichte|2020, 01001000|ZOM|q_bev_fl|Einwohnerdichte|2021, 01001000|ZOM|q_bev_fl|Einwohnerdichte|2022, 01001000|ZOM|q_bev_fl|Einwohnerdichte|2023, 01001000|ZOM|q_pendlersaldo|Pendlersaldo|2017, 01001000|ZOM|q_pendlersaldo|Pendlersaldo|2018, 01001000|ZOM|q_pendlersaldo|Pendlersaldo|2019
+      Hinweis: Neueste Datei: inkar_2025.zip
+      Hinweis: Datei unverändert seit dem letzten Abruf: inkar_2025.zip
+      Hinweis: 10946 von 10978 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Deutschland“ (nationalco); ohne: 07232089, 07232096, 09473453, 09475452, 09479453, 09479456, 09479462, 09479463, 09672457, 13071017 …
+  Änderungskarte: 20261103T122149Z-karte.html

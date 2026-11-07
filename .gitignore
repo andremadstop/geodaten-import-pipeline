@@ -1,0 +1,8 @@
+.env
+berichte/*
+!berichte/.gitkeep
+__pycache__/
+.ruff_cache/
+sbom.cdx.json
+/cache/
+uv.lock

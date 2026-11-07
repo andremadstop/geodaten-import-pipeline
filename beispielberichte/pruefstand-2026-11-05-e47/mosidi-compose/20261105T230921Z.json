@@ -1,0 +1,312 @@
+{
+  "lauf_id": "20261105T230921Z",
+  "start": "2026-11-05T23:09:21.779123+00:00",
+  "probelauf": false,
+  "sprache": "de",
+  "quellen": [
+    {
+      "quelle": "alkis_gebaeude_thb",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 882,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 882,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "uebernommen_geaendert": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung",
+        "882 Werte in aktualit als Datum ohne Zeitzonenkennung Z übernommen (JJJJ-MM-TTZ, Spalte hat 10 Zeichen; der Tag bleibt, E47)"
+      ],
+      "info": {
+        "ziel": "Gebäude (ALKIS)",
+        "kontakt": {
+          "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+          "email": "kundenservice@geobasis-bb.de"
+        },
+        "titel": "WFS BB ALKIS Vereinfacht",
+        "beschreibung": "Das Liegenschaftskataster wird in elektronischer Form im Amtlichen Liegenschaftskatasterinformationssystem (ALKIS) geführt. Der vorliegende Web Feature Service ermöglicht das gezielte Herunterladen von in ALKIS geführten Geo-Objekten auf Basis einer Suchanfrage (Direktzugriffs-Downloaddienst). Der Dienst stellt ausschließlich folgende Geo-Objekte beschränkt auf die wesentlichen Eigenschaften im Format eines vereinfachten Datenaustauschschemas bereit, das in dieser Produktspezifikation festgelegt ist: Flurstücke, Gebäude, Tatsächliche Nutzungen, Verwaltungseinheiten, Katasterbezirke. Der Dienst ist konzipiert zur Nutzung in einfachen praxisgängigen GIS-Clients ohne komplexe Funktionalitäten.",
+        "update_sequence": null,
+        "felder": [
+          "aktualit",
+          "anzahlgs",
+          "funktion",
+          "gebnutzbez",
+          "geometrie",
+          "gfkzshh",
+          "gmdschl",
+          "lagebeztxt",
+          "name",
+          "oid",
+          "rellage"
+        ],
+        "normalisiert": {
+          "aktualit": 882
+        },
+        "objekte": 882,
+        "metadaten": 1
+      },
+      "letzte_abfrage": "https://isk.geobasis-bb.de/ows/alkis_vereinf_wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=ave%3AGebaeudeBauwerk&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=10000&BBOX=332800%2C5810200%2C333200%2C5810400%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "unvollstaendig": false,
+      "laufzeit_s": 3.35
+    },
+    {
+      "quelle": "gemeinden_lgb",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 413,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 413,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "uebernommen_geaendert": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung"
+      ],
+      "info": {
+        "ziel": "Kommunale Gebiete Brandenburg (InNoWest)",
+        "kontakt": {
+          "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+          "email": "kundenservice@geobasis-bb.de"
+        },
+        "titel": "WFS BB-BE VG",
+        "beschreibung": "Dieser Downloaddienst (OGC-WFS) der Brandenburger Landesvermessung stellt die digitalen Verwaltungsgrenzen der Länder Berlin und Brandenburg bereit. Der Dienst enthält die Grenzen und Namen der Brandenburger Gemeindeverbände, Gemeinden, Kreise, Planungsgemeinschaften und Ortsteile sowie der Berliner Bezirke. Weiterhin enthält der Dienst die Landes- und Staatsgrenzen von Berlin und Brandenburg sowie die Siedlungsgebiete der Wenden und Sorben. Die Aktualisierung des Datenbestandes erfolgt vierteljährlich.",
+        "update_sequence": null,
+        "felder": [
+          "ags",
+          "ars",
+          "gem_aktualitaet",
+          "gem_art",
+          "gem_art_kurz",
+          "gem_name",
+          "gem_regspr_hk",
+          "gem_regspr_name",
+          "geom",
+          "gvbs",
+          "krss"
+        ],
+        "objekte": 413,
+        "metadaten": 1
+      },
+      "letzte_abfrage": "https://isk.geobasis-bb.de/ows/vg_wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=app%3Agem&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=10000&BBOX=250000%2C5690000%2C480000%2C5940000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "unvollstaendig": false,
+      "laufzeit_s": 5.76
+    },
+    {
+      "quelle": "kreise_lgb",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 18,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 18,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "uebernommen_geaendert": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung"
+      ],
+      "info": {
+        "ziel": "Landkreis",
+        "kontakt": {
+          "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+          "email": "kundenservice@geobasis-bb.de"
+        },
+        "titel": "WFS BB-BE VG",
+        "beschreibung": "Dieser Downloaddienst (OGC-WFS) der Brandenburger Landesvermessung stellt die digitalen Verwaltungsgrenzen der Länder Berlin und Brandenburg bereit. Der Dienst enthält die Grenzen und Namen der Brandenburger Gemeindeverbände, Gemeinden, Kreise, Planungsgemeinschaften und Ortsteile sowie der Berliner Bezirke. Weiterhin enthält der Dienst die Landes- und Staatsgrenzen von Berlin und Brandenburg sowie die Siedlungsgebiete der Wenden und Sorben. Die Aktualisierung des Datenbestandes erfolgt vierteljährlich.",
+        "update_sequence": null,
+        "felder": [
+          "geom",
+          "krs_aktualitaet",
+          "krs_art",
+          "krs_art_kurz",
+          "krs_kfz",
+          "krs_name",
+          "krs_regspr_hk",
+          "krs_regspr_name",
+          "krss",
+          "krss_kurz"
+        ],
+        "objekte": 18,
+        "metadaten": 1
+      },
+      "letzte_abfrage": "https://isk.geobasis-bb.de/ows/vg_wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=app%3Akrs&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=10000&BBOX=250000%2C5690000%2C480000%2C5940000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "unvollstaendig": false,
+      "laufzeit_s": 2.02
+    },
+    {
+      "quelle": "bevoelkerung_gemeinden",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 420,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 1239,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "uebernommen_geaendert": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [
+        "21 Zeilen ohne jeden Wert ausgelassen (leere_auslassen), ihr bisheriger Stand bleibt: 12060096|bevoelkerung, 12060096|bevoelkerung_m, 12060096|bevoelkerung_w, 12067310|bevoelkerung, 12067310|bevoelkerung_m, 12067310|bevoelkerung_w, 12071185|bevoelkerung, 12071185|bevoelkerung_m, 12071185|bevoelkerung_w, 12073032|bevoelkerung …"
+      ],
+      "hinweise": [
+        "413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)"
+      ],
+      "info": {
+        "ziel": "dashboard_data_de",
+        "zeitbezug": "2025-12-31",
+        "uebergangene_zeilen": 13200,
+        "felder": [
+          "ags",
+          "insgesamt",
+          "maennlich",
+          "name",
+          "weiblich"
+        ],
+        "gebiete": {
+          "schluessel": 413,
+          "mit_flaeche": 413,
+          "tabelle": "Kommunale Gebiete Brandenburg (InNoWest)"
+        },
+        "objekte": 1239,
+        "metadaten": 3
+      },
+      "letzte_abfrage": "https://www.regionalstatistik.de/genesisws/downloader/00/tables/12411-01-01-5-B_00.csv",
+      "unvollstaendig": false,
+      "laufzeit_s": 1.41
+    },
+    {
+      "quelle": "flaeche_gemeinden",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 420,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 413,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "uebernommen_geaendert": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [
+        "1 Datenzeilen ohne gültigen Gebietsschlüssel übergangen (Zeilen 7); Abruf unvollständig, nichts wird gelöscht",
+        "7 Zeilen ohne jeden Wert ausgelassen (leere_auslassen), ihr bisheriger Stand bleibt: 12060096|flaeche_km2, 12067310|flaeche_km2, 12071185|flaeche_km2, 12073032|flaeche_km2, 12073386|flaeche_km2, 12073505|flaeche_km2, 12073603|flaeche_km2"
+      ],
+      "hinweise": [
+        "413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)",
+        "Flächenprüfung: 413 Gebiete, Abweichung im Median 0.005 %, höchstens 0.161 % (Toleranz 0.5 %)"
+      ],
+      "info": {
+        "ziel": "dashboard_data_de",
+        "zeitbezug": "2025-12-31",
+        "uebergangene_zeilen": 13197,
+        "felder": [
+          "ags",
+          "flaeche_km2",
+          "name"
+        ],
+        "gebiete": {
+          "schluessel": 413,
+          "mit_flaeche": 413,
+          "tabelle": "Kommunale Gebiete Brandenburg (InNoWest)"
+        },
+        "flaechenpruefung": {
+          "geprueft": 413,
+          "toleranz_prozent": 0.5,
+          "median_prozent": 0.0045,
+          "max_prozent": 0.1611,
+          "ueber_toleranz": 0
+        },
+        "objekte": 413,
+        "metadaten": 1
+      },
+      "letzte_abfrage": "https://www.regionalstatistik.de/genesisws/downloader/00/tables/11111-01-01-5-B_00.csv",
+      "unvollstaendig": true,
+      "laufzeit_s": 4.58
+    },
+    {
+      "quelle": "inkar_gemeinden",
+      "typ": "inkar",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 62929,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 62929,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "uebernommen_geaendert": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Neueste Datei: inkar_2025.zip",
+        "Datei unverändert seit dem letzten Abruf: inkar_2025.zip",
+        "413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)"
+      ],
+      "info": {
+        "ziel": "dashboard_data_de",
+        "datei": {
+          "name": "inkar_2025.zip",
+          "stand": "2025-08-13"
+        },
+        "eintrag": {
+          "name": "inkar_2025.csv",
+          "mb": 6763
+        },
+        "felder": [
+          "Bereich",
+          "ID",
+          "Kuerzel",
+          "Indikator",
+          "Raumbezug",
+          "Kennziffer",
+          "Name",
+          "Zeitbezug",
+          "Wert"
+        ],
+        "indikatoren": [
+          "alo",
+          "e5_bev",
+          "q_bev_fl",
+          "q_pendlersaldo",
+          "xbev"
+        ],
+        "gebiete": {
+          "schluessel": 413,
+          "mit_flaeche": 413,
+          "tabelle": "Kommunale Gebiete Brandenburg (InNoWest)"
+        },
+        "objekte": 62929,
+        "metadaten": 9
+      },
+      "letzte_abfrage": "https://www.bbr-server.de/imagemap/inkar/download/inkar_2025.zip",
+      "unvollstaendig": false,
+      "laufzeit_s": 95.16
+    }
+  ],
+  "laufzeit_s": 112.3,
+  "fehlgeschlagen": [],
+  "angehalten": [],
+  "unvollstaendig": [
+    "flaeche_gemeinden"
+  ],
+  "karte": "20261105T230921Z-karte.html"
+}

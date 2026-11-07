@@ -1,0 +1,13 @@
+{
+  "inkar_gemeinden_vollumfang": {
+    "typ": "inkar",
+    "adresse": "https://www.bbr-server.de/imagemap/inkar/download/inkar_{jahr}.zip",
+    "anbieter": "Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)",
+    "email": null,
+    "lizenz": "INKAR, © BBSR Bonn 2025, dl-de/by-2-0",
+    "letzter_lauf": "20261106T215119Z",
+    "ergebnis": "ok",
+    "letzter_erfolg": "20261106T215119Z",
+    "objekte": 33547606
+  }
+}

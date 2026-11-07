@@ -1,0 +1,2 @@
+Importlauf 20261030T054051Z · 0.04 s
+  standorte_csv            ok     neu     1  geändert     2  gelöscht     1  unverändert     0

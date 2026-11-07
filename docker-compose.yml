@@ -1,0 +1,117 @@
+# Lokale Entwicklungs- und Testumgebung: eigene PostGIS-Datenbank mit den Bestandstabellen von
+# MOSIDI (sql/mosidi/, Stand des öffentlichen Repositorys) und die Pipeline. Für den Betrieb im
+# MOSIDI-Compose der TH: deploy/mosidi/docker-compose.pipeline.yml.
+# Start:      docker compose up -d db
+# Einrichten: docker compose run --rm einrichten   (einmal, und nach jeder Änderung an den Zielen)
+# Lauf:       docker compose run --rm pipeline [--alle]
+# Zeitplan: z. B. systemd-Timer oder cron auf dem Host, der denselben Befehl aufruft
+# Zugangsdaten stehen in .env (Vorlage .env.beispiel), nie in dieser Datei.
+# PostGIS-Version: fest auf 16-3.6 (Digest). Gegen die jeweils aktuelle Version, wie im
+# MOSIDI-Compose (postgis/postgis ohne Tag, Antwort 53): POSTGIS_IMAGE=postgis/postgis:latest und
+# PGDATA_MOUNT=/var/lib/postgresql (ab PostgreSQL 18 liegt das Datenverzeichnis dort).
+services:
+  # PostGIS-Datenbank nur für Entwicklung und Tests; im Betrieb bei der TH ist es brandenburg_db von MOSIDI
+  db:
+    image: ${POSTGIS_IMAGE:-postgis/postgis:16-3.6@sha256:d07ce3f06f657b6516c7511412232e97174d7e9dcf4c9fe520109b682b44a201}
+    # Datenbankname und Administrator der Testdatenbank; das Passwort muss in .env stehen, sonst bricht
+    # docker compose mit einer Meldung ab (keine Vorgabe in dieser Datei)
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-geodaten}
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?in .env setzen}
+    # Daten im benannten Volume pgdata; PGDATA_MOUNT siehe Kopf (Verzeichnis ab PostgreSQL 18)
+    volumes:
+      - pgdata:${PGDATA_MOUNT:-/var/lib/postgresql/data}
+      # Beim ersten Start: Bestandstabellen von MOSIDI (nur in dieser Testumgebung)
+      - ./sql/mosidi:/docker-entrypoint-initdb.d:ro
+    # Nur auf dem eigenen Rechner erreichbar (für Auswertung und Tests). In der Umgebung der TH
+    # entfällt die Freigabe oder sie läuft über deren Netz und Firewall.
+    ports:
+      - "127.0.0.1:${PG_PORT:-55432}:5432"
+    # Kein Prozess im Container kann sich über setuid-Programme mehr Rechte verschaffen
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      # Über TCP: Während der Ersteinrichtung (sql/mosidi/) lauscht der Server nur auf dem Socket,
+      # gesund ist er also erst, wenn die Bestandstabellen angelegt sind
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      # Alle 5 s prüfen, nach 10 Fehlschlägen gilt der Dienst als ungesund
+      interval: 5s
+      retries: 10
+  einrichten:
+    # Schema pipeline_meta, Rollen und Rechte nach den Zielen in der Konfiguration (pipeline/einrichten.py).
+    # Meldet sich als Administrator an; --haerten entzieht PUBLIC die Rechte (nur in dieser eigenen DB).
+    build: .
+    image: geodaten-import-pipeline:lokal
+    entrypoint: ["python", "-m", "pipeline.einrichten"]
+    command: ["--config", "/app/config/quellen.yaml", "--haerten"]
+    # Eigenes Profil: `docker compose up` startet die Einrichtung nicht mit, nur `run --rm einrichten`
+    profiles: ["einrichten"]
+    # Anmeldung als Administrator; IMPORT_PASSWORD und LESE_PASSWORD werden die Passwörter der Rollen
+    # pipeline_import und mosidi_lesen (alle drei aus .env)
+    environment:
+      PGHOST: db
+      PGDATABASE: ${POSTGRES_DB:-geodaten}
+      PGUSER: ${POSTGRES_USER:-admin}
+      PGPASSWORD: ${POSTGRES_PASSWORD:?in .env setzen}
+      IMPORT_PASSWORD: ${IMPORT_PASSWORD:?in .env setzen}
+      LESE_PASSWORD: ${LESE_PASSWORD:?in .env setzen}
+    # Nur die Konfiguration, nur lesbar: die Einrichtung schreibt in die Datenbank, nicht ins Dateisystem
+    volumes:
+      - ./config:/app/config:ro
+    # Gehärtet: Dateisystem nur lesbar (außer /tmp), keine Linux-Capabilities, keine Rechteausweitung
+    read_only: true
+    tmpfs: ["/tmp"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    # Erst starten, wenn der Healthcheck der Datenbank besteht (Bestandstabellen angelegt)
+    depends_on:
+      db:
+        condition: service_healthy
+  # Ein Lauf der Pipeline (pipeline/laden.py); beendet sich danach, Zeitplan von außen (siehe Kopf)
+  pipeline:
+    build: .
+    image: geodaten-import-pipeline:lokal
+    environment:
+      # Die Pipeline meldet sich mit der Import-Rolle an, nicht als Administrator (pipeline/einrichten.py)
+      PGHOST: db
+      PGDATABASE: ${POSTGRES_DB:-geodaten}
+      PGUSER: pipeline_import
+      PGPASSWORD: ${IMPORT_PASSWORD:?in .env setzen}
+      PIPELINE_CONFIG: /app/config/quellen.yaml
+      # Ablage für große Dateien (INKAR-ZIP), wird nur bei Änderung neu geladen
+      PIPELINE_CACHE: /app/cache
+      # Hochschulnetze lassen Server oft nur über einen Proxy ins Internet. Leer = direkt.
+      HTTPS_PROXY: ${HTTPS_PROXY:-}
+      HTTP_PROXY: ${HTTP_PROXY:-}
+      # Ausnahmen vom Proxy für die HTTP-Abrufe (requests); eigene aus NO_PROXY werden angehängt. Die
+      # Datenbankverbindung (libpq) nutzt keinen HTTP-Proxy
+      NO_PROXY: db,localhost,127.0.0.1${NO_PROXY:+,${NO_PROXY}}
+      # So nennt sich die Pipeline gegenüber den Anbietern (User-Agent), mit eigenem Kontakt
+      PIPELINE_KENNUNG: ${PIPELINE_KENNUNG:-}
+      # Optional: abgelegte INKAR-Gesamtdatei statt Abruf per URL, etwa für Prüfläufe (E48, E50), z. B.
+      # PIPELINE_INKAR_DATEI=/app/cache/inkar_2025.zip in .env und die Datei unter cache/. Leer = Abruf per URL
+      # mit der Freigabe aus der Konfiguration (Regelbetrieb)
+      PIPELINE_INKAR_DATEI: ${PIPELINE_INKAR_DATEI:-}
+    # Konfiguration und Beispieldateien nur lesbar; beschreibbar sind nur berichte/ (Berichte, Karten,
+    # Meldungsentwürfe, Quellenverzeichnis, Archiv) und cache/ (Downloads, abgelegte INKAR-Datei)
+    volumes:
+      - ./config:/app/config:ro
+      - ./beispiele:/app/beispiele:ro
+      - ./berichte:/app/berichte
+      - ./cache:/app/cache
+    # Gehärtet: Dateisystem nur lesbar (außer berichte/, cache/ und /tmp), keine Linux-Capabilities,
+    # keine Rechteausweitung, Grenzen für Speicher und Prozesse
+    read_only: true
+    tmpfs: ["/tmp"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 1g
+    pids_limit: 128
+    # Wie bei der Einrichtung: erst, wenn die Datenbank gesund ist
+    depends_on:
+      db:
+        condition: service_healthy
+# Benanntes Volume für die Daten der Testdatenbank; bleibt bei `docker compose down` erhalten
+# (erst `down -v` löscht es)
+volumes:
+  pgdata:

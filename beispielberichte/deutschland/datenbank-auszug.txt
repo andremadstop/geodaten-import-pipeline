@@ -1,0 +1,60 @@
+                                                       version                                                        
+----------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+(1 row)
+
+ postgis_lib_version 
+---------------------
+ 3.6.4
+(1 row)
+
+ datenbank 
+-----------
+ 861 MB
+(1 row)
+
+            tabelle            | groesse | n_live_tup | n_dead_tup 
+-------------------------------+---------+------------+------------
+ bestand                       | 432 MB  |    1508845 |          0
+ aenderung                     | 211 MB  |    1508845 |          0
+ dashboard_data_de             | 167 MB  |    1497742 |          0
+ Kommunale Gebiete Deutschland | 35 MB   |      11103 |          0
+ spatial_ref_sys               | 7144 kB |       8500 |          0
+(5 rows)
+
+     lauf_id      |       quelle       |            tabelle            | status | gelesen |   neu   | geaendert | entfernt | unveraendert | dauer_s 
+------------------+--------------------+-------------------------------+--------+---------+---------+-----------+----------+--------------+---------
+ 20261103T122149Z | gemeinden_vg250    | Kommunale Gebiete Deutschland | ok     |   11103 |   11103 |         0 |        0 |            0 |   41.18
+ 20261103T122149Z | inkar_gemeinden_de | dashboard_data_de             | ok     | 1640420 | 1497742 |         0 |        0 |            0 |  220.13
+ 20261103T122623Z | gemeinden_vg250    | Kommunale Gebiete Deutschland | ok     |   11103 |       0 |         0 |        0 |        11103 |   44.21
+ 20261103T122623Z | inkar_gemeinden_de | dashboard_data_de             | ok     | 1640420 |       0 |         0 |        0 |      1497742 |  182.02
+(4 rows)
+
+     lauf_id      | quellen | fehler | angehalten | dauer_s 
+------------------+---------+--------+------------+---------
+ 20261103T122149Z |       2 |      0 |          0 |  261.33
+ 20261103T122623Z |       2 |      0 |          0 |  226.24
+(2 rows)
+
+ gemeinden |  ags  | laender |     min      | min  
+-----------+-------+---------+--------------+------
+     11103 | 10949 |      16 | MULTIPOLYGON | 4326
+(1 row)
+
+ source |  granularity  |  count  | gemeinden | indikatoren | min  | max  
+--------+---------------+---------+-----------+-------------+------+------
+ INKAR  | Gemeindeebene | 1497742 |     10978 |           7 | 1995 | 2023
+(1 row)
+
+            table_name             |     ebene     | von  | bis  
+-----------------------------------+---------------+------+------
+ Arbeitslose                       | Gemeindeebene | 1998 | 2023
+ Bevölkerung                       | Gemeindeebene | 2017 | 2023
+ Bevölkerung gesamt                | Gemeindeebene | 1995 | 2023
+ Bevölkerungsentwicklung           | Gemeindeebene | 2017 | 2023
+ Bevölkerungsentwicklung (5 Jahre) | Gemeindeebene | 2000 | 2023
+ Einwohnerdichte                   | Gemeindeebene | 1996 | 2023
+ Kommunale Gebiete Deutschland     |               |      | 
+ Pendlersaldo                      | Gemeindeebene | 1997 | 2023
+(8 rows)
+

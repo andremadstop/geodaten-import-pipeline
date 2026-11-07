@@ -1,0 +1,53 @@
+                                                       version                                                        
+----------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+(1 row)
+
+ postgis_lib_version 
+---------------------
+ 3.6.4
+(1 row)
+
+ datenbank 
+-----------
+ 1321 MB
+(1 row)
+
+            tabelle            | groesse | zeilen_geschaetzt 
+-------------------------------+---------+-------------------
+ bestand                       | 896 MB  |           1508845
+ aenderung                     | 211 MB  |           1508845
+ dashboard_data_de             | 163 MB  |           1497742
+ Kommunale Gebiete Deutschland | 35 MB   |             11103
+ spatial_ref_sys               | 7144 kB |              8500
+(5 rows)
+
+     lauf_id      |       quelle       |            tabelle            | status | gelesen |   neu   | geaendert | entfernt | unveraendert | dauer_s 
+------------------+--------------------+-------------------------------+--------+---------+---------+-----------+----------+--------------+---------
+ 20261103T110542Z | gemeinden_vg250    | Kommunale Gebiete Deutschland | ok     |   11103 |   11103 |         0 |        0 |            0 |   43.59
+ 20261103T110542Z | inkar_gemeinden_de | dashboard_data_de             | ok     | 1640420 | 1497742 |         0 |        0 |            0 |  209.04
+ 20261103T121535Z | gemeinden_vg250    | Kommunale Gebiete Deutschland | ok     |   11103 |       0 |         0 |        0 |        11103 |   42.54
+ 20261103T121535Z | inkar_gemeinden_de | dashboard_data_de             | ok     | 1640420 |       0 |         0 |        0 |      1497742 |  222.56
+(4 rows)
+
+     lauf_id      | quellen | fehler | angehalten | dauer_s 
+------------------+---------+--------+------------+---------
+ 20261103T110542Z |       2 |      0 |          0 |  252.64
+ 20261103T121535Z |       2 |      0 |          0 |  265.11
+(2 rows)
+
+ gemeinden |  ags  | laender |     min      | min  
+-----------+-------+---------+--------------+------
+     11103 | 10949 |      16 | MULTIPOLYGON | 4326
+(1 row)
+
+ source | granularity |  count  | gemeinden | indikatoren | min  | max  
+--------+-------------+---------+-----------+-------------+------+------
+ INKAR  | Gemeinden   | 1497742 |     10978 |           7 | 1995 | 2023
+(1 row)
+
+ table_metadata 
+----------------
+              8
+(1 row)
+

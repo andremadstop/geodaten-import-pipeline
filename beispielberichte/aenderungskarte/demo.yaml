@@ -1,0 +1,64 @@
+# Vorführung der Änderungskarte: ALKIS-Ausschnitt 300 m nach Osten verschoben, Beispiel-CSVs geändert.
+# Quellen der Pipeline. Neue Quelle = neuer Eintrag, keine Codeänderung.
+# Optional je Quelle:
+#   max_rueckgang: 0.5   Schutz: liefert die Quelle über 50 % weniger Objekte, bleibt der alte Stand (null = aus)
+#   max_mb: 200          Größenlimit je Antwort
+#   kontakt: {anbieter: …, email: …}   für Meldungsentwürfe, wenn der Dienst keinen Kontakt nennt (CSV)
+#   erlaube_http: true   nur, wenn ein Anbieter kein https anbietet
+berichte: /app/berichte
+quellen:
+  alkis_gebaeude_thb:
+    typ: wfs
+    url: https://isk.geobasis-bb.de/ows/alkis_vereinf_wfs
+    typename: ave:GebaeudeBauwerk
+    id_feld: oid
+    geometrie_feld: geometrie
+    crs: urn:ogc:def:crs:EPSG::25833
+    # Campus TH Brandenburg und Umgebung, ETRS89/UTM33 (EPSG:25833)
+    bbox: [332300, 5809400, 333500, 5810400]
+    kachel_m: 400
+    felder: {funktion: funktion, gebnutzbez: nutzung, anzahlgs: geschosse, aktualit: aktualitaet, gmdschl: gemeindeschluessel}
+    lizenz: "© GeoBasis-DE/LGB, dl-de/by-2-0"
+  kreise_bkg:
+    # Kreise und kreisfreie Städte (VG250 des BKG). Dieser Dienst kann Paging (STARTINDEX).
+    typ: wfs
+    url: https://sgx.geodatenzentrum.de/wfs_vg250
+    typename: vg250:vg250_krs
+    id_feld: objid
+    geometrie_feld: geom
+    crs: urn:ogc:def:crs:EPSG::25833
+    # Brandenburg samt Rand, ETRS89/UTM33
+    bbox: [250000, 5690000, 480000, 5940000]
+    felder: {ags: ags, gen: name, bez: art, lkz: land}
+    lizenz: "© BKG (2026) dl-de/by-2-0"
+  kreise_merkmale_csv:
+    # Tabelle ohne Koordinaten: die Geometrie kommt über den Kreisschlüssel aus kreise_bkg.
+    # So kommen INKAR- oder Statistik-Tabellen an die Karte. Muss nach kreise_bkg stehen.
+    typ: csv
+    pfad: /tmp/demo/kreise_merkmale.csv
+    id_spalte: kreis
+    gebiet:
+      schluessel_spalte: kreis
+      schluessel_laenge: 5
+      geometrie_quelle: kreise_bkg
+      schluessel_feld: ags
+    spalten: {kreis: kreisschluessel, name: name, kreisfrei: kreisfrei}
+    lizenz: "Beispieldaten"
+    kontakt: {anbieter: "Beispiel (bei INKAR: BBSR, bei Statistik: Amt für Statistik Berlin-Brandenburg)", email: null}
+  standorte_csv:
+    typ: csv
+    pfad: /tmp/demo/standorte.csv
+    id_spalte: id
+    x_spalte: lon
+    y_spalte: lat
+    srid: 4326
+    spalten: {name: name, art: art}
+    lizenz: "Beispieldaten"
+  kaputte_quelle:
+    typ: wfs
+    url: https://wfs.example.invalid/ows
+    typename: x:y
+    id_feld: id
+    geometrie_feld: geom
+    bbox: [0, 0, 1, 1]
+    aktiv: true   # absichtlich nicht erreichbar: zeigt die Fehlerbehandlung je Quelle

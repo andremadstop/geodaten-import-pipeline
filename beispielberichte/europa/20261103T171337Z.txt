@@ -1,0 +1,7 @@
+Importlauf 20261103T171337Z · 55.32 s
+  gemeinden_lau            ok     neu 97987  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Datei unverändert seit dem letzten Abruf: LAU_RG_01M_2024_4326.geojson
+  kennzahlen_lau           ok     neu 293961  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: 87718 Zellen ohne Wert (statistische Zeichen wie „-“) als null abgelegt
+      Hinweis: 97987 von 97987 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Deutschland“ (objid)
+  Änderungskarte: 20261103T171337Z-karte.html

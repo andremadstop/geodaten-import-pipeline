@@ -1,0 +1,2 @@
+# docker stats --no-stream etwa alle 2 s (1 s Pause plus Dauer des Aufrufs), Container gip-beleg-quellen-52853-lauf3; Spalten: Unix-Zeit;Name;MemUsage;MemPerc;CPUPerc
+1794185703.174599515;gip-beleg-quellen-52853-lauf3;17.18MiB / 1GiB;1.68%;97.79%

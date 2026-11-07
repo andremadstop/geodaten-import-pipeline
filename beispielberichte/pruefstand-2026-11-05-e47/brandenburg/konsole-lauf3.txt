@@ -1,0 +1,14 @@
+Importlauf 20261105T225539Z · 4.83 s
+  alkis_gebaeude_thb       nicht fällig (Rhythmus woechentlich, wieder ab 2026-11-12T21:53:44+00:00)
+  gemeinden_lgb            nicht fällig (Rhythmus monatlich, wieder ab 2026-12-05T21:53:44+00:00)
+  kreise_lgb               nicht fällig (Rhythmus monatlich, wieder ab 2026-12-05T21:53:44+00:00)
+  bevoelkerung_gemeinden   nicht fällig (Rhythmus monatlich, wieder ab 2026-12-05T21:53:44+00:00)
+  flaeche_gemeinden        UNVOLLSTÄNDIG neu     0  geändert     0  gelöscht     0  unverändert   413  (Lücke im Abruf, wird wiederholt)
+      Warnung: 1 Datenzeilen ohne gültigen Gebietsschlüssel übergangen (Zeilen 7); Abruf unvollständig, nichts wird gelöscht
+      Warnung: 7 Zeilen ohne jeden Wert ausgelassen (leere_auslassen), ihr bisheriger Stand bleibt: 12060096|flaeche_km2, 12067310|flaeche_km2, 12071185|flaeche_km2, 12073032|flaeche_km2, 12073386|flaeche_km2, 12073505|flaeche_km2, 12073603|flaeche_km2
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+      Hinweis: Flächenprüfung: 413 Gebiete, Abweichung im Median 0.005 %, höchstens 0.161 % (Toleranz 0.5 %)
+  inkar_gemeinden          nicht fällig (Rhythmus monatlich, wieder ab 2026-12-05T21:53:44+00:00)
+  Änderungskarte: 20261105T225539Z-karte.html
+cgroup memory.peak (Bytes): 67440640
+cgroup memory.stat am Ende (Bytes): anon 454656 file 2138112 shmem 2138112 file_mapped 0 

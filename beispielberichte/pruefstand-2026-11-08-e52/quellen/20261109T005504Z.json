@@ -1,0 +1,55 @@
+{
+  "lauf_id": "20261109T005504Z",
+  "start": "2026-11-09T00:55:04.414432+00:00",
+  "probelauf": false,
+  "sprache": "de",
+  "quellen": [
+    {
+      "quelle": "alkis_gebaeude_thb",
+      "typ": "wfs",
+      "status": "nicht_faellig",
+      "rhythmus": "woechentlich",
+      "naechster_termin": "2026-11-15T23:52:06+00:00"
+    },
+    {
+      "quelle": "gemeinden_lgb",
+      "typ": "wfs",
+      "status": "nicht_faellig",
+      "rhythmus": "monatlich",
+      "naechster_termin": "2026-12-08T23:52:06+00:00"
+    },
+    {
+      "quelle": "kreise_lgb",
+      "typ": "wfs",
+      "status": "nicht_faellig",
+      "rhythmus": "monatlich",
+      "naechster_termin": "2026-12-08T23:52:06+00:00"
+    },
+    {
+      "quelle": "bevoelkerung_gemeinden",
+      "typ": "xlsx",
+      "status": "nicht_faellig",
+      "rhythmus": "monatlich",
+      "naechster_termin": "2026-12-08T23:52:06+00:00"
+    },
+    {
+      "quelle": "flaeche_gemeinden",
+      "typ": "xlsx",
+      "status": "nicht_faellig",
+      "rhythmus": "monatlich",
+      "naechster_termin": "2026-12-08T23:52:06+00:00"
+    },
+    {
+      "quelle": "inkar_gemeinden",
+      "typ": "inkar",
+      "status": "nicht_faellig",
+      "rhythmus": "monatlich",
+      "naechster_termin": "2026-12-08T23:52:06+00:00"
+    }
+  ],
+  "laufzeit_s": 0.05,
+  "fehlgeschlagen": [],
+  "angehalten": [],
+  "unvollstaendig": [],
+  "karte": "20261109T005504Z-karte.html"
+}

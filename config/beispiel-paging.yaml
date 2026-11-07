@@ -1,0 +1,27 @@
+# Nachweis für das seitenweise Abholen: die Kreise aus dem VG250-WFS des BKG in Seiten zu
+# höchstens 10 Objekten (Standard sind 500 je Seite, dann reicht eine).
+# Nur als Probelauf gedacht (keine dauerhaften Änderungen an den Fachdaten; Prüfbericht und Cache
+# werden geschrieben); im Betrieb kommen die Kreise aus kreise_lgb.
+# Aufruf: docker compose run --rm pipeline --config /app/config/beispiel-paging.yaml --probelauf
+berichte: /app/berichte
+quellen:
+  kreise_bkg:
+    typ: wfs
+    url: https://sgx.geodatenzentrum.de/wfs_vg250
+    typename: vg250:vg250_krs
+    id_feld: objid
+    geometrie_feld: geom
+    crs: urn:ogc:def:crs:EPSG::25833
+    bbox: [250000, 5690000, 480000, 5940000]
+    # Absichtlich klein, damit der Abruf über mehrere Seiten geht
+    seitengroesse: 10
+    felder: {ags: ags, gen: name, bez: art, lkz: land}
+    lizenz: "© BKG (2026) dl-de/by-2-0"
+    # Ziel wie bei jeder Quelle; im Probelauf rollt die Pipeline die Transaktion zurück, die Tabelle
+    # bleibt unverändert
+    ziel:
+      tabelle: Landkreis
+      schluessel: [nationalco]
+      geometrie: geom
+      spalten: {id: ags, nationalco: ags, name: name}
+      nur_einfuegen: [id]

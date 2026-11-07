@@ -1,0 +1,5 @@
+time="2026-11-06T22:45:01+01:00" level=warning msg="The \"GEOSERVER_ADMIN\" variable is not set. Defaulting to a blank string."
+time="2026-11-06T22:45:01+01:00" level=warning msg="The \"GEOSERVER_PASSWORD\" variable is not set. Defaulting to a blank string."
+ Container gip-mosidi-e50-3420975-db Running 
+ Container gip-mosidi-e50-3420975-pipeline-run-40113b082149 Creating 
+ Container gip-mosidi-e50-3420975-pipeline-run-40113b082149 Created 

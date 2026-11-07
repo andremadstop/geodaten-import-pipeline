@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Wenn Sie diese Software nutzen, zitieren Sie sie bitte mit diesen Angaben."
+type: software
+title: "Geodaten-Import-Pipeline (WFS/CSV → PostgreSQL/PostGIS)"
+abstract: >-
+  Importiert Geodaten aus WFS-Diensten und CSV-Tabellen automatisch nach PostgreSQL/PostGIS
+  (EPSG:4326), mit Bericht je Lauf, Quellen-Wächter (Schemavergleich, Rückgang-Schutz,
+  Meldungsentwurf an den Anbieter), Probelauf, Quellenverzeichnis und Änderungskarte.
+authors:
+  - given-names: André
+    family-names: Stiebitz
+    affiliation: "Stiebitz Souverain Systems UG (haftungsbeschränkt)"
+repository-code: "https://github.com/andremadstop/geodaten-import-pipeline"
+version: "angebot-va-2026-536"
+date-released: "2026-11-08"
+license: Apache-2.0
+keywords:
+  - WFS
+  - PostGIS
+  - Geodaten
+  - Import-Pipeline
+  - Open Data
+  - FAIR

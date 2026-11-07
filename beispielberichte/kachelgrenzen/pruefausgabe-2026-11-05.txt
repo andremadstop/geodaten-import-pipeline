@@ -1,0 +1,6 @@
+$ python beispielberichte/kachelgrenzen/pruefen.py   # ruft zaehlen.py, gegen den WFS der LGB (alkis_gebaeude_thb)
+Abruf 2026-11-05 09:22 UTC
+Kacheln 9, Gebäude 882, geliefert 940, in mehreren Kacheln 53
+Kachel-BBOX (EPSG:25833) je Abfrage: [[332000, 5809400, 332400, 5809800], [332400, 5809400, 332800, 5809800], [332800, 5809400, 333200, 5809800], [332000, 5809800, 332400, 5810200], [332400, 5809800, 332800, 5810200], [332800, 5809800, 333200, 5810200], [332000, 5810200, 332400, 5810400], [332400, 5810200, 332800, 5810400], [332800, 5810200, 333200, 5810400]]
+Gebäude je Zahl der Kacheln, in denen sie geliefert wurden: {2: 50, 3: 1, 4: 2}
+in drei oder vier Kacheln: 3

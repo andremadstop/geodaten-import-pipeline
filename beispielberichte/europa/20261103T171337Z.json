@@ -1,0 +1,92 @@
+{
+  "lauf_id": "20261103T171337Z",
+  "start": "2026-11-03T17:13:37.243403+00:00",
+  "probelauf": false,
+  "sprache": "de",
+  "quellen": [
+    {
+      "quelle": "gemeinden_lau",
+      "typ": "geojson",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 97987,
+        "neu": 97987,
+        "geaendert": 0,
+        "unveraendert": 0,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Datei unverändert seit dem letzten Abruf: LAU_RG_01M_2024_4326.geojson"
+      ],
+      "info": {
+        "ziel": "Kommunale Gebiete Deutschland",
+        "datei": {
+          "name": "LAU_RG_01M_2024_4326.geojson",
+          "stand": "2026-02-18"
+        },
+        "felder": [
+          "AREA_KM2",
+          "CNTR_CODE",
+          "GISCO_ID",
+          "LAU_NAME",
+          "POP_2024",
+          "POP_DENS_2024",
+          "YEAR"
+        ],
+        "objekte": 97987,
+        "metadaten": 1
+      },
+      "letzte_abfrage": "https://gisco-services.ec.europa.eu/distribution/v2/lau/geojson/LAU_RG_01M_2024_4326.geojson",
+      "unvollstaendig": false,
+      "laufzeit_s": 31.74
+    },
+    {
+      "quelle": "kennzahlen_lau",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 97987,
+        "neu": 293961,
+        "geaendert": 0,
+        "unveraendert": 0,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "87718 Zellen ohne Wert (statistische Zeichen wie „-“) als null abgelegt",
+        "97987 von 97987 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Deutschland“ (objid)"
+      ],
+      "info": {
+        "ziel": "dashboard_data_de",
+        "felder": [
+          "AREA_KM2",
+          "CNTR_CODE",
+          "GISCO_ID",
+          "LAU_NAME",
+          "POP_2024",
+          "POP_DENS_2024",
+          "YEAR"
+        ],
+        "gebiete": {
+          "schluessel": 97987,
+          "mit_flaeche": 97987,
+          "tabelle": "Kommunale Gebiete Deutschland"
+        },
+        "objekte": 293961,
+        "metadaten": 3
+      },
+      "letzte_abfrage": "https://gisco-services.ec.europa.eu/distribution/v2/lau/csv/LAU_RG_01M_2024_4326.csv",
+      "unvollstaendig": false,
+      "laufzeit_s": 23.56
+    }
+  ],
+  "laufzeit_s": 55.32,
+  "fehlgeschlagen": [],
+  "angehalten": [],
+  "karte": "20261103T171337Z-karte.html"
+}

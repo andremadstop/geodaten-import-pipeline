@@ -1,0 +1,5 @@
+ Container gip-beleg-pruefkonfiguration-4186196-db-1 Running 
+ Container gip-beleg-pruefkonfiguration-4186196-db-1 Waiting 
+ Container gip-beleg-pruefkonfiguration-4186196-db-1 Healthy 
+ Container gip-beleg-pruefkonfiguration-4186196-lauf1 Creating 
+ Container gip-beleg-pruefkonfiguration-4186196-lauf1 Created 

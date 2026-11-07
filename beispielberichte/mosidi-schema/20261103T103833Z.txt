@@ -1,0 +1,19 @@
+Importlauf 20261103T103833Z · 113.73 s
+  alkis_gebaeude_thb       ok     neu     0  geändert     0  gelöscht     0  unverändert   882
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  gemeinden_lgb            ok     neu     0  geändert     0  gelöscht     0  unverändert   413
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  kreise_lgb               ok     neu     0  geändert     0  gelöscht     0  unverändert    18
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  bevoelkerung_gemeinden   ok     neu     0  geändert     0  gelöscht     0  unverändert  1239
+      Hinweis: 7 Zeilen ohne jeden Wert ausgelassen: 12060096, 12067310, 12071185, 12073032, 12073386, 12073505, 12073603
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  flaeche_gemeinden        ok     neu     0  geändert     0  gelöscht     0  unverändert   413
+      Hinweis: 7 Zeilen ohne jeden Wert ausgelassen: 12060096, 12067310, 12071185, 12073032, 12073386, 12073505, 12073603
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  inkar_gemeinden          ok     neu     0  geändert     0  gelöscht     0  unverändert 57259
+      Warnung: 5670 Zeilen mit schon vorhandenem Schlüssel, jeweils die erste zählt: 12051000|ZOM|q_bev_fl|Einwohnerdichte|2017, 12051000|ZOM|q_bev_fl|Einwohnerdichte|2018, 12051000|ZOM|q_bev_fl|Einwohnerdichte|2019, 12051000|ZOM|q_bev_fl|Einwohnerdichte|2020, 12051000|ZOM|q_bev_fl|Einwohnerdichte|2021, 12051000|ZOM|q_bev_fl|Einwohnerdichte|2022, 12051000|ZOM|q_bev_fl|Einwohnerdichte|2023, 12051000|ZOM|q_pendlersaldo|Pendlersaldo|2017, 12051000|ZOM|q_pendlersaldo|Pendlersaldo|2018, 12051000|ZOM|q_pendlersaldo|Pendlersaldo|2019
+      Hinweis: Neueste Datei: inkar_2025.zip
+      Hinweis: Datei unverändert seit dem letzten Abruf: inkar_2025.zip
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  Änderungskarte: 20261103T103833Z-karte.html

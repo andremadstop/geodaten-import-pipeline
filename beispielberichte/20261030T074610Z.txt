@@ -1,0 +1,9 @@
+Importlauf 20261030T074610Z · 5.2 s
+  alkis_gebaeude_thb       ok     neu     0  geändert     0  gelöscht     0  unverändert   882
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  kreise_bkg               ok     neu     0  geändert     0  gelöscht     0  unverändert    48
+  kreise_merkmale_csv      ok     neu     0  geändert     0  gelöscht     0  unverändert     5
+      Warnung: 1 Zeilen ohne passendes Gebiet in 'kreise_bkg' übersprungen: 99999
+  standorte_csv            ok     neu     0  geändert     0  gelöscht     0  unverändert     3
+  kaputte_quelle           FEHLER ConnectionError: HTTPSConnectionPool(host='wfs.example.invalid', port=443): Max retries exceeded with url: /ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0 (Caused by NameResolutionError("HTTPSConnection(host='wfs.example.invalid', port=443): Failed to resolve 'wfs.example.invalid' ([Errno -2] Name or service not known)"))
+      Meldungsentwurf an den Anbieter: 20261030T074610Z-meldung-kaputte_quelle.txt

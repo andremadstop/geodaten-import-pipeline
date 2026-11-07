@@ -1,0 +1,99 @@
+{
+  "lauf_id": "20261102T082933Z",
+  "start": "2026-11-02T08:29:33.655163+00:00",
+  "probelauf": false,
+  "quellen": [
+    {
+      "quelle": "gemeinden_lgb",
+      "typ": "ogcapi",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 413,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 413,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst bietet keine Feldliste (queryables), Felder aus den Objekten"
+      ],
+      "info": {
+        "kontakt": {
+          "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+          "email": "kundenservice@geobasis-bb.de"
+        },
+        "titel": "OAF BB-BE VG",
+        "lizenz_laut_dienst": "Datenlizenz Deutschland Namensnennung 2.0",
+        "felder": [
+          "ags",
+          "ars",
+          "gem_aktualitaet",
+          "gem_art",
+          "gem_art_kurz",
+          "gem_name",
+          "gem_regspr_hk",
+          "gem_regspr_name",
+          "gvbs",
+          "krss"
+        ],
+        "anzahl_laut_dienst": 413,
+        "objekte": 413
+      },
+      "letzte_abfrage": "https://ogc-api.geobasis-bb.de/datasets/vg/collections/gem/items?f=json&limit=500",
+      "laufzeit_s": 9.02
+    },
+    {
+      "quelle": "inkar_gemeinden",
+      "typ": "inkar",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 413,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 413,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Neueste Datei: inkar_2025.zip",
+        "Datei unverändert seit dem letzten Abruf: inkar_2025.zip"
+      ],
+      "info": {
+        "datei": {
+          "name": "inkar_2025.zip",
+          "stand": "2025-08-13"
+        },
+        "eintrag": {
+          "name": "inkar_2025.csv",
+          "mb": 6763
+        },
+        "felder": [
+          "Bereich",
+          "ID",
+          "Kuerzel",
+          "Indikator",
+          "Raumbezug",
+          "Kennziffer",
+          "Name",
+          "Zeitbezug",
+          "Wert"
+        ],
+        "indikatoren": [
+          "alo",
+          "e5_bev",
+          "q_bev_fl",
+          "q_pendlersaldo",
+          "xbev"
+        ],
+        "objekte": 413
+      },
+      "letzte_abfrage": "https://www.bbr-server.de/imagemap/inkar/download/inkar_2025.zip",
+      "laufzeit_s": 81.14
+    }
+  ],
+  "laufzeit_s": 90.18,
+  "fehlgeschlagen": [],
+  "angehalten": [],
+  "karte": "20261102T082933Z-karte.html"
+}

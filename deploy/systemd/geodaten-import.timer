@@ -1,0 +1,17 @@
+# Täglicher Lauf. Uhrzeit nach Bedarf ändern (OnCalendar), danach: systemctl daemon-reload
+# Startet die gleichnamige geodaten-import.service (für die Testumgebung oder, unter diesem Namen
+# installiert, die Unit für MOSIDI). Welche Quellen ein Lauf lädt, entscheidet ihr Rhythmus in der
+# Konfiguration (ohne Rhythmus: jede). Täglich passt zur Altersgrenze von --status (Standard 26 h).
+[Unit]
+Description=Geodaten-Import-Pipeline: täglicher Lauf
+
+[Timer]
+OnCalendar=*-*-* 03:15
+# Streuung, damit nicht jede Einrichtung die Dienste zur selben Minute abfragt
+RandomizedDelaySec=15min
+# Verpasste Läufe (Rechner aus) beim nächsten Start nachholen
+Persistent=true
+
+# Mit `systemctl enable --now geodaten-import.timer` beim Systemstart aktiv
+[Install]
+WantedBy=timers.target

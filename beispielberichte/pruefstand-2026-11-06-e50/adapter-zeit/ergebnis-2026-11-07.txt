@@ -1,0 +1,14 @@
+# Laufzeit des INKAR-Adapters allein (adapter_zeit.py), ohne Datenbank und ohne Netz, 07.11.2026 01:46 CET, 16 Kerne; je Stand zweimal abwechselnd
+# e49 = Teilbäume pipeline 5298b848911a3df46d278f9c3959070ab9e6bb81, config b0ec40745f2fd1fd9104e30c28a31317bfe7ab7c; e50 = pipeline 0ab429565e82cc9995c08ccab8f05ec231dcc88f, config c6b781315000369f38d5d4c9f67388a6984fb497
+== e49, 1-Minuten-Last davor 1.37
+quellen.yaml inkar_gemeinden: 62929 Datensätze, 75.3 s, unvollständig=False
+warnungen: []
+== e50, 1-Minuten-Last davor 1.60
+quellen.yaml inkar_gemeinden: 62929 Datensätze, 90.0 s, unvollständig=False
+warnungen: []
+== e49, 1-Minuten-Last davor 1.55
+quellen.yaml inkar_gemeinden: 62929 Datensätze, 73.1 s, unvollständig=False
+warnungen: []
+== e50, 1-Minuten-Last davor 1.44
+quellen.yaml inkar_gemeinden: 62929 Datensätze, 90.8 s, unvollständig=False
+warnungen: []

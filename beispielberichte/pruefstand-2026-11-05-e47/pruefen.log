@@ -1,0 +1,16 @@
+$ ./pruefen.sh   (06.11.2026 01:15 MEZ (Ende), Abgabestand nach E47 mit Nachprüfung, gestagt einschließlich dieses Prüfstands mit Belegläufen und Compose-Lauf von MOSIDI und der Dokumentation; danach keine Änderung an pipeline, sql, tests, config; Teilbäume aus git write-tree nach dem Stagen: pipeline 74458df1aabeaff70640812fec569e1ab2f71fb2, config fc6f74c4c393c3da3d4ab481c69dd1d5e73d3c40, sql c7062db0702a61378d36debc27207f3244556ab4, tests 331bf7d09b1255ff40a5fa069a081a56cd4fca59, Dockerfile 2953066ba034c0772b8647fcb89c9a710cb5028a)
+== ruff
+All checks passed!
+== bandit
+[tester]	WARNING	nosec encountered (B603), but no failed test on file pipeline/quellen.py:975
+== pip-audit
+No known vulnerabilities found
+== pytest
+............sssssssssssssssssssssssssssssssssssssssssssssssssssssssssss. [ 28%]
+........................................................................ [ 57%]
+........................................................................ [ 86%]
+.................................                                        [100%]
+190 passed, 59 skipped in 8.27s
+== detect-secrets
+== sbom
+Alles in Ordnung.

@@ -1,0 +1,34 @@
+# Ein Lauf der Geodaten-Import-Pipeline über alle aktiven Quellen, deren Rhythmus fällig ist (E24).
+# Für die eigene Testumgebung (Dienst db aus der docker-compose.yml der Pipeline); für den Betrieb im
+# MOSIDI-Compose: deploy/mosidi/geodaten-import-mosidi.service.
+# Installation und Anpassung: docs/betrieb.md. Pfad unten an den Ablageort des Repositorys anpassen.
+[Unit]
+Description=Geodaten-Import-Pipeline: ein Lauf über alle Quellen
+Documentation=https://github.com/MOSIDI-ORG
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+# Exit-Code ungleich 0 (1: Quelle fehlgeschlagen, angehalten oder unvollständig, Katalog nicht
+# aktualisiert, oder ein anderer Lauf hält noch die Sperre; 2: technischer Abbruch, auch nach SIGTERM)
+# löst die Fehlermeldung aus
+OnFailure=geodaten-import-fehler.service
+
+[Service]
+# Läuft einmal durch und endet; der Timer startet ihn erneut
+Type=oneshot
+WorkingDirectory=/opt/geodaten-import-pipeline
+# Datenbank starten, falls sie nicht läuft, und warten, bis sie bereit ist
+ExecStartPre=/usr/bin/docker compose up -d --wait db
+# Ein Lauf im Wegwerf-Container (--rm); der Exit-Code der Pipeline wird zum Ergebnis der Unit
+ExecStart=/usr/bin/docker compose run --rm pipeline
+# Obergrenze für einen Lauf; danach beendet systemd ihn mit SIGTERM. Dass `docker compose run` das
+# Signal an den Container weiterreicht und die Pipeline dann einen Abbruchbericht schreibt, ist
+# vorgesehen, aber mit einem echten Timeout noch nicht nachgestellt (docs/betrieb.md).
+# 7 h (E51, Befund W2; bis E51 2 h): über der Summe der Zeitbudgets der Lieferkonfiguration config/quellen.yaml
+# (fünf Quellen mit dem Standard von 30 min, INKAR im Vollumfang 240 min, zusammen 390 min) plus 30 min für
+# Verbindung, Katalog und Berichte. So greift immer zuerst das Zeitbudget der Quelle (ihre Transaktion wird
+# zurückgerollt, die nächste läuft), nicht der Abbruch des ganzen Laufs. Gemessen sind Läufe mit allen
+# Quellen in 129,7 und 159,7 min (INKAR-Vollumfang 129,4 und 158,2 min, die übrigen fünf Quellen zusammen 17,5
+# bzw. 89,7 s; Prüfstand 07.11.2026 am Abgabestand nach E51, parallel genutzter Rechner). Mehr Quellen oder
+# größere Budgets in der Konfiguration: diesen Wert mitziehen (tests/test_betrieb.py prüft die Summe)
+TimeoutStartSec=7h

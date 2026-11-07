@@ -1,0 +1,10 @@
+Importlauf 20261109T005504Z · 0.05 s
+  alkis_gebaeude_thb       nicht fällig (Rhythmus woechentlich, wieder ab 2026-11-15T23:52:06+00:00)
+  gemeinden_lgb            nicht fällig (Rhythmus monatlich, wieder ab 2026-12-08T23:52:06+00:00)
+  kreise_lgb               nicht fällig (Rhythmus monatlich, wieder ab 2026-12-08T23:52:06+00:00)
+  bevoelkerung_gemeinden   nicht fällig (Rhythmus monatlich, wieder ab 2026-12-08T23:52:06+00:00)
+  flaeche_gemeinden        nicht fällig (Rhythmus monatlich, wieder ab 2026-12-08T23:52:06+00:00)
+  inkar_gemeinden          nicht fällig (Rhythmus monatlich, wieder ab 2026-12-08T23:52:06+00:00)
+  Änderungskarte: 20261109T005504Z-karte.html
+cgroup memory.peak (Bytes): 38154240
+cgroup memory.stat am Ende (Bytes): anon 458752 file 1445888 shmem 0 file_mapped 0 

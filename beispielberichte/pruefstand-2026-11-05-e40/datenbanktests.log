@@ -1,0 +1,8 @@
+Datenbanktests wie CI-Job datenbank, je Image ein frisches Compose-Projekt mit zufälligen Passwörtern (05.11.2026 10:51, gestagter Stand: pipeline 7539beb31428ebae46842c0b383151e0a36ac211, tests 8efaf31a47e75942c9ff55a5f227980cdc4e0802)
+$ DATENBANK_TEST=1 pytest tests/test_datenbank.py   # gegen postgis/postgis:16-3.6 (festgeschrieben) und postgis/postgis:latest
+PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2)
+............................                                             [100%]
+28 passed in 99.87s (0:01:39)
+PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2)
+............................                                             [100%]
+28 passed in 96.87s (0:01:36)

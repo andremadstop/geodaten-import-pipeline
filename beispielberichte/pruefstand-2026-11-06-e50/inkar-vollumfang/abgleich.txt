@@ -1,0 +1,3 @@
+Soll: 355 Indikatornamen, 33547606 Zeilen
+Ist:  355 Indikatornamen, 33547606 Zeilen
+gleich: 355; nur im Soll: 0; nur im Ist: 0; Zeilenzahl verschieden: 0

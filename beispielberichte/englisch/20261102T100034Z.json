@@ -1,0 +1,276 @@
+{
+  "lauf_id": "20261102T100034Z",
+  "start": "2026-11-02T10:00:34.653468+00:00",
+  "probelauf": false,
+  "sprache": "en",
+  "quellen": [
+    {
+      "quelle": "alkis_gebaeude_thb",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 882,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 882,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung"
+      ],
+      "info": {
+        "kontakt": {
+          "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+          "email": "kundenservice@geobasis-bb.de"
+        },
+        "titel": "WFS BB ALKIS Vereinfacht",
+        "beschreibung": "Das Liegenschaftskataster wird in elektronischer Form im Amtlichen Liegenschaftskatasterinformationssystem (ALKIS) geführt. Der vorliegende Web Feature Service ermöglicht das gezielte Herunterladen von in ALKIS geführten Geo-Objekten auf Basis einer Suchanfrage (Direktzugriffs-Downloaddienst). Der Dienst stellt ausschließlich folgende Geo-Objekte beschränkt auf die wesentlichen Eigenschaften im Format eines vereinfachten Datenaustauschschemas bereit, das in dieser Produktspezifikation festgelegt ist: Flurstücke, Gebäude, Tatsächliche Nutzungen, Verwaltungseinheiten, Katasterbezirke. Der Dienst ist konzipiert zur Nutzung in einfachen praxisgängigen GIS-Clients ohne komplexe Funktionalitäten.",
+        "update_sequence": null,
+        "felder": [
+          "aktualit",
+          "anzahlgs",
+          "funktion",
+          "gebnutzbez",
+          "geometrie",
+          "gfkzshh",
+          "gmdschl",
+          "lagebeztxt",
+          "name",
+          "oid",
+          "rellage"
+        ],
+        "objekte": 882
+      },
+      "letzte_abfrage": "https://isk.geobasis-bb.de/ows/alkis_vereinf_wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=ave%3AGebaeudeBauwerk&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=10000&BBOX=332800%2C5810200%2C333200%2C5810400%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "laufzeit_s": 3.69
+    },
+    {
+      "quelle": "kreise_bkg",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 48,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 48,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst meldet ImplementsSorting=FALSE, Seiten ohne feste Reihenfolge"
+      ],
+      "info": {
+        "kontakt": {
+          "anbieter": "Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie",
+          "email": "dlz@bkg.bund.de"
+        },
+        "titel": "WFS Verwaltungsgebiete 1:250 000 - Stand 01.01.",
+        "beschreibung": "Dieser Downloaddienst stellt die Verwaltungsgebiete 1:250 000 (VG250) mit Stand 01.01. für das Gebiet der Bundesrepublik Deutschland bereit.\nDer Datenbestand der Verwaltungsgebiete (VG) umfasst die Verwaltungseinheiten aller hierarchischen Verwaltungsebenen vom Staat bis zu den Kreisen mit den jeweiligen Verwaltungsgrenzen, statistischen Schlüsselzahlen, den Namen der Verwaltungseinheiten sowie der spezifischen Bezeichnungen der Verwaltungsebenen.\nDie Daten sind ebenenweise in Staat, Länder, Regierungsbezirke, Kreise, Verwaltungsgemeinschaften und Gemeinden gegliedert. Darüber hinaus liegen dem Datensatz amtliche Zusatzbezeichnungen, Namen der nationalen Minderheiten bzw. regionalsprachliche Namen sowie Übersichten der Verwaltungszuordnung und Verwaltungseinheiten bei.\nDie Geometrie der Grenzen ist hinsichtlich Genauigkeit und Auflösung auf das ATKIS®-DLM250 ausgerichtet.\nDer Stand 01.01. schließt die Änderungen in der Verwaltungsgliederung zum 1. Januar ein.",
+        "update_sequence": "129155",
+        "felder": [
+          "ade",
+          "ags",
+          "ags_0",
+          "ars",
+          "ars_0",
+          "beginn",
+          "bem",
+          "bez",
+          "bsg",
+          "dlm_id",
+          "fk_s3",
+          "gen",
+          "geom",
+          "gf",
+          "ibz",
+          "lkz",
+          "nbd",
+          "nuts",
+          "objid",
+          "sdv_ars",
+          "sn_g",
+          "sn_k",
+          "sn_l",
+          "sn_r",
+          "sn_v1",
+          "sn_v2",
+          "wsk"
+        ],
+        "seiten": 1,
+        "objekte": 48
+      },
+      "letzte_abfrage": "https://sgx.geodatenzentrum.de/wfs_vg250?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=vg250%3Avg250_krs&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=500&STARTINDEX=0&BBOX=250000%2C5690000%2C480000%2C5940000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "laufzeit_s": 13.02
+    },
+    {
+      "quelle": "gemeinden_lgb",
+      "typ": "ogcapi",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 413,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 413,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst bietet keine Feldliste (queryables), Felder aus den Objekten"
+      ],
+      "info": {
+        "kontakt": {
+          "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+          "email": "kundenservice@geobasis-bb.de"
+        },
+        "titel": "OAF BB-BE VG",
+        "beschreibung": "Dieser Downloaddienst (OAF) der Brandenburger Landesvermessung stellt die digitalen Verwaltungsgrenzen der Länder Berlin und Brandenburg bereit. Der Dienst enthält die Grenzen und Namen der Brandenburger Gemeindeverbände, Gemeinden, Kreise, Planungsgemeinschaften und Ortsteile sowie der Berliner Bezirke. Weiterhin enthält der Dienst die Landes- und Staatsgrenzen von Berlin und Brandenburg sowie die Siedlungsgebiete der Wenden und Sorben. Die Aktualisierung des Datenbestandes erfolgt vierteljährlich.",
+        "lizenz_laut_dienst": "Datenlizenz Deutschland Namensnennung 2.0",
+        "felder": [
+          "ags",
+          "ars",
+          "gem_aktualitaet",
+          "gem_art",
+          "gem_art_kurz",
+          "gem_name",
+          "gem_regspr_hk",
+          "gem_regspr_name",
+          "gvbs",
+          "krss"
+        ],
+        "anzahl_laut_dienst": 413,
+        "objekte": 413
+      },
+      "letzte_abfrage": "https://ogc-api.geobasis-bb.de/datasets/vg/collections/gem/items?f=json&limit=500",
+      "laufzeit_s": 12.45
+    },
+    {
+      "quelle": "bevoelkerung_gemeinden",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 413,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 413,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "7 Zeilen ohne jeden Wert ausgelassen: 12060096, 12067310, 12071185, 12073032, 12073386, 12073505, 12073603"
+      ],
+      "info": {
+        "zeitbezug": "2025-12-31",
+        "uebergangene_zeilen": 13200,
+        "felder": [
+          "ags",
+          "insgesamt",
+          "maennlich",
+          "name",
+          "weiblich"
+        ],
+        "objekte": 413
+      },
+      "letzte_abfrage": "https://www.regionalstatistik.de/genesisws/downloader/00/tables/12411-01-01-5-B_00.csv",
+      "laufzeit_s": 2.91
+    },
+    {
+      "quelle": "flaeche_gemeinden",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 413,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 413,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "7 Zeilen ohne jeden Wert ausgelassen: 12060096, 12067310, 12071185, 12073032, 12073386, 12073505, 12073603"
+      ],
+      "info": {
+        "zeitbezug": "2025-12-31",
+        "uebergangene_zeilen": 13197,
+        "felder": [
+          "ags",
+          "flaeche_km2",
+          "name"
+        ],
+        "objekte": 413
+      },
+      "letzte_abfrage": "https://www.regionalstatistik.de/genesisws/downloader/00/tables/11111-01-01-5-B_00.csv",
+      "laufzeit_s": 2.52
+    },
+    {
+      "quelle": "kreise_merkmale_csv",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 6,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 5,
+        "geloescht": 0
+      },
+      "warnungen": [
+        "1 Zeilen ohne passendes Gebiet in 'kreise_bkg' übersprungen: 99999"
+      ],
+      "hinweise": [],
+      "info": {
+        "felder": [
+          "kreis",
+          "kreisfrei",
+          "name"
+        ],
+        "objekte": 5
+      },
+      "letzte_abfrage": null,
+      "laufzeit_s": 0.02
+    },
+    {
+      "quelle": "standorte_csv",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 3,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 3,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [],
+      "info": {
+        "felder": [
+          "art",
+          "id",
+          "lat",
+          "lon",
+          "name"
+        ],
+        "objekte": 3
+      },
+      "letzte_abfrage": null,
+      "laufzeit_s": 0.01
+    },
+    {
+      "quelle": "kaputte_quelle",
+      "typ": "wfs",
+      "status": "fehler",
+      "fehler": "ConnectionError: HTTPSConnectionPool(host='wfs.example.invalid', port=443): Max retries exceeded with url: /ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0 (Caused by NameResolutionError(\"HTTPSConnection(host='wfs.example.invalid', port=443): Failed to resolve 'wfs.example.invalid' ([Errno -2] Name or service not known)\"))",
+      "warnungen": [],
+      "hinweise": [],
+      "info": {},
+      "letzte_abfrage": "https://wfs.example.invalid/ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0",
+      "laufzeit_s": 0.01,
+      "meldung": "20261102T100034Z-meldung-kaputte_quelle.txt"
+    }
+  ],
+  "laufzeit_s": 34.62,
+  "fehlgeschlagen": [
+    "kaputte_quelle"
+  ],
+  "angehalten": [],
+  "karte": "20261102T100034Z-karte.html"
+}

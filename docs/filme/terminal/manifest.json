@@ -1,0 +1,111 @@
+{
+ "gesamt_s": 38.57,
+ "frames": 1157,
+ "rechnerlast_davor": {
+  "erstlauf": [
+   "2.13",
+   "1.87",
+   "1.85"
+  ],
+  "folgelauf": [
+   "3.84",
+   "5.90",
+   "6.17"
+  ]
+ },
+ "szenen": {
+  "titel": [
+   0.0,
+   2.2
+  ],
+  "lauf1": [
+   2.2,
+   10.9
+  ],
+  "lauf2": [
+   10.9,
+   16.4
+  ],
+  "fehler": [
+   16.4,
+   31.05
+  ],
+  "schluss": [
+   31.05,
+   38.55
+  ]
+ },
+ "befehl1": "dcp --profile pipeline run --rm pipeline --config /app/config/pruefkonfiguration.yaml --alle",
+ "befehl2": "dcp --profile pipeline run --rm pipeline --config /app/config/pruefkonfiguration.yaml --alle",
+ "lauf1": {
+  "kopf": "Importlauf 20261107T043632Z · 145.36 s",
+  "quellen": {
+   "alkis_gebaeude_thb": 4.38,
+   "gemeinden_lgb": 5.13,
+   "kreise_lgb": 1.99,
+   "bevoelkerung_gemeinden": 1.47,
+   "flaeche_gemeinden": 4.6,
+   "inkar_gemeinden": 127.78
+  }
+ },
+ "lauf2": {
+  "kopf": "Importlauf 20261107T043901Z · 141.8 s",
+  "quellen": {
+   "alkis_gebaeude_thb": 3.51,
+   "gemeinden_lgb": 4.96,
+   "kreise_lgb": 2.07,
+   "bevoelkerung_gemeinden": 1.68,
+   "flaeche_gemeinden": 4.63,
+   "inkar_gemeinden": 124.93
+  }
+ },
+ "fehler": {
+  "kopf": "Importlauf 20261030T074610Z · 5.2 s",
+  "quellen": {
+   "alkis_gebaeude_thb": 3.12,
+   "kreise_bkg": 2.02,
+   "kreise_merkmale_csv": 0.01,
+   "standorte_csv": 0.01,
+   "kaputte_quelle": 0.01
+  }
+ },
+ "vollumfang": {
+  "n": 33547606,
+  "erst_s": 7783.14,
+  "folge_s": 9582.77,
+  "wertabgleich": {
+   "verglichen": 33547606,
+   "fehlend": 0,
+   "ueberzaehlig": 0,
+   "wert_abweichend": 0
+  }
+ },
+ "tests": 424,
+ "dbtests": [
+  "70",
+  "70"
+ ],
+ "pg": [
+  "16.15",
+  "18.6"
+ ],
+ "lizenzen": {
+  "lauf1": [
+   "© GeoBasis-DE/LGB, dl-de/by-2-0",
+   "Amt für Statistik Berlin-Brandenburg, CC BY 3.0 DE",
+   "INKAR, © BBSR Bonn 2025, dl-de/by-2-0"
+  ],
+  "lauf2": [
+   "© GeoBasis-DE/LGB, dl-de/by-2-0",
+   "Amt für Statistik Berlin-Brandenburg, CC BY 3.0 DE",
+   "INKAR, © BBSR Bonn 2025, dl-de/by-2-0"
+  ],
+  "fehler": [
+   "© GeoBasis-DE/LGB, dl-de/by-2-0",
+   "© BKG (2026) dl-de/by-2-0"
+  ],
+  "schluss": [
+   "INKAR, © BBSR Bonn 2025, dl-de/by-2-0"
+  ]
+ }
+}

@@ -1,0 +1,7 @@
+$ python beispielberichte/wfs-1.1.0/vergleichen.py   # gegen den WFS der LGB (kreise_lgb)
+Abruf 2026-11-05 09:22 UTC, Quelle kreise_lgb (config/quellen.yaml)
+WFS 2.0.0: 18 Objekte, Geometrie MultiSurface, unvollständig: False, letzte Abfrage: https://isk.geobasis-bb.de/ows/vg_wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=app%3Akrs&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=10000&BBOX=250000%2C5690000%2C480000%2C5940000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833
+WFS 1.1.0: 18 Objekte, Geometrie MultiPolygon, unvollständig: False, letzte Abfrage: https://isk.geobasis-bb.de/ows/vg_wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=1.1.0&TYPENAME=app%3Akrs&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&MAXFEATURES=10000&BBOX=250000%2C5690000%2C480000%2C5940000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833
+gleiche Objekt-IDs: True
+gleiche Sachdaten: 18 von 18
+Geometrien mit identischen Koordinaten (Reihenfolge und Wert): 18 von 18 (169598 Punkte in 2.0.0)

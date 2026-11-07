@@ -1,0 +1,8 @@
+Datenbanktests wie CI-Job datenbank, je Image ein frisches Compose-Projekt (05.11.2026 08:56, Git-Baum a9a568bb386694979b8c272707d960be432a8747)
+$ DATENBANK_TEST=1 pytest tests/test_datenbank.py   # gegen postgis/postgis:16-3.6 (festgeschrieben) und postgis/postgis:latest
+PostgreSQL 16.15 (Debian 16.15-1.pgdg13+
+......................                                                   [100%]
+22 passed in 68.18s (0:01:08)
+PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2)
+......................                                                   [100%]
+22 passed in 65.30s (0:01:05)

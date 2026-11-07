@@ -1,0 +1,16 @@
+$ ./pruefen.sh   # 05.11.2026 10:56, gestagter Stand: pipeline 7539beb31428ebae46842c0b383151e0a36ac211, tests 8efaf31a47e75942c9ff55a5f227980cdc4e0802
+== ruff
+All checks passed!
+== bandit
+[tester]	WARNING	nosec encountered (B603), but no failed test on file pipeline/quellen.py:751
+== pip-audit
+No known vulnerabilities found
+== pytest
+.......ssssssssssssssssssssssssssss..................................... [ 46%]
+........................................................................ [ 92%]
+............                                                             [100%]
+128 passed, 28 skipped in 2.89s
+== detect-secrets
+== sbom
+Alles in Ordnung.
+Rückgabe 0

@@ -1,0 +1,29 @@
+# MOSIDI 26cadbba3d6223c84872987104fc737359bf8bfc 2026-11-02 12:07:41 +0100
+# pipeline 57345c03f9dbfdba04bb2af364417e41c4b307f1
+# config 14a2c8cadf76296bfedcd65591ddb932f2cfa3e4
+# sql 12f6a2f9ddc7ea7fc3019f8dc6fd2a04ffe18748
+# tests 48bce8345fc2a2f72cc1c89793225b38e4f2358c
+# Dockerfile 6788a7afeb4041d3c71b517b184d557c44c99762
+# deploy d91e6a887a2f02e76d5135f13fe09b7156daec1d
+# Image geodaten-import-pipeline:e52-beleg sha256:621d1f3f2de404d80d98720f5b095b8423e01b3696f802c57dae4b0124ebb6a1
+befund: Image postgis/postgis, Status restarting, Neustarts nach 30 s 9, postgres (PostgreSQL) 18.6 (Debian 18.6-1.pgdg13+2)
+PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+PostGIS 3.6.4
+Bestandsschema sql/mosidi/001_bestand.sql rc=0
+View source_granularities aus MOSIDI services/backend/src/db_table_metadata/script.py, Zeilen 262 bis 272, sha256 7eec19e3fbdfef1ec2dec85e01ea2b0fee27c46edaa3af81e4b01af0a133dab1
+View angelegt (als admin) rc=0
+vor einrichten: source_granularities 0 Zeilen
+einrichten rc=0
+Namensauflösung im Container: www.bbr-server.de -> 0.0.0.0
+Namensauflösung im Container: www.regionalstatistik.de -> 0.0.0.0
+Konfiguration der Läufe: /app/config/pruefkonfiguration.yaml (pipeline-einrichten: Standard des Overlays)
+lauf1: Wartezeit wegen Rechnerlast über 8: 0 s
+lauf1: Rechnerlast davor (1/5/15 min): 3.44 3.05 2.72
+lauf1: Argumente '--config /app/config/pruefkonfiguration.yaml --alle', Rückgabe 0, Wandzeit 148.507945226 s (einschließlich Containerstart), Rechnerlast danach (1/5/15 min): 2.59 2.97 2.75, 16 Kerne
+nach lauf1: source_granularities 11 Zeilen
+lauf2: Wartezeit wegen Rechnerlast über 8: 0 s
+lauf2: Rechnerlast davor (1/5/15 min): 2.59 2.97 2.75
+lauf2: Argumente '--config /app/config/pruefkonfiguration.yaml --alle', Rückgabe 0, Wandzeit 155.636593117 s (einschließlich Containerstart), Rechnerlast danach (1/5/15 min): 1.55 2.41 2.58, 16 Kerne
+nach lauf2: source_granularities 11 Zeilen
+Schema public (pg_dump --schema-only --no-privileges --no-owner) vorher und nachher gleich, 2527 Zeilen, sha256 2a70acee65b197bbaf1796ba32a136b07ac1fa13ffa561695c46ccc90cbf84aa
+fertig

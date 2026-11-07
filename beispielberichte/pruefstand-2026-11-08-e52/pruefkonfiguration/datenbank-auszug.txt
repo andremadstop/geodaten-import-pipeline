@@ -1,0 +1,99 @@
+== Version
+                            split_part                             
+-------------------------------------------------------------------
+ PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu
+(1 row)
+
+== Kennzahlen je Herausgeber (dashboard_data_de)
+                source                |  granularity  | data_type | zeilen | indikatoren | kennziffern | min  | max  
+--------------------------------------+---------------+-----------+--------+-------------+-------------+------+------
+ Amt für Statistik Berlin-Brandenburg | Gemeindeebene | indikator |    826 |           2 |         413 | 2024 | 2025
+ INKAR                                | Gemeindeebene | indikator |  62929 |           9 |         413 | 1995 | 2023
+(2 rows)
+
+== Indikatornamen INKAR (E40: Langtext, außer ZOM mit Bereich)
+                indikator                | zeilen 
+-----------------------------------------+--------
+ Arbeitslose (LRB)                       |  10738
+ Bevölkerung                             |   2891
+ Bevölkerung gesamt (LRB)                |  11977
+ Bevölkerungsentwicklung                 |   2891
+ Bevölkerungsentwicklung (5 Jahre) (LRB) |   9912
+ Einwohnerdichte                         |   2891
+ Einwohnerdichte (LRB)                   |   7847
+ Pendlersaldo                            |   2779
+ Pendlersaldo (LRB)                      |  11003
+(9 rows)
+
+== Doppelte Zielschlüssel in dashboard_data_de (muss 0 sein)
+ count 
+-------
+     0
+(1 row)
+
+== Register: Zeilen und Quellschlüssel je Quelle
+         quelle         |                 tabelle                  | zeilen | mit_quellschluessel | verschiedene 
+------------------------+------------------------------------------+--------+---------------------+--------------
+ alkis_gebaeude_thb     | Gebäude (ALKIS)                          |    882 |                 882 |          882
+ bevoelkerung_gemeinden | dashboard_data_de                        |    413 |                 413 |          413
+ flaeche_gemeinden      | dashboard_data_de                        |    413 |                 413 |          413
+ gemeinden_lgb          | Kommunale Gebiete Brandenburg (InNoWest) |    413 |                 413 |          413
+ inkar_gemeinden        | dashboard_data_de                        |  62929 |               62929 |        62929
+ kreise_lgb             | Landkreis                                |     18 |                  18 |           18
+(6 rows)
+
+== Beispiele Register INKAR (Quellschlüssel -> Zielschlüssel), nur Schlüssel, keine Werte
+              quellschluessel               |                  schluessel                   
+--------------------------------------------+-----------------------------------------------
+ 12051000|LRB|q_bev_fl|Einwohnerdichte|1996 | ["12051000", "Einwohnerdichte (LRB)", "1996"]
+ 12051000|LRB|q_bev_fl|Einwohnerdichte|2000 | ["12051000", "Einwohnerdichte (LRB)", "2000"]
+ 12051000|LRB|q_bev_fl|Einwohnerdichte|2004 | ["12051000", "Einwohnerdichte (LRB)", "2004"]
+ 12051000|LRB|q_bev_fl|Einwohnerdichte|2008 | ["12051000", "Einwohnerdichte (LRB)", "2008"]
+(4 rows)
+
+== table_metadata
+                   dct_catalog_publisher                    | dct_type  | count 
+------------------------------------------------------------+-----------+-------
+ Amt für Statistik Berlin-Brandenburg                       | indikator |     2
+ INKAR                                                      | indikator |     9
+ Landesvermessung und Geobasisinformation Brandenburg (LGB) | geodaten  |     3
+(3 rows)
+
+== Laufprotokoll
+     lauf_id      |         quelle         | status | gelesen |  neu  | geaendert | entfernt | unveraendert | uebernommen | zurueckgehalten | dauer_s 
+------------------+------------------------+--------+---------+-------+-----------+----------+--------------+-------------+-----------------+---------
+ 20261108T221635Z | alkis_gebaeude_thb     | ok     |     882 |   882 |         0 |        0 |            0 |           0 |               0 |    3.03
+ 20261108T221635Z | bevoelkerung_gemeinden | ok     |     413 |   413 |         0 |        0 |            0 |           0 |               0 |    2.13
+ 20261108T221635Z | flaeche_gemeinden      | ok     |     413 |   413 |         0 |        0 |            0 |           0 |               0 |    4.66
+ 20261108T221635Z | gemeinden_lgb          | ok     |     413 |   413 |         0 |        0 |            0 |           0 |               0 |    5.53
+ 20261108T221635Z | inkar_gemeinden        | ok     |   62929 | 62929 |         0 |        0 |            0 |           0 |               0 |  127.58
+ 20261108T221635Z | kreise_lgb             | ok     |      18 |    18 |         0 |        0 |            0 |           0 |               0 |    2.29
+ 20261108T221904Z | alkis_gebaeude_thb     | ok     |     882 |     0 |         0 |        0 |          882 |           0 |               0 |    4.21
+ 20261108T221904Z | bevoelkerung_gemeinden | ok     |     413 |     0 |         0 |        0 |          413 |           0 |               0 |    1.84
+ 20261108T221904Z | flaeche_gemeinden      | ok     |     413 |     0 |         0 |        0 |          413 |           0 |               0 |       5
+ 20261108T221904Z | gemeinden_lgb          | ok     |     413 |     0 |         0 |        0 |          413 |           0 |               0 |    5.59
+ 20261108T221904Z | inkar_gemeinden        | ok     |   62929 |     0 |         0 |        0 |        62929 |           0 |               0 |  126.39
+ 20261108T221904Z | kreise_lgb             | ok     |      18 |     0 |         0 |        0 |           18 |           0 |               0 |     2.4
+(12 rows)
+
+== Größen
+ datenbank 
+-----------
+ 73 MB
+(1 row)
+
+                 relname                  | pg_size_pretty 
+------------------------------------------+----------------
+ bestand                                  | 23 MB
+ aenderung                                | 12 MB
+ Kommunale Gebiete Brandenburg (InNoWest) | 10 MB
+ dashboard_data_de                        | 8400 kB
+ Gebäude (ALKIS)                          | 352 kB
+ table_metadata                           | 64 kB
+ quellenstand                             | 64 kB
+ katalog_offen                            | 32 kB
+ quellenlauf                              | 32 kB
+ lauf                                     | 32 kB
+ Kommunale Gebiete Deutschland            | 16 kB
+(11 rows)
+

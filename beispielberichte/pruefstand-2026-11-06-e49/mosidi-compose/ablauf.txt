@@ -1,0 +1,24 @@
+# MOSIDI 26cadbba3d6223c84872987104fc737359bf8bfc 2026-11-02 12:07:41 +0100
+# pipeline 5298b848911a3df46d278f9c3959070ab9e6bb81
+# config b0ec40745f2fd1fd9104e30c28a31317bfe7ab7c
+# sql acacc89bd5167e671bcfb27b511620734f1f55f6
+# tests 7bfdf8ccc64742729ba1ed39855db878e9ca7f64
+# Dockerfile 6788a7afeb4041d3c71b517b184d557c44c99762
+# deploy 63e09d5fa41bf01a2177e4f238d781f422c5c7ff
+# Image geodaten-import-pipeline:e49-beleg sha256:464072e6709fc77a4b521823972dacc1fc81642b7b0926e420fe9bb877e67a7c
+befund: Image postgis/postgis, Status restarting, Neustarts nach 30 s 9, postgres (PostgreSQL) 18.6 (Debian 18.6-1.pgdg13+2)
+PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+PostGIS 3.6.4
+Bestandsschema sql/mosidi/001_bestand.sql rc=0
+View source_granularities aus MOSIDI services/backend/src/db_table_metadata/script.py, Zeilen 262 bis 272, sha256 7eec19e3fbdfef1ec2dec85e01ea2b0fee27c46edaa3af81e4b01af0a133dab1
+View angelegt (als admin) rc=0
+vor einrichten: source_granularities 0 Zeilen
+einrichten rc=0
+lauf1: Rechnerlast davor (1/5/15 min): 3.49 2.43 2.54
+lauf1: Argumente '--alle', Rückgabe 0, Wandzeit 114.393185593 s (einschließlich Containerstart), Rechnerlast danach (1/5/15 min): 1.83 2.10 2.40, 16 Kerne
+nach lauf1: source_granularities 11 Zeilen
+lauf2: Rechnerlast davor (1/5/15 min): 1.83 2.10 2.40
+lauf2: Argumente '--alle', Rückgabe 0, Wandzeit 116.877756044 s (einschließlich Containerstart), Rechnerlast danach (1/5/15 min): 1.55 1.92 2.30, 16 Kerne
+nach lauf2: source_granularities 11 Zeilen
+Schema public (pg_dump --schema-only --no-privileges --no-owner) vorher und nachher gleich, 2527 Zeilen, sha256 2a70acee65b197bbaf1796ba32a136b07ac1fa13ffa561695c46ccc90cbf84aa
+fertig

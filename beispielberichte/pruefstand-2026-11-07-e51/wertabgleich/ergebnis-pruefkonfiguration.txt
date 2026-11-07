@@ -1,0 +1,36 @@
+# Wertabgleich INKAR je Zeile (wertabgleich.py), Quelle inkar_2025.zip (inkar_2025.csv: 6762930064 Bytes entpackt, Packmethode 9), Zieltabelle aus werte-nach-lauf1.csv.gz (sha256 der gzip-Datei 5e7b81847f9ddb73d89285453234cbc43676402a79cfcb56ad3b7f4a447af559)
+# Auswahl: Raumbezug Gemeinden, Kennziffer 8 Ziffern, beginnt mit "12", Kürzel alo,e5_bev,q_bev_fl,q_pendlersaldo,xbev, alle Jahre, Wert und Zeitbezug nicht leer; Indikatorname nach E40; Schlüssel (Kennziffer, Indikator, Zeitbezug)
+# Laufzeit 92 s (davon Lesen und Teilen 92 s), unzip rc=0
+
+## Quelle
+quelle_zeilen: 63426864
+quelle_feldzahl_falsch: 0
+quelle_gemeinden: 33547606
+ausgeschlossen_kennziffer_nicht_achtstellig: 0
+ausgeschlossen_kennziffer_anderes_land: 32261832
+ausgeschlossen_kuerzel_nicht_ausgewaehlt: 1222845
+ausgeschlossen_ohne_wert_oder_zeitbezug: 0
+quelle_soll: 62929
+quelle_doppelter_zielschluessel: 0
+
+## Zieltabelle (dashboard_data_de, source INKAR, Gemeindeebene, nach Lauf 1)
+db_zeilen: 62929
+db_feldzahl_falsch: 0
+db_doppelter_zielschluessel: 0
+
+## Abgleich je Zeile
+verglichen: 62929
+fehlend: 0
+ueberzaehlig: 0
+wert_abweichend: 0
+wert_textgleich: 33170
+wert_zahlgleich_andere_schreibweise: 29759
+davon_nur_nachgestellte_nullen: 29759
+davon_andere_schreibweise: 0
+wert_quelle_nicht_lesbar: 0
+wert_db_leer_oder_nicht_lesbar: 0
+
+## Soll-Zeilen je Land (erste zwei Stellen der Kennziffer)
+12:62929
+
+Ergebnis: fehlend 0, überzählig 0, abweichend 0 (0/0/0); Quellzeilen = verglichen + fehlend: 62929 = 62929

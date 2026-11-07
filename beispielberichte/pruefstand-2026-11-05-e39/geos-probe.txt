@@ -1,0 +1,159 @@
+Probe 05.11.2026: Geometrien, die PostGIS liest, an denen GEOS aber scheitern könnte (E39). Abfragen in probe.sql unten. Meldungen (NOTICE, ERROR) kommen über stderr und stehen nicht immer direkt bei ihrer Abfrage; jede Zeile mit t oder f ist ein Ergebnis von ST_IsValid ohne Fehler.
+
+== postgis/postgis:16
+POSTGIS="3.6.4 94d984b" [EXTENSION] PGSQL="160"
+1 geojson unclosed
+POLYGON((0 0,1 0,1 1))
+f
+2 geojson 3pt closed
+POLYGON((0 0,1 0,0 0))
+NOTICE:  Too few points in geometry component at or near point 0 0
+f
+3 wkt nan
+POLYGON((0 0,1 0,NaN NaN,0 0))
+NOTICE:  Invalid Coordinate at or near point nan nan
+f
+4 wkt inf
+5 gml unclosed
+ERROR:  parse error - invalid geometry
+HINT:  "POLYGON((0 0,1 0,In" <-- parse error at position 19 within geometry
+ERROR:  invalid GML representation
+CONTEXT:  SQL function "st_geomfromgml" statement 1
+ERROR:  invalid GML representation
+CONTEXT:  SQL function "st_geomfromgml" statement 1
+6 geojson nan
+NOTICE:  Too few points in geometry component at or near point 0 0
+f
+7 geojson linestring 1 point
+NOTICE:  Too few points in geometry component at or near point 0 0
+f
+8 geojson polygon 2 points
+f
+9 empty ring geojson
+t
+10 wkt nan point
+NOTICE:  Invalid Coordinate at or near point nan 0
+f
+11 multipolygon geojson unclosed
+f
+
+== postgis/postgis:latest
+POSTGIS="3.6.4 94d984b" [EXTENSION] PGSQL="180"
+1 geojson unclosed
+POLYGON((0 0,1 0,1 1))
+f
+2 geojson 3pt closed
+POLYGON((0 0,1 0,0 0))
+f
+3 wkt nan
+NOTICE:  Too few points in geometry component at or near point 0 0
+POLYGON((0 0,1 0,NaN NaN,0 0))
+f
+4 wkt inf
+NOTICE:  Invalid Coordinate at or near point nan nan
+ERROR:  parse error - invalid geometry
+HINT:  "POLYGON((0 0,1 0,In" <-- parse error at position 19 within geometry
+5 gml unclosed
+ERROR:  invalid GML representation
+CONTEXT:  SQL function "st_geomfromgml" statement 1
+ERROR:  invalid GML representation
+CONTEXT:  SQL function "st_geomfromgml" statement 1
+6 geojson nan
+NOTICE:  Too few points in geometry component at or near point 0 0
+f
+7 geojson linestring 1 point
+NOTICE:  Too few points in geometry component at or near point 0 0
+f
+8 geojson polygon 2 points
+f
+9 empty ring geojson
+t
+10 wkt nan point
+NOTICE:  Invalid Coordinate at or near point nan 0
+f
+11 multipolygon geojson unclosed
+f
+
+== probe.sql
+\set ON_ERROR_STOP 0
+\echo 1 geojson unclosed
+SELECT ST_AsText(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1,0],[1,1]]]}'));
+SELECT ST_IsValid(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1,0],[1,1]]]}'));
+\echo 2 geojson 3pt closed
+SELECT ST_AsText(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1,0],[0,0]]]}'));
+SELECT ST_IsValid(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1,0],[0,0]]]}'));
+\echo 3 wkt nan
+SELECT ST_AsText(ST_GeomFromEWKT('POLYGON((0 0,1 0,NaN NaN,0 0))'));
+SELECT ST_IsValid(ST_GeomFromEWKT('POLYGON((0 0,1 0,NaN NaN,0 0))'));
+\echo 4 wkt inf
+SELECT ST_IsValid(ST_GeomFromEWKT('POLYGON((0 0,1 0,Infinity 1,0 0))'));
+\echo 5 gml unclosed
+SELECT ST_AsText(ST_GeomFromGML('<gml:Polygon xmlns:gml="http://www.opengis.net/gml"><gml:exterior><gml:LinearRing><gml:posList>0 0 1 0 1 1 0 1</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>'));
+SELECT ST_IsValid(ST_GeomFromGML('<gml:Polygon xmlns:gml="http://www.opengis.net/gml"><gml:exterior><gml:LinearRing><gml:posList>0 0 1 0 1 1 0 1</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>'));
+\echo 6 geojson nan
+SELECT ST_IsValid(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1,0],[1,"x"],[0,0]]]}'));
+\echo 7 geojson linestring 1 point
+SELECT ST_IsValid(ST_GeomFromGeoJSON('{"type":"LineString","coordinates":[[0,0]]}'));
+\echo 8 geojson polygon 2 points
+SELECT ST_IsValid(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1,1]]]}'));
+\echo 9 empty ring geojson
+SELECT ST_IsValid(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[]]}'));
+\echo 10 wkt nan point
+SELECT ST_IsValid(ST_GeomFromEWKT('POINT(NaN 0)'));
+\echo 11 multipolygon geojson unclosed
+SELECT ST_IsValid(ST_GeomFromGeoJSON('{"type":"MultiPolygon","coordinates":[[[[0,0],[1,0],[1,1],[0,1]]]]}'));
+== Nachtrag: probe2.sql (Unendlich, Kollektion, ST_MakeValid/ST_Transform danach), je frisches Compose-Projekt
+-- postgis/postgis:16: PostgreSQL 16.15
+a collection
+f
+b huge
+t
+c makevalid unclosed geojson
+POLYGON((0 0,1 0,1 1,0 0))
+d makevalid nan
+LINESTRING(0 0,1 0)
+e transform nan
+POLYGON((10.511256115612937 0,10.511265074609671 0,NaN NaN,10.511256115612937 0))
+f makevalid 3pt
+LINESTRING(0 0,1 0)
+g isvalid geojson huge exponent
+NOTICE:  Invalid Coordinate at or near point inf 0
+f
+h isvalidreason unclosed
+IllegalArgumentException: Points of LinearRing do not form a closed linestring
+-- postgis/postgis:latest: PostgreSQL 18.6
+a collection
+f
+b huge
+t
+c makevalid unclosed geojson
+POLYGON((0 0,1 0,1 1,0 0))
+d makevalid nan
+LINESTRING(0 0,1 0)
+e transform nan
+POLYGON((10.511256115612937 0,10.511265074609671 0,NaN NaN,10.511256115612937 0))
+f makevalid 3pt
+LINESTRING(0 0,1 0)
+g isvalid geojson huge exponent
+NOTICE:  Invalid Coordinate at or near point inf 0
+f
+h isvalidreason unclosed
+IllegalArgumentException: Points of LinearRing do not form a closed linestring
+-- probe2.sql
+\set ON_ERROR_STOP 0
+\echo a collection
+SELECT ST_IsValid(ST_GeomFromGeoJSON('{"type":"GeometryCollection","geometries":[{"type":"Polygon","coordinates":[[[0,0],[1,0],[1,1]]]}]}'));
+\echo b huge
+SELECT ST_IsValid(ST_GeomFromEWKT('POLYGON((0 0,1e308 0,1e308 1e308,0 0))'));
+\echo c makevalid unclosed geojson
+SELECT ST_AsText(ST_MakeValid(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1,0],[1,1]]]}')));
+\echo d makevalid nan
+SELECT ST_AsText(ST_MakeValid(ST_GeomFromEWKT('SRID=4326;POLYGON((0 0,1 0,NaN NaN,0 0))')));
+\echo e transform nan
+SELECT ST_AsText(ST_Transform(ST_GeomFromEWKT('SRID=25833;POLYGON((0 0,1 0,NaN NaN,0 0))'),4326));
+\echo f makevalid 3pt
+SELECT ST_AsText(ST_MakeValid(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1,0],[0,0]]]}')));
+\echo g isvalid geojson huge exponent
+SELECT ST_IsValid(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1e400,0],[1,1],[0,0]]]}'));
+\echo h isvalidreason unclosed
+SELECT ST_IsValidReason(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0,0],[1,0],[1,1]]]}'));

@@ -1,0 +1,24 @@
+Importlauf 20261109T005206Z · 172.67 s
+  alkis_gebaeude_thb       ok     neu     0  geändert     0  gelöscht     0  unverändert   882
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+      Hinweis: 882 Werte in aktualit als Datum ohne Zeitzonenkennung Z übernommen (JJJJ-MM-TTZ, Spalte hat 10 Zeichen; der Tag bleibt, E47)
+  gemeinden_lgb            ok     neu     0  geändert     0  gelöscht     0  unverändert   413
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  kreise_lgb               ok     neu     0  geändert     0  gelöscht     0  unverändert    18
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  bevoelkerung_gemeinden   ok     neu     0  geändert     0  gelöscht     0  unverändert   413
+      Hinweis: Datei laut Seite: SB_A01-04_00_2025j01_BB.xlsx
+      Hinweis: Datei unverändert seit dem letzten Abruf: SB_A01-04_00_2025j01_BB.xlsx
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  flaeche_gemeinden        ok     neu     0  geändert     0  gelöscht     0  unverändert   413
+      Hinweis: Datei laut Seite: SB_A01-04_00_2025j01_BB.xlsx
+      Hinweis: Datei unverändert seit dem letzten Abruf: SB_A01-04_00_2025j01_BB.xlsx
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+      Hinweis: Flächenprüfung: 413 Gebiete, Abweichung im Median 0.005 %, höchstens 0.398 % (Toleranz 0.5 %)
+  inkar_gemeinden          ok     neu     0  geändert     0  gelöscht     0  unverändert 33547606
+      Hinweis: Abgelegte Datei, kein Abruf: inkar_2025.zip
+      Hinweis: robots_freigabe konfiguriert, nicht genutzt (abgelegte Datei)
+      Hinweis: unverändert (Datei byte-gleich, sha256 82f6923a4bdce8f3…): Quelle übersprungen, nicht eingelesen und nicht verglichen, keine Schreibvorgänge in dashboard_data_de, Register und table_metadata; letzter Vollabgleich 2026-11-08T22:44:11Z, 33547606 Zeilen im Register (Vollabgleich beim ersten Lauf der Quelle ab 7 Tagen danach, sofort mit --vollabgleich)
+  Änderungskarte: 20261109T005206Z-karte.html
+cgroup memory.peak (Bytes): 625274880
+cgroup memory.stat am Ende (Bytes): anon 454656 file 467570688 shmem 0 file_mapped 40960 

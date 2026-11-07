@@ -1,0 +1,21 @@
+$ Schritte von ./pruefen.sh einzeln   (06.11.2026 07:42 MEZ (Ende), Abgabestand nach E48 mit Prüfung, gestagt einschließlich dieses Prüfstands und der Dokumentation; keine Änderung an pipeline, sql, tests, config seit E48; Teilbäume aus git write-tree: pipeline c2da29c157cd8b7bcacf6971dc534081dadd2ad7, config 5e2492442dd48e857c21aa7e9b8911c59a2deb5a, sql c7062db0702a61378d36debc27207f3244556ab4, tests c754dd7aa82c3a4bc7d8e2bdca29e55e8d65f1b4, Dockerfile 2953066ba034c0772b8647fcb89c9a710cb5028a)
+Abweichung von ./pruefen.sh: uv und uvx mit UV_OFFLINE=1 (Werkzeuge und Pakete aus dem lokalen Zwischenspeicher, kein Abruf von PyPI, dessen robots.txt /simple/, /packages/ und /pypi/*/json sperrt; E48). pip-audit deshalb gegen den OSV-Dienst (api.osv.dev, keine robots.txt) statt gegen die PyPI-JSON-API; OSV prüft laut pip-audit nur das Vorhandensein der Prüfsummen, nicht ihre Gültigkeit. Alle übrigen Befehle wie in pruefen.sh; rc = Rückgabewert des Schritts.
+== ruff
+All checks passed!
+rc=0
+== bandit
+[tester]	WARNING	nosec encountered (B603), but no failed test on file pipeline/quellen.py:1444
+rc=0
+== pip-audit (Dienst osv)
+WARNING:pip_audit._cli:The --require-hashes flag with --service osv only enforces hash presence NOT hash validity. Use --service pypi to enforce hash validity.
+No known vulnerabilities found
+rc=0
+== pytest
+........................................................................ [ 88%]
+.......................................                                  [100%]
+264 passed, 63 skipped in 11.67s
+rc=0
+== detect-secrets
+rc=0
+== sbom
+rc=0

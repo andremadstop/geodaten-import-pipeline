@@ -1,0 +1,22 @@
+-- Auszug aus der Datenbank nach Lauf 20261102T100542Z (Einzeldatensätze am 05.11.2026 entfernt, siehe unten)
+-- (1) metadaten: ein Datensatz je Quelle, Spalten auf Basis von DCAT-AP
+         quelle         |                                   titel                                   |                                   herausgeber                                   |                                     lizenz                                      | format |  zeitraum  | objekte 
+------------------------+---------------------------------------------------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+--------+------------+---------
+ alkis_gebaeude_thb     | WFS BB ALKIS Vereinfacht                                                  | Landesvermessung und Geobasisinformation Brandenburg (LGB)                      | © GeoBasis-DE/LGB, dl-de/by-2-0                                                 | wfs    |            |     882
+ kreise_bkg             | WFS Verwaltungsgebiete 1:250 000 - Stand 01.01.                           | Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie               | © BKG (2026) dl-de/by-2-0                                                       | wfs    |            |      48
+ gemeinden_lgb          | Verwaltungsgrenzen Brandenburg, Gemeinden                                 | Landesvermessung und Geobasisinformation Brandenburg (LGB)                      | © GeoBasis-DE/LGB, dl-de/by-2-0                                                 | ogcapi |            |     413
+ bevoelkerung_gemeinden | Bevölkerung nach Geschlecht, Stichtag 31.12., Gemeinden (12411-01-01-5-B) | Amt für Statistik Berlin-Brandenburg / Regionaldatenbank Deutschland            | © Statistische Ämter des Bundes und der Länder, Deutschland, 2026, dl-de/by-2-0 | csv    | 2025-12-31 |     413
+ flaeche_gemeinden      | Gebietsfläche in qkm, Stichtag 31.12., Gemeinden (11111-01-01-5-B)        | Amt für Statistik Berlin-Brandenburg / Regionaldatenbank Deutschland            | © Statistische Ämter des Bundes und der Länder, Deutschland, 2026, dl-de/by-2-0 | csv    | 2025-12-31 |     413
+ kreise_merkmale_csv    | kreise_merkmale_csv                                                       | Beispiel (bei INKAR: BBSR, bei Statistik: Amt für Statistik Berlin-Brandenburg) | Beispieldaten                                                                   | csv    |            |       5
+ standorte_csv          | standorte_csv                                                             |                                                                                 | Beispieldaten                                                                   | csv    |            |       3
+(7 rows)
+
+-- [Entfernt am 05.11.2026 (E38): Abschnitte (2) Geometrie, (3) Attribute und Sicht objekte mit den Datensätzen einer Gemeinde. Quelldaten werden nicht mit dem Code veröffentlicht
+--  (Antwort 69 der TH); Zählungen und Kennzahlen bleiben stehen.]
+
+-- Gegenprobe über alle Gemeinden: Fläche aus dem LGB-Polygon gegen die Gebietsfläche der Statistik
+ gemeinden | gleich_auf_hundertstel_km2 | median_abweichung_prozent | groesste_abweichung_prozent 
+-----------+----------------------------+---------------------------+-----------------------------
+       413 |                        389 |                     0.005 |                       0.161
+(1 row)
+

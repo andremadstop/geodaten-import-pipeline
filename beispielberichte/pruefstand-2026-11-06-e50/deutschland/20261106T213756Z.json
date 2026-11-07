@@ -1,0 +1,138 @@
+{
+  "lauf_id": "20261106T213756Z",
+  "start": "2026-11-06T21:37:56.758636+00:00",
+  "probelauf": false,
+  "sprache": "de",
+  "quellen": [
+    {
+      "quelle": "gemeinden_vg250",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 11103,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 11103,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "uebernommen_geaendert": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst meldet ImplementsSorting=FALSE, Seiten ohne feste Reihenfolge"
+      ],
+      "info": {
+        "ziel": "Kommunale Gebiete Deutschland",
+        "kontakt": {
+          "anbieter": "Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie",
+          "email": "dlz@bkg.bund.de"
+        },
+        "titel": "WFS Verwaltungsgebiete 1:250 000 - Stand 01.01.",
+        "beschreibung": "Dieser Downloaddienst stellt die Verwaltungsgebiete 1:250 000 (VG250) mit Stand 01.01. für das Gebiet der Bundesrepublik Deutschland bereit.\nDer Datenbestand der Verwaltungsgebiete (VG) umfasst die Verwaltungseinheiten aller hierarchischen Verwaltungsebenen vom Staat bis zu den Kreisen mit den jeweiligen Verwaltungsgrenzen, statistischen Schlüsselzahlen, den Namen der Verwaltungseinheiten sowie der spezifischen Bezeichnungen der Verwaltungsebenen.\nDie Daten sind ebenenweise in Staat, Länder, Regierungsbezirke, Kreise, Verwaltungsgemeinschaften und Gemeinden gegliedert. Darüber hinaus liegen dem Datensatz amtliche Zusatzbezeichnungen, Namen der nationalen Minderheiten bzw. regionalsprachliche Namen sowie Übersichten der Verwaltungszuordnung und Verwaltungseinheiten bei.\nDie Geometrie der Grenzen ist hinsichtlich Genauigkeit und Auflösung auf das ATKIS®-DLM250 ausgerichtet.\nDer Stand 01.01. schließt die Änderungen in der Verwaltungsgliederung zum 1. Januar ein.",
+        "update_sequence": "127956",
+        "felder": [
+          "ade",
+          "ags",
+          "ags_0",
+          "ars",
+          "ars_0",
+          "beginn",
+          "bem",
+          "bez",
+          "bsg",
+          "dlm_id",
+          "fk_s3",
+          "gen",
+          "geom",
+          "gf",
+          "ibz",
+          "lkz",
+          "nbd",
+          "nuts",
+          "objid",
+          "sdv_ars",
+          "sn_g",
+          "sn_k",
+          "sn_l",
+          "sn_r",
+          "sn_v1",
+          "sn_v2",
+          "wsk"
+        ],
+        "seiten": 12,
+        "objekte": 11103,
+        "metadaten": 1
+      },
+      "letzte_abfrage": "https://sgx.geodatenzentrum.de/wfs_vg250?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=vg250%3Avg250_gem&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25832&COUNT=1000&STARTINDEX=11000&BBOX=200000%2C5200000%2C1000000%2C6150000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25832",
+      "unvollstaendig": false,
+      "laufzeit_s": 49.6
+    },
+    {
+      "quelle": "inkar_gemeinden_de",
+      "typ": "inkar",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 1640420,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 1640420,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "uebernommen_geaendert": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Abgelegte Datei, kein Abruf: inkar_2025.zip",
+        "robots_freigabe konfiguriert, nicht genutzt (abgelegte Datei)",
+        "10946 von 10978 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Deutschland“ (nationalco); ohne: 07232089, 07232096, 09473453, 09475452, 09479453, 09479456, 09479462, 09479463, 09672457, 13071017 …"
+      ],
+      "info": {
+        "ziel": "dashboard_data_de",
+        "datei": {
+          "name": "inkar_2025.zip",
+          "stand": "2025-08-13",
+          "abgelegt": true
+        },
+        "eintrag": {
+          "name": "inkar_2025.csv",
+          "mb": 6763
+        },
+        "felder": [
+          "Bereich",
+          "ID",
+          "Kuerzel",
+          "Indikator",
+          "Raumbezug",
+          "Kennziffer",
+          "Name",
+          "Zeitbezug",
+          "Wert"
+        ],
+        "indikatoren": [
+          "alo",
+          "e5_bev",
+          "q_bev_fl",
+          "q_pendlersaldo",
+          "xbev"
+        ],
+        "gebiete": {
+          "schluessel": 10978,
+          "mit_flaeche": 10946,
+          "tabelle": "Kommunale Gebiete Deutschland"
+        },
+        "objekte": 1640420,
+        "metadaten": 9
+      },
+      "letzte_abfrage": null,
+      "unvollstaendig": false,
+      "laufzeit_s": 256.93
+    }
+  ],
+  "laufzeit_s": 306.56,
+  "fehlgeschlagen": [],
+  "angehalten": [],
+  "unvollstaendig": [],
+  "karte": "20261106T213756Z-karte.html"
+}

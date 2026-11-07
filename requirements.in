@@ -1,0 +1,11 @@
+# Direkte Abhängigkeiten. requirements.txt (exakte Versionen mit Prüfsummen) wird daraus erzeugt:
+#   uv pip compile requirements.in --generate-hashes --python-version 3.12 --python-platform linux -o requirements.txt
+# Untergrenzen schließen bekannte Lücken aus (pip-audit, 30.10.2026: lxml < 6.1.0, requests < 2.33.0).
+psycopg[binary]>=3.2
+lxml>=6.1.0
+PyYAML>=6.0.2
+requests>=2.33.0
+# Statistische Berichte des Amts für Statistik Berlin-Brandenburg als XLSX (E48): openpyxl liest, defusedxml
+# härtet dessen XML-Parser (ohne defusedxml liest openpyxl ohne Schutz gegen Entitäten, E48)
+openpyxl>=3.1.5
+defusedxml>=0.7.1

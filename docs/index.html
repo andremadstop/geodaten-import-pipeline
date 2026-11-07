@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geodaten-Import-Pipeline in drei Filmen</title>
+<meta name="description" content="Echte Läufe der Geodaten-Import-Pipeline vom 07.11.2026, als Karte, im Terminal und als Erklärfilm. Jede Zahl aus den Laufberichten im Repository.">
+<style>
+/* Ruhige Seite neben dem Repository: drei Filme untereinander, je mit Herkunft der Zahlen. Keine externen Schriften, keine Zähler. */
+:root { --bg:#f3f1ea; --paper:#fbfaf6; --ink:#1d2a2e; --muted:#5b6a6e; --line:#d8d4c8; --accent:#2a5d6b; --mark:#b5332b;
+  --f-body:"Fira Sans","Segoe UI",system-ui,sans-serif; --f-mono:"Noto Sans Mono","DejaVu Sans Mono",Menlo,monospace; }
+@media (prefers-color-scheme: dark) { :root { --bg:#111a1c; --paper:#172427; --ink:#e4ecec; --muted:#9fb1b4; --line:#2b3f44; --accent:#86bccb; --mark:#ef8a7e; color-scheme:dark; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:400 16px/1.6 var(--f-body);
+  padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
+main { max-width:1040px; margin:0 auto; padding-block:40px 64px; display:grid; gap:48px; }
+header { display:grid; gap:10px; }
+.eyebrow { font:600 12px/1.2 var(--f-body); letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
+h1 { font:600 clamp(30px,5vw,46px)/1.1 var(--f-body); margin:0; letter-spacing:-.01em; text-wrap:balance; }
+h2 { font:600 24px/1.2 var(--f-body); margin:0; text-wrap:balance; }
+p { margin:0; max-width:68ch; }
+.lead { color:var(--muted); font-size:18px; }
+a { color:var(--accent); }
+section { display:grid; gap:14px; }
+video { width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:6px; background:var(--paper); }
+.meta { display:flex; flex-wrap:wrap; gap:6px 18px; font:400 13px/1.5 var(--f-mono); color:var(--muted); }
+.nr { font:600 13px/1 var(--f-mono); color:var(--mark); }
+ul { margin:0; padding-left:20px; max-width:68ch; display:grid; gap:4px; }
+footer { border-top:1px solid var(--line); padding-top:18px; display:grid; gap:8px; font-size:14px; color:var(--muted); }
+code { font:400 .9em var(--f-mono); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Geodaten-Import-Pipeline · Angebot VA-2026-536 an die TH Brandenburg</div>
+    <h1>Ein echter Lauf, dreimal erzählt</h1>
+    <p class="lead">Am 07.11.2026 lief die Pipeline im unveränderten <code>docker-compose.yml</code> von MOSIDI gegen <code>brandenburg_db</code>: 882 Gebäude, 413 Gemeinden, 18 Kreise, 413 + 413 Werte des Amts für Statistik und 62.929 INKAR-Werte in 145,36 s; der Folgelauf direkt danach fand nichts Neues. Die Filme zeigen diesen Lauf. Jede Zahl darin stammt aus den Laufberichten im Repository, was nur schematisch ist, steht im Bild.</p>
+    <p><a href="https://github.com/andremadstop/geodaten-import-pipeline/tree/angebot-va-2026-536">Zum Repository (Tag <code>angebot-va-2026-536</code>)</a></p>
+  </header>
+
+  <section aria-labelledby="f1">
+    <div class="nr">1 · Karte</div>
+    <h2 id="f1">Der Campus wächst aus den Daten</h2>
+    <video controls preload="metadata" playsinline poster="filme/blender/standbild.png" src="filme/blender/film.mp4"></video>
+    <div class="meta"><span>39 s · ohne Ton</span><span>Blender</span><span><a href="https://github.com/andremadstop/geodaten-import-pipeline/blob/angebot-va-2026-536/docs/filme/blender/README.md">Herkunft der Zahlen und Skript</a></span></div>
+    <p>Die Kreise zeichnen sich, die Gemeinden füllen sich nach Einwohnerdichte, dann wachsen die 882 Gebäude am Campus der TH Brandenburg Kachel für Kachel aus dem Boden. Im Folgelauf tastet die Pipeline alles ab und ändert nichts. Die Dauer jeder Phase folgt der gemessenen Laufzeit der Quelle; Gebäudehöhen ohne Geschosszahl sind schematisch.</p>
+  </section>
+
+  <section aria-labelledby="f2">
+    <div class="nr">2 · Terminal</div>
+    <h2 id="f2">Der Lauf im Terminal</h2>
+    <video controls preload="metadata" playsinline poster="filme/terminal/standbild.png" src="filme/terminal/film.mp4"></video>
+    <div class="meta"><span>39 s · ohne Ton</span><span>pycairo, ffmpeg</span><span><a href="https://github.com/andremadstop/geodaten-import-pipeline/blob/angebot-va-2026-536/docs/filme/terminal/README.md">Herkunft der Zahlen und Skript</a></span></div>
+    <p>Befehl, Containerzeilen und Bericht so, wie sie in den Konsolenmitschnitten stehen: Erstlauf, Folgelauf, dann der Fehlerfall aus dem Prototyp vom 30.10.2026, in dem eine absichtlich unerreichbare Quelle scheitert, nur sie zurückgerollt wird und ein Meldungsentwurf an den Anbieter entsteht.</p>
+  </section>
+
+  <section aria-labelledby="f3">
+    <div class="nr">3 · Erklärfilm</div>
+    <h2 id="f3">Was bei jedem Lauf passiert</h2>
+    <video controls preload="metadata" playsinline poster="filme/manim/standbild.png" src="filme/manim/film.mp4"></video>
+    <div class="meta"><span>74 s · ohne Ton</span><span>Manim</span><span><a href="https://github.com/andremadstop/geodaten-import-pipeline/blob/angebot-va-2026-536/docs/filme/manim/README.md">Herkunft der Zahlen und Skript</a></span></div>
+    <p>Quellen und Ziel, die vier Schritte je Quelle, was den Bestand schützt, die Belege aus echten Läufen (413 / 413, 33.547.606 INKAR-Werte mit 0 / 0 / 0 im Wertabgleich, 70 von 70 Datenbanktests auf PostgreSQL 16.15 und 18.6) und das Protokoll in <code>pipeline_meta</code>.</p>
+  </section>
+
+  <footer>
+    <p>Geobasisdaten © GeoBasis-DE/LGB, dl-de/by-2-0 · Statistik: Amt für Statistik Berlin-Brandenburg, CC BY 3.0 DE · INKAR: © BBSR Bonn 2025, dl-de/by-2-0 · Kreise im Fehlerfall: © BKG (2026), dl-de/by-2-0</p>
+    <p>Stiebitz Souverain Systems UG (haftungsbeschränkt), Potsdam · André Stiebitz · Code unter Apache-2.0 · <a href="https://souverain-systems.de/impressum/">Impressum</a> · <a href="https://souverain-systems.de/datenschutz/">Datenschutz</a></p>
+    <p>Diese Seite lädt nichts von fremden Servern; die Filme liegen im Repository.</p>
+  </footer>
+</main>
+</body>
+</html>

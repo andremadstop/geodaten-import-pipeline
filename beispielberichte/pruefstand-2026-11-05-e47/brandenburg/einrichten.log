@@ -1,0 +1,50 @@
+ Container gip-beleg-quellen-1582738-db-1 Recreate 
+ Container gip-beleg-quellen-1582738-db-1 Recreated 
+ Container gip-beleg-quellen-1582738-db-1 Starting 
+ Container gip-beleg-quellen-1582738-db-1 Started 
+ Container gip-beleg-quellen-1582738-db-1 Waiting 
+ Container gip-beleg-quellen-1582738-db-1 Healthy 
+ Container gip-beleg-quellen-1582738-einrichten-run-a64c3593c75e Creating 
+ Container gip-beleg-quellen-1582738-einrichten-run-a64c3593c75e Created 
+2026-11-05 22:51:42,321 WARNING Hinweis: public.source_granularities gibt es in dieser Datenbank nicht; die Pipeline aktualisiert den Katalog nach einem Lauf nur, wenn es sie gibt
+GRANT CONNECT, TEMPORARY ON DATABASE "geodaten" TO "pipeline_import"
+GRANT CONNECT ON DATABASE "geodaten" TO "mosidi_lesen"
+GRANT USAGE ON SCHEMA public, pipeline_meta TO "pipeline_import", "mosidi_lesen"
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA pipeline_meta TO "pipeline_import"
+GRANT SELECT ON ALL TABLES IN SCHEMA pipeline_meta TO "mosidi_lesen"
+GRANT SELECT ON "public"."Gebäude (ALKIS)" TO "pipeline_import"
+GRANT INSERT ("oid", "aktualit", "gebnutzbez", "funktion", "name", "anzahlgs", "lagebeztxt", "geom") ON "public"."Gebäude (ALKIS)" TO "pipeline_import"
+GRANT UPDATE ("aktualit", "gebnutzbez", "funktion", "name", "anzahlgs", "lagebeztxt", "geom") ON "public"."Gebäude (ALKIS)" TO "pipeline_import"
+GRANT USAGE ON SEQUENCE "Gebäude (ALKIS)_id_seq" TO "pipeline_import"
+GRANT SELECT ON "public"."Gebäude (ALKIS)" TO "mosidi_lesen"
+GRANT SELECT ON "public"."Kommunale Gebiete Brandenburg (InNoWest)" TO "pipeline_import"
+GRANT INSERT ("id", "nationalco", "name", "geom") ON "public"."Kommunale Gebiete Brandenburg (InNoWest)" TO "pipeline_import"
+GRANT UPDATE ("name", "geom") ON "public"."Kommunale Gebiete Brandenburg (InNoWest)" TO "pipeline_import"
+GRANT SELECT ON "public"."Kommunale Gebiete Brandenburg (InNoWest)" TO "mosidi_lesen"
+GRANT SELECT ON "public"."Landkreis" TO "pipeline_import"
+GRANT INSERT ("id", "nationalco", "name", "geom") ON "public"."Landkreis" TO "pipeline_import"
+GRANT UPDATE ("name", "geom") ON "public"."Landkreis" TO "pipeline_import"
+GRANT SELECT ON "public"."Landkreis" TO "mosidi_lesen"
+GRANT SELECT, DELETE ON "public"."dashboard_data_de" TO "pipeline_import"
+GRANT INSERT ("indikator", "kennziffer", "wert", "zeitbezug", "source", "granularity", "data_type") ON "public"."dashboard_data_de" TO "pipeline_import"
+GRANT UPDATE ("wert", "data_type") ON "public"."dashboard_data_de" TO "pipeline_import"
+GRANT USAGE ON SEQUENCE dashboard_data_de_id_seq TO "pipeline_import"
+GRANT SELECT ON "public"."dashboard_data_de" TO "mosidi_lesen"
+GRANT SELECT, DELETE ON "public"."dashboard_data_de" TO "pipeline_import"
+GRANT INSERT ("indikator", "kennziffer", "wert", "zeitbezug", "source", "granularity", "data_type") ON "public"."dashboard_data_de" TO "pipeline_import"
+GRANT UPDATE ("wert", "data_type") ON "public"."dashboard_data_de" TO "pipeline_import"
+GRANT USAGE ON SEQUENCE dashboard_data_de_id_seq TO "pipeline_import"
+GRANT SELECT ON "public"."dashboard_data_de" TO "mosidi_lesen"
+GRANT SELECT, DELETE ON "public"."dashboard_data_de" TO "pipeline_import"
+GRANT INSERT ("indikator", "kennziffer", "wert", "zeitbezug", "source", "granularity", "data_type") ON "public"."dashboard_data_de" TO "pipeline_import"
+GRANT UPDATE ("wert", "data_type") ON "public"."dashboard_data_de" TO "pipeline_import"
+GRANT USAGE ON SEQUENCE dashboard_data_de_id_seq TO "pipeline_import"
+GRANT SELECT ON "public"."dashboard_data_de" TO "mosidi_lesen"
+GRANT SELECT ON "public"."Kommunale Gebiete Brandenburg (InNoWest)" TO "pipeline_import", "mosidi_lesen"
+GRANT SELECT ON "public"."table_metadata" TO "pipeline_import", "mosidi_lesen"
+GRANT INSERT ("table_name", "dct_title", "dct_description", "dct_catalog_title", "dct_catalog_description", "dct_catalog_publisher", "dct_accessurl", "dct_license", "dct_identifier", "dct_language", "dct_type", "geometry_type", "dcatde_politicalgeocodingleveluri", "dct_accrualperiodicity", "dct_modified", "dct_issued", "imported", "dct_bbox", "dct_centroid", "dct_temporal_startdata", "dct_temporal_enddate"), UPDATE ("table_name", "dct_title", "dct_description", "dct_catalog_title", "dct_catalog_description", "dct_catalog_publisher", "dct_accessurl", "dct_license", "dct_identifier", "dct_language", "dct_type", "geometry_type", "dcatde_politicalgeocodingleveluri", "dct_accrualperiodicity", "dct_modified", "dct_issued", "imported", "dct_bbox", "dct_centroid", "dct_temporal_startdata", "dct_temporal_enddate") ON "public"."table_metadata" TO "pipeline_import"
+GRANT EXECUTE ON FUNCTION pipeline_meta.katalog_aktualisieren() TO "pipeline_import"
+-- Hinweis: public.source_granularities gibt es in dieser Datenbank nicht; die Pipeline aktualisiert den Katalog nach einem Lauf nur, wenn es sie gibt
+REVOKE ALL ON DATABASE "geodaten" FROM PUBLIC
+REVOKE CREATE ON SCHEMA public FROM PUBLIC
+pipeline_meta und Rollen pipeline_import, mosidi_lesen eingerichtet.

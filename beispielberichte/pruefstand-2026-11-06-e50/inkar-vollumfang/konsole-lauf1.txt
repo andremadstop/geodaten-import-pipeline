@@ -1,0 +1,7 @@
+Importlauf 20261106T215119Z · 8792.74 s
+  inkar_gemeinden_vollumfang ok     neu 33547606  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Abgelegte Datei, kein Abruf: inkar_2025.zip
+  Hinweis: public.source_granularities gibt es in dieser Datenbank nicht, Katalog nicht aktualisiert
+  Änderungskarte: 20261106T215119Z-karte.html
+cgroup memory.peak (Bytes): 198602752
+cgroup memory.stat am Ende (Bytes): anon 393216 file 19615744 shmem 196608 file_mapped 2166784 

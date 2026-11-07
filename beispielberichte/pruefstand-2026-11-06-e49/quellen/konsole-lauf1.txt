@@ -1,0 +1,24 @@
+Importlauf 20261106T105848Z · 112.94 s
+  alkis_gebaeude_thb       ok     neu   882  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+      Hinweis: 882 Werte in aktualit als Datum ohne Zeitzonenkennung Z übernommen (JJJJ-MM-TTZ, Spalte hat 10 Zeichen; der Tag bleibt, E47)
+  gemeinden_lgb            ok     neu   413  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  kreise_lgb               ok     neu    18  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  bevoelkerung_gemeinden   ok     neu   413  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Datei laut Seite: SB_A01-04_00_2025j01_BB.xlsx
+      Hinweis: Datei neu geladen: SB_A01-04_00_2025j01_BB.xlsx (0 MB)
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  flaeche_gemeinden        ok     neu   413  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Datei laut Seite: SB_A01-04_00_2025j01_BB.xlsx
+      Hinweis: Datei unverändert seit dem letzten Abruf: SB_A01-04_00_2025j01_BB.xlsx
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+      Hinweis: Flächenprüfung: 413 Gebiete, Abweichung im Median 0.005 %, höchstens 0.398 % (Toleranz 0.5 %)
+  inkar_gemeinden          ok     neu 62929  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Abgelegte Datei, kein Abruf: inkar_2025.zip
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  Hinweis: public.source_granularities gibt es in dieser Datenbank nicht, Katalog nicht aktualisiert
+  Änderungskarte: 20261106T105848Z-karte.html
+cgroup memory.peak (Bytes): 613957632
+cgroup memory.stat am Ende (Bytes): anon 450560 file 436523008 shmem 8982528 file_mapped 0 

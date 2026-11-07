@@ -1,0 +1,15 @@
+== ruff
+All checks passed!
+== bandit
+[tester]	WARNING	nosec encountered (B603), but no failed test on file pipeline/quellen.py:758
+== pip-audit
+No known vulnerabilities found
+== pytest
+..........sssssssssssssssssssssssssssssssssss........................... [ 42%]
+........................................................................ [ 85%]
+........................                                                 [100%]
+133 passed, 35 skipped in 4.07s
+== detect-secrets
+== sbom
+Alles in Ordnung.
+rc=0

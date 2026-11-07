@@ -1,0 +1,5 @@
+Importlauf 20261030T054032Z · 2.89 s
+  alkis_gebaeude_thb       ok     neu   882  geändert     0  gelöscht     0  unverändert     0
+      Warnung: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  standorte_csv            ok     neu     3  geändert     0  gelöscht     0  unverändert     0
+  kaputte_quelle           FEHLER ConnectionError: HTTPSConnectionPool(host='wfs.example.invalid', port=443): Max retries exceeded with url: /ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0 (Caused by NameResolutionError("HTTPSConnection(host='wfs.example.invalid', port=443): Failed to resolve 'wfs.example.invalid' ([Errno -2] Name or service not known)"))

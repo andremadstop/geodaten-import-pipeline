@@ -1,0 +1,21 @@
+DRAFT, not sent automatically. Check before sending and add the sender.
+
+To: unknown (capabilities not reachable), add `kontakt` to the configuration
+Subject: Query about the service x:y (20261102T100034Z)
+
+Dear Sir or Madam,
+
+while retrieving your service automatically, we noticed the following:
+
+  Finding:  ConnectionError: HTTPSConnectionPool(host='wfs.example.invalid', port=443): Max retries exceeded with url: /ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0 (Caused by NameResolutionError("HTTPSConnection(host='wfs.example.invalid', port=443): Failed to resolve 'wfs.example.invalid' ([Errno -2] Name or service not known)"))
+  Time:     2026-11-02, 10:00 UTC
+  Request:  https://wfs.example.invalid/ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0
+
+The request can be reproduced with the URL above. Could you tell us whether this is a
+disruption or an intended change?
+
+Kind regards
+
+[Name, institution]
+
+(Source in the configuration: kaputte_quelle; provider according to the service: unknown)
