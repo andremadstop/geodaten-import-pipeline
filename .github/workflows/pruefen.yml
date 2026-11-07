@@ -1,0 +1,86 @@
+# Dieselben Prüfungen wie lokal (pruefen.sh), bei jedem Push und Pull Request und wöchentlich,
+# damit neu bekannt gewordene Lücken in den Abhängigkeiten auch ohne Codeänderung auffallen.
+# Actions sind auf Commit-Hashes festgeschrieben, nicht auf verschiebbare Tags.
+name: pruefen
+# Montags 05:17 UTC zusätzlich ohne Codeänderung (neue Lücken, neues postgis/postgis:latest)
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 5 * * 1"
+# Das Token des Workflows darf nur lesen: kein Schreiben ins Repository, keine Releases
+permissions:
+  contents: read
+jobs:
+  # Statische Prüfungen und Tests ohne Datenbank (pruefen.sh), danach Bau des Images
+  pruefen:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          # Volle Historie, damit `gitleaks git` (wenn auf dem Runner vorhanden) alle Commits prüfen kann
+          fetch-depth: 0
+          # Das Token nicht in .git/config ablegen; kein späterer Schritt braucht es
+          persist-credentials: false
+      # uv/uvx für pruefen.sh
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+      - name: Prüfungen
+        run: ./pruefen.sh
+      # Belegt, dass das Dockerfile mit den festgeschriebenen Prüfsummen baut (nur bauen, kein Push)
+      - name: Image bauen
+        run: docker build -t geodaten-import-pipeline .
+
+  # Abgleich, Bestandsregister, Löschsperre, Rückgang-Schutz, Rollback, Rollenrechte und
+  # unverändertes Schema gegen eine echte PostgreSQL/PostGIS-Datenbank mit den Bestandstabellen von
+  # MOSIDI (docker-compose.yml, sql/mosidi/, tests/test_datenbank.py). Zweimal: mit der
+  # festgeschriebenen Version und mit postgis/postgis:latest, weil das MOSIDI-Compose das Image ohne
+  # Versionsangabe nutzt und die Pipeline mit der jeweils aktuellen Version laufen soll (Antwort 53).
+  datenbank:
+    runs-on: ubuntu-24.04
+    strategy:
+      # Scheitert eine Version, läuft die andere trotzdem zu Ende (Befund je Version sichtbar)
+      fail-fast: false
+      matrix:
+        include:
+          - postgis: festgeschrieben
+            # leer: Image aus docker-compose.yml (Digest)
+            image: ""
+            pgdata: /var/lib/postgresql/data
+          - postgis: latest
+            image: postgis/postgis:latest
+            # ab PostgreSQL 18 liegt das Datenverzeichnis unter /var/lib/postgresql/<Version>
+            pgdata: /var/lib/postgresql
+    name: datenbank (PostGIS ${{ matrix.postgis }})
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+      # Eine .env nur für diesen Lauf, nur für den Eigentümer lesbar (umask 077); die Werte gibt es
+      # nirgends sonst, und GitHub schwärzt sie in allen Ausgaben (add-mask)
+      - name: Zufällige Passwörter nur für diesen Lauf
+        run: |
+          umask 077
+          : > .env
+          for v in POSTGRES_PASSWORD IMPORT_PASSWORD LESE_PASSWORD; do
+            p=$(openssl rand -hex 24)
+            echo "::add-mask::$p"   # Ausgabe des Schritts: GitHub schwärzt den Wert im Log
+            echo "$v=$p" >> .env
+          done
+      # Wartet auf den Healthcheck (--wait) und schreibt die geprüften Versionen von PostgreSQL und
+      # PostGIS ins Protokoll
+      - name: Datenbank starten
+        env:
+          POSTGIS_IMAGE: ${{ matrix.image }}
+          PGDATA_MOUNT: ${{ matrix.pgdata }}
+        run: |
+          [ -n "$POSTGIS_IMAGE" ] || unset POSTGIS_IMAGE
+          PG_PORT=55432 docker compose up -d --wait db
+          docker compose exec -T db psql -U admin -d geodaten -tAc "SELECT version(), postgis_full_version()"
+      # Passwörter aus der .env in die Umgebung (set -a), dann nur tests/test_datenbank.py
+      - name: Tests gegen die Datenbank
+        run: |
+          set -a; . ./.env; set +a
+          DATENBANK_TEST=1 PGHOST=127.0.0.1 PGPORT=55432 PGDATABASE=geodaten \
+            uv run -q --no-project --with-requirements requirements.txt --with pytest==9.2.0 \
+            python -m pytest -q tests/test_datenbank.py

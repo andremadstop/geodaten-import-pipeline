@@ -1,0 +1,17 @@
+Datenbanktests wie CI-Job datenbank (DATENBANK_TEST=1 pytest tests/test_datenbank.py), je Version ein frisches Wegwerf-Compose-Projekt aus der docker-compose.yml dieses Stands mit zufälligen Passwörtern, nacheinander. Arbeitsstand: Abgabestand nach E48 mit Prüfung, gestagt; Teilbäume aus git write-tree unmittelbar vor dem Start (Kopfzeile je Lauf): pipeline c2da29c157cd8b7bcacf6971dc534081dadd2ad7, config 5e2492442dd48e857c21aa7e9b8911c59a2deb5a, sql c7062db0702a61378d36debc27207f3244556ab4, tests c754dd7aa82c3a4bc7d8e2bdca29e55e8d65f1b4, Dockerfile 2953066ba034c0772b8647fcb89c9a710cb5028a
+
+== PostgreSQL 16: postgis/postgis:16-3.6 (Digest wie in docker-compose.yml festgeschrieben), Datenverzeichnis /var/lib/postgresql/data
+# Start 06.11.2026 07:32 MEZ; Teilbäume (git write-tree, Index): pipeline c2da29c157cd8b7bcacf6971dc534081dadd2ad7 config 5e2492442dd48e857c21aa7e9b8911c59a2deb5a sql c7062db0702a61378d36debc27207f3244556ab4 tests c754dd7aa82c3a4bc7d8e2bdca29e55e8d65f1b4 Dockerfile 2953066ba034c0772b8647fcb89c9a710cb5028a
+PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu
+...............................................................          [100%]
+63 passed in 222.05s (0:03:42)
+aufgeraeumt gip-e42-pg16-664a6b
+# Ende 06.11.2026 07:36 MEZ rc=0
+
+== PostgreSQL 18: postgis/postgis:latest (POSTGIS_IMAGE), Datenverzeichnis /var/lib/postgresql (PGDATA_MOUNT)
+# Start 06.11.2026 07:36 MEZ; Teilbäume (git write-tree, Index): pipeline c2da29c157cd8b7bcacf6971dc534081dadd2ad7 config 5e2492442dd48e857c21aa7e9b8911c59a2deb5a sql c7062db0702a61378d36debc27207f3244556ab4 tests c754dd7aa82c3a4bc7d8e2bdca29e55e8d65f1b4 Dockerfile 2953066ba034c0772b8647fcb89c9a710cb5028a
+PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu
+...............................................................          [100%]
+63 passed in 205.72s (0:03:25)
+aufgeraeumt gip-e42-pg18-b706bb
+# Ende 06.11.2026 07:40 MEZ rc=0

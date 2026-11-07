@@ -1,0 +1,14 @@
+# Ablauf des Belegs (realrun.sh, Wegwerf-Compose-Projekt, Image aus dem Arbeitsstand gebaut)
+# Teilbäume des Arbeitsstands, aus dem das Image gebaut wurde (git rev-parse <Baum>:<Ordner>):
+#   pipeline 823bc1ae4d60087cbcb7bddbdfcd1910496f25b4
+#   config 1987b73793d04804acc7b6f4a0e2b89fbe043889
+#   sql afedd6fb63416087121312df9793f615d1151850
+#   tests 8ff11e8c1978dc2daac54e5751b3cb725979e4c9
+#   Dockerfile 2953066ba034c0772b8647fcb89c9a710cb5028a
+# (Zeile „Git-Index-Baum“ des Skripts entfernt: sie nannte den Index vor dem Stagen, nicht den gebauten Stand)
+PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+POSTGIS="3.6.4 94d984b" [EXTENSION] PGSQL="160" GEOS="3.14.1-CAPI-1.20.5" (compiled against GEOS 3.13.1) PROJ="9.8.1 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/var/lib/postgresql/.local/share/proj DATABASE_PATH=/usr/share/proj/proj.db" (compiled against PROJ 9.6.0) LIBXML="2.9.14" LIBJSON="0.18" LIBPROTOBUF="1.5.1" WAGYU="0.5.0 (Internal)"
+einrichten rc=0
+lauf1: Argumente '--alle', Rückgabe 0, Wandzeit 299.986337174 s (einschließlich Containerstart)
+lauf2: Argumente '--alle', Rückgabe 0, Wandzeit 254.037239572 s (einschließlich Containerstart)
+fertig

@@ -1,0 +1,100 @@
+{
+  "lauf_id": "20261105T225539Z",
+  "start": "2026-11-05T22:55:39.507250+00:00",
+  "probelauf": false,
+  "sprache": "de",
+  "quellen": [
+    {
+      "quelle": "alkis_gebaeude_thb",
+      "typ": "wfs",
+      "status": "nicht_faellig",
+      "rhythmus": "woechentlich",
+      "naechster_termin": "2026-11-12T21:53:44+00:00"
+    },
+    {
+      "quelle": "gemeinden_lgb",
+      "typ": "wfs",
+      "status": "nicht_faellig",
+      "rhythmus": "monatlich",
+      "naechster_termin": "2026-12-05T21:53:44+00:00"
+    },
+    {
+      "quelle": "kreise_lgb",
+      "typ": "wfs",
+      "status": "nicht_faellig",
+      "rhythmus": "monatlich",
+      "naechster_termin": "2026-12-05T21:53:44+00:00"
+    },
+    {
+      "quelle": "bevoelkerung_gemeinden",
+      "typ": "csv",
+      "status": "nicht_faellig",
+      "rhythmus": "monatlich",
+      "naechster_termin": "2026-12-05T21:53:44+00:00"
+    },
+    {
+      "quelle": "flaeche_gemeinden",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 420,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 413,
+        "geloescht": 0,
+        "uebernommen": 0,
+        "uebernommen_geaendert": 0,
+        "zurueckgehalten": 0
+      },
+      "warnungen": [
+        "1 Datenzeilen ohne gültigen Gebietsschlüssel übergangen (Zeilen 7); Abruf unvollständig, nichts wird gelöscht",
+        "7 Zeilen ohne jeden Wert ausgelassen (leere_auslassen), ihr bisheriger Stand bleibt: 12060096|flaeche_km2, 12067310|flaeche_km2, 12071185|flaeche_km2, 12073032|flaeche_km2, 12073386|flaeche_km2, 12073505|flaeche_km2, 12073603|flaeche_km2"
+      ],
+      "hinweise": [
+        "413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)",
+        "Flächenprüfung: 413 Gebiete, Abweichung im Median 0.005 %, höchstens 0.161 % (Toleranz 0.5 %)"
+      ],
+      "info": {
+        "ziel": "dashboard_data_de",
+        "zeitbezug": "2025-12-31",
+        "uebergangene_zeilen": 13197,
+        "felder": [
+          "ags",
+          "flaeche_km2",
+          "name"
+        ],
+        "gebiete": {
+          "schluessel": 413,
+          "mit_flaeche": 413,
+          "tabelle": "Kommunale Gebiete Brandenburg (InNoWest)"
+        },
+        "flaechenpruefung": {
+          "geprueft": 413,
+          "toleranz_prozent": 0.5,
+          "median_prozent": 0.0045,
+          "max_prozent": 0.1611,
+          "ueber_toleranz": 0
+        },
+        "objekte": 413,
+        "metadaten": 1
+      },
+      "letzte_abfrage": "https://www.regionalstatistik.de/genesisws/downloader/00/tables/11111-01-01-5-B_00.csv",
+      "unvollstaendig": true,
+      "laufzeit_s": 4.8
+    },
+    {
+      "quelle": "inkar_gemeinden",
+      "typ": "inkar",
+      "status": "nicht_faellig",
+      "rhythmus": "monatlich",
+      "naechster_termin": "2026-12-05T21:53:44+00:00"
+    }
+  ],
+  "laufzeit_s": 4.83,
+  "fehlgeschlagen": [],
+  "angehalten": [],
+  "unvollstaendig": [
+    "flaeche_gemeinden"
+  ],
+  "karte": "20261105T225539Z-karte.html"
+}

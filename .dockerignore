@@ -1,0 +1,17 @@
+# Was nicht in den Build-Kontext gehört (Docker liest ihn vor jedem Build ganz ein). Das Dockerfile
+# kopiert nur requirements.txt, pipeline/, sql/pipeline_meta.sql, config/ und beispiele/; diese
+# Liste hält Zugangsdaten und lokale Reste davon fern, auch innerhalb der kopierten Ordner
+# (etwa .pyc-Dateien mit absoluten Pfaden des Rechners, auf dem gebaut wird).
+.env
+.env.*
+!.env.beispiel
+.git
+.github
+.venv
+.ruff_cache
+.pytest_cache
+**/__pycache__
+**/*.pyc
+berichte/
+cache/
+sbom.cdx.json

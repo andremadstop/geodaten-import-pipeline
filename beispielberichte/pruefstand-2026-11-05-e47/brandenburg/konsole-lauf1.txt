@@ -1,0 +1,24 @@
+Importlauf 20261105T225145Z · 115.32 s
+  alkis_gebaeude_thb       ok     neu   882  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+      Hinweis: 882 Werte in aktualit als Datum ohne Zeitzonenkennung Z übernommen (JJJJ-MM-TTZ, Spalte hat 10 Zeichen; der Tag bleibt, E47)
+  gemeinden_lgb            ok     neu   413  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  kreise_lgb               ok     neu    18  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  bevoelkerung_gemeinden   ok     neu  1239  geändert     0  gelöscht     0  unverändert     0
+      Warnung: 21 Zeilen ohne jeden Wert ausgelassen (leere_auslassen), ihr bisheriger Stand bleibt: 12060096|bevoelkerung, 12060096|bevoelkerung_m, 12060096|bevoelkerung_w, 12067310|bevoelkerung, 12067310|bevoelkerung_m, 12067310|bevoelkerung_w, 12071185|bevoelkerung, 12071185|bevoelkerung_m, 12071185|bevoelkerung_w, 12073032|bevoelkerung …
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  flaeche_gemeinden        UNVOLLSTÄNDIG neu   413  geändert     0  gelöscht     0  unverändert     0  (Lücke im Abruf, wird wiederholt)
+      Warnung: 1 Datenzeilen ohne gültigen Gebietsschlüssel übergangen (Zeilen 7); Abruf unvollständig, nichts wird gelöscht
+      Warnung: 7 Zeilen ohne jeden Wert ausgelassen (leere_auslassen), ihr bisheriger Stand bleibt: 12060096|flaeche_km2, 12067310|flaeche_km2, 12071185|flaeche_km2, 12073032|flaeche_km2, 12073386|flaeche_km2, 12073505|flaeche_km2, 12073603|flaeche_km2
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+      Hinweis: Flächenprüfung: 413 Gebiete, Abweichung im Median 0.005 %, höchstens 0.161 % (Toleranz 0.5 %)
+  inkar_gemeinden          ok     neu 62929  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Neueste Datei: inkar_2025.zip
+      Hinweis: Datei unverändert seit dem letzten Abruf: inkar_2025.zip
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  Hinweis: public.source_granularities gibt es in dieser Datenbank nicht, Katalog nicht aktualisiert
+  Änderungskarte: 20261105T225145Z-karte.html
+cgroup memory.peak (Bytes): 628453376
+cgroup memory.stat am Ende (Bytes): anon 442368 file 436105216 shmem 8986624 file_mapped 0 

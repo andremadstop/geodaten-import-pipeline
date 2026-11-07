@@ -1,0 +1,41 @@
+# Ein Lauf der Pipeline im Compose-Setup von MOSIDI (gegen brandenburg_db), für den Betrieb bei der TH.
+# Die Unit in deploy/systemd/geodaten-import.service ist für die eigene Testumgebung (Dienst db).
+# Einrichten:
+#   sudo cp deploy/mosidi/geodaten-import-mosidi.service /etc/systemd/system/geodaten-import.service
+#   sudo cp deploy/systemd/geodaten-import.timer deploy/systemd/geodaten-import-fehler.service /etc/systemd/system/
+#   Pfade unten (WorkingDirectory, PIPELINE_DIR) an die Ablage anpassen, dann
+#   sudo systemctl daemon-reload && sudo systemctl enable --now geodaten-import.timer
+# Einmal vorher, und nach jeder Änderung an den Zielen, von Hand im MOSIDI-Verzeichnis:
+#   docker compose -f docker-compose.yml -f "$PIPELINE_DIR/deploy/mosidi/docker-compose.pipeline.yml" run --rm pipeline-einrichten
+[Unit]
+Description=Geodaten-Import-Pipeline im MOSIDI-Compose: ein Lauf über alle fälligen Quellen
+Documentation=https://github.com/MOSIDI-ORG
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+# Exit-Code ungleich 0 (1: Quelle fehlgeschlagen, angehalten oder unvollständig, Katalog nicht
+# aktualisiert, oder ein anderer Lauf hält noch die Sperre; 2: technischer Abbruch, auch nach SIGTERM)
+# löst die Meldung aus
+OnFailure=geodaten-import-fehler.service
+
+[Service]
+# Läuft einmal durch und endet; der Timer startet ihn erneut
+Type=oneshot
+# Verzeichnis des MOSIDI-Repositorys (dort liegen docker-compose.yml und .env)
+WorkingDirectory=/opt/MOSIDI
+Environment=PIPELINE_DIR=/opt/geodaten-import-pipeline
+# Datenbank starten, falls sie nicht läuft; die Pipeline wartet selbst bis zu 30 s auf sie
+ExecStartPre=/usr/bin/docker compose -f docker-compose.yml -f ${PIPELINE_DIR}/deploy/mosidi/docker-compose.pipeline.yml up -d brandenburg_db
+# Ein Lauf im Wegwerf-Container (--rm); der Exit-Code der Pipeline wird zum Ergebnis der Unit
+ExecStart=/usr/bin/docker compose -f docker-compose.yml -f ${PIPELINE_DIR}/deploy/mosidi/docker-compose.pipeline.yml run --rm pipeline
+# Obergrenze für einen Lauf; danach beendet systemd ihn mit SIGTERM. Dass `docker compose run` das
+# Signal an den Container weiterreicht und die Pipeline dann einen Abbruchbericht schreibt, ist
+# vorgesehen, aber mit einem echten Timeout noch nicht nachgestellt (docs/betrieb.md).
+# 7 h (E51, Befund W2; bis E51 2 h): über der Summe der Zeitbudgets der Lieferkonfiguration config/quellen.yaml
+# (fünf Quellen mit dem Standard von 30 min, INKAR im Vollumfang 240 min, zusammen 390 min) plus 30 min für
+# Verbindung, Katalog und Berichte. So greift immer zuerst das Zeitbudget der Quelle (ihre Transaktion wird
+# zurückgerollt, die nächste läuft), nicht der Abbruch des ganzen Laufs. Gemessen sind Läufe mit allen
+# Quellen in 129,7 und 159,7 min (INKAR-Vollumfang 129,4 und 158,2 min, die übrigen fünf Quellen zusammen 17,5
+# bzw. 89,7 s; Prüfstand 07.11.2026 am Abgabestand nach E51, parallel genutzter Rechner). Mehr Quellen oder
+# größere Budgets in der Konfiguration: diesen Wert mitziehen (tests/test_betrieb.py prüft die Summe)
+TimeoutStartSec=7h

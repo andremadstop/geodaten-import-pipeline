@@ -1,0 +1,21 @@
+ENTWURF, wird nicht automatisch versendet. Vor dem Senden prüfen und Absender ergänzen.
+
+An: dlz@bkg.bund.de
+Betreff: Rückfrage zum Dienst vg250:vg250_krs (20261030T074631Z)
+
+Sehr geehrte Damen und Herren,
+
+beim automatischen Abruf Ihres Dienstes ist uns Folgendes aufgefallen:
+
+  Befund:   Quelle lieferte 5 statt bisher 48 Objekte (Rückgang über 50%), alter Stand bleibt unverändert
+  Zeitpunkt: 30.10.2026, 07:46 UTC
+  Abfrage:  https://sgx.geodatenzentrum.de/wfs_vg250?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=vg250%3Avg250_krs&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=500&STARTINDEX=0&BBOX=360000%2C5800000%2C380000%2C5820000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833
+
+Die Abfrage lässt sich mit der angegebenen URL nachstellen. Können Sie uns sagen, ob es sich um
+eine Störung oder um eine beabsichtigte Änderung handelt?
+
+Mit freundlichen Grüßen
+
+[Name, Einrichtung]
+
+(Quelle in der Konfiguration: kreise_bkg; Anbieter laut Dienst: Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie)

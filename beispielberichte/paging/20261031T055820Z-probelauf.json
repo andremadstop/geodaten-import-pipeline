@@ -1,0 +1,67 @@
+{
+  "lauf_id": "20261031T055820Z",
+  "start": "2026-10-31T05:58:20.920215+00:00",
+  "probelauf": true,
+  "quellen": [
+    {
+      "quelle": "kreise_bkg",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 48,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 48,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst meldet ImplementsSorting=FALSE, Seiten ohne feste Reihenfolge"
+      ],
+      "info": {
+        "kontakt": {
+          "anbieter": "Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie",
+          "email": "dlz@bkg.bund.de"
+        },
+        "update_sequence": "128512",
+        "felder": [
+          "ade",
+          "ags",
+          "ags_0",
+          "ars",
+          "ars_0",
+          "beginn",
+          "bem",
+          "bez",
+          "bsg",
+          "dlm_id",
+          "fk_s3",
+          "gen",
+          "geom",
+          "gf",
+          "ibz",
+          "lkz",
+          "nbd",
+          "nuts",
+          "objid",
+          "sdv_ars",
+          "sn_g",
+          "sn_k",
+          "sn_l",
+          "sn_r",
+          "sn_v1",
+          "sn_v2",
+          "wsk"
+        ],
+        "seiten": 5,
+        "objekte": 48
+      },
+      "letzte_abfrage": "https://sgx.geodatenzentrum.de/wfs_vg250?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=vg250%3Avg250_krs&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=10&STARTINDEX=40&BBOX=250000%2C5690000%2C480000%2C5940000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "laufzeit_s": 4.11
+    }
+  ],
+  "laufzeit_s": 4.12,
+  "fehlgeschlagen": [],
+  "angehalten": [],
+  "karte": "20261031T055820Z-probelauf-karte.html"
+}

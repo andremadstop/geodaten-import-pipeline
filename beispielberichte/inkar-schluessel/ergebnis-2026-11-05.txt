@@ -1,0 +1,87 @@
+$ python3 -I beispielberichte/inkar-schluessel/analyse.py cache/inkar_2025.zip   # 05.11.2026, Datei inkar_2025.zip vom 13.08.2025
+# INKAR-Schlüsselanalyse, Datei inkar_2025.zip, Raumbezug Gemeinden, Kennziffer 8-stellig
+# Laufzeit 80 s
+
+## Katalog: Reihen (Bereich, Kürzel, Indikator) über alle Gemeinden Deutschlands
+Reihen: 355; Bereiche: 5 (EU, LRB, NA, SDG, ZOM); Kürzel: 264; Langtexte: 333
+Langtexte mit mehr als einer Reihe: 21
+Kürzel in mehr als einem Bereich: 35
+Kürzel mit mehr als einem Langtext: 21
+(Kürzel, Langtext) in mehr als einem Bereich: 20
+Langtexte mit mehr als einem Kürzel im selben Bereich: 0
+Namen nach der Regel aus E40 (Langtext, außer ZOM mit „ (Bereich)“): 355 für 355 Reihen; Namen für mehr als eine Reihe: 0
+
+Beispiele für Langtexte mit mehreren Reihen (Bereich/Kürzel):
+  Allgemeinärzte: LRB/q_allgemeinärzte_bev, ZOM/q_allgemeinärzte_bev
+  Arbeitslosigkeit: LRB/a_bb_4G, ZOM/q_arbeitslosigkeit
+  Bandbreitenverfügbarkeit mindestens 1.000 Mbit/s: LRB/a_bb_1000Mbits, ZOM/a_bb_1000Mbits
+  Bandbreitenverfügbarkeit mindestens 100 Mbit/s: LRB/a_bb_100Mbits, ZOM/a_bb_100Mbits
+  Bandbreitenverfügbarkeit mindestens 50 Mbit/s: LRB/a_bb_50Mbits, ZOM/a_bb_50Mbits
+  Bevölkerung: EU/a_bb_4G, LRB/a_bb_4G, ZOM/xbev
+  Bildung: EU/a_bb_4G, LRB/a_bb_4G
+  Bodenfläche gesamt qkm: LRB/TN23-kataster_qkm, ZOM/TN23-kataster_qkm
+  Einwohnerdichte: LRB/q_bev_fl, ZOM/q_bev_fl
+  Erreichbarkeit von Mittelzentren: LRB/i_fz_mz, ZOM/i_fz_mz
+  Erreichbarkeit von Oberzentren: LRB/i_fz_oz, ZOM/i_fz_oz
+  Hausärzte: LRB/q_hausarzt_bev, ZOM/q_hausarzt_bev
+  Internisten: LRB/q_internist_bev, ZOM/q_internist_bev
+  Kinderärzte: LRB/q_kinderarzt_kinder, ZOM/q_kinderarzt_kinder
+  Nahversorgung Apotheke: LRB/a_Q01_APO_ANT, ZOM/a_Q01_APO_ANT
+  Pendlersaldo: LRB/q_pendlersaldo, ZOM/q_pendlersaldo
+  Siedlungs- und Verkehrsfläche: LRB/a_suv_fl, ZOM/a_suv_fl
+  Siedlungsdichte in km²: LRB/q_ew_suv_qkm, ZOM/q_ew_suv_qkm
+  Siedlungsstruktur: EU/a_bb_4G, LRB/a_bb_4G
+  Wirtschaft: EU/a_bb_4G, LRB/a_bb_4G
+  Ärzte: LRB/q_ärzte_bev, ZOM/q_ärzte_bev
+
+## Brandenburg, alle Kürzel (Kennziffer beginnt mit 12)
+Kürzel: 264, Reihen: 355
+zeilen: 1285774
+quellschluessel_eindeutig: 1285774
+quellschluessel_doppelt: 0
+alter_zielschluessel: 1249542
+alter_zielschluessel_mehrfach: 35819
+davon_gleicher_wert: 34993
+davon_verschiedener_wert: 826
+zeilen_ueber_der_ersten: 36232
+zielschluessel_e40: 1285774
+zielschluessel_e40_mit_mehr_als_einer_quellreihe: 0
+verschiedener_wert_je_langtext: {'Bevölkerung': 413, 'Arbeitslosigkeit': 413}
+verschiedener_wert_je_reihenpaar: {'Bevölkerung: EU/a_bb_4G / LRB/a_bb_4G / ZOM/xbev': 413, 'Arbeitslosigkeit: LRB/a_bb_4G / ZOM/q_arbeitslosigkeit': 413}
+verschiedener_wert_gemeinden: 413
+verschiedener_wert_jahre: ['2023']
+
+## Deutschland, die fünf Kürzel der Konfiguration (xbev, q_bev_fl, e5_bev, q_pendlersaldo, alo)
+Kürzel: 5, Reihen: 9
+zeilen: 1640420
+quellschluessel_eindeutig: 1640420
+quellschluessel_doppelt: 0
+alter_zielschluessel: 1497742
+alter_zielschluessel_mehrfach: 142678
+davon_gleicher_wert: 142678
+davon_verschiedener_wert: 0
+zeilen_ueber_der_ersten: 142678
+zielschluessel_e40: 1640420
+zielschluessel_e40_mit_mehr_als_einer_quellreihe: 0
+verschiedener_wert_je_langtext: {}
+verschiedener_wert_je_reihenpaar: {}
+verschiedener_wert_gemeinden: 0
+verschiedener_wert_jahre: []
+
+## Brandenburg, die fünf Kürzel der Konfiguration
+Kürzel: 5, Reihen: 9
+zeilen: 62929
+quellschluessel_eindeutig: 62929
+quellschluessel_doppelt: 0
+alter_zielschluessel: 57259
+alter_zielschluessel_mehrfach: 5670
+davon_gleicher_wert: 5670
+davon_verschiedener_wert: 0
+zeilen_ueber_der_ersten: 5670
+zielschluessel_e40: 62929
+zielschluessel_e40_mit_mehr_als_einer_quellreihe: 0
+verschiedener_wert_je_langtext: {}
+verschiedener_wert_je_reihenpaar: {}
+verschiedener_wert_gemeinden: 0
+verschiedener_wert_jahre: []
+# Messung des Aufrufs (resource.getrusage des Kindprozesses): rc 0 maxrss_kib 2837116 s 92

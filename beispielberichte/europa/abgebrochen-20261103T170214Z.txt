@@ -1,0 +1,10 @@
+Importlauf 20261103T170214Z · 634.82 s
+  gemeinden_lau            ok     neu 97987  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Datei unverändert seit dem letzten Abruf: LAU_RG_01M_2024_4326.geojson
+  bevoelkerung_lau         ok     neu 108256  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: 43859 Zeilen ohne jeden Wert ausgelassen: AL_AL141, AL_AL142, AL_AL143, AL_AL151, AL_AL152, AL_AL153, AL_AL154, AL_AL155, AL_AL211, AL_AL212
+      Hinweis: 54128 von 54128 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Deutschland“ (objid)
+  flaeche_lau              FEHLER QueryCanceled: canceling statement due to user request
+      Hinweis: 97987 von 97987 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Deutschland“ (objid)
+      Meldungsentwurf an den Anbieter: 20261103T170214Z-meldung-flaeche_lau.txt
+  Änderungskarte: 20261103T170214Z-karte.html

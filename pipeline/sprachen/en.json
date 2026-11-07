@@ -1,0 +1,72 @@
+{
+  "_hinweis": "Output texts in English. Do not translate placeholders in curly braces. Missing texts fall back to German (de.json).",
+  "bericht": {
+    "art_import": "Import run",
+    "art_probelauf": "Dry run, no lasting changes to the data",
+    "kopf": "{art} {lauf_id} · {laufzeit} s",
+    "abbruch": "  ABORTED (technical error): {fehler}",
+    "ok": "  {quelle:<24} ok     new {neu:>5}  changed {geaendert:>5}  deleted {geloescht:>5}  unchanged {unveraendert:>5}",
+    "unvollstaendig": "  {quelle:<24} INCOMPLETE new {neu:>5}  changed {geaendert:>5}  deleted {geloescht:>5}  unchanged {unveraendert:>5}  (gaps in the retrieval, will be retried)",
+    "angehalten": "  {quelle:<24} STOPPED, previous data kept",
+    "fehler": "  {quelle:<24} ERROR {fehler}",
+    "warnung": "      Warning: {text}",
+    "hinweis": "      Note: {text}",
+    "meldung": "      Draft report to the provider: {datei}",
+    "katalog_aktualisiert": "  Catalogue: {view} refreshed",
+    "katalog_fehlt": "  Note: {view} does not exist in this database, catalogue not refreshed",
+    "katalog_keine_materialized_view": "  Note: {view} is not a materialized view, not refreshed",
+    "katalog_fehler": "  WARNING: catalogue {view} not refreshed: {fehler}",
+    "karte": "  Change map: {datei}",
+    "ausgabe_fehler": "  WARNING: {text} (the report is complete)",
+    "leerlieferung_ungenutzt": "  NOTE: empty-delivery approval for {quelle} not used, {warum}: {grund}",
+    "nicht_faellig": "  {quelle:<24} not due (schedule {rhythmus}, next from {termin})"
+  },
+  "meldung": {
+    "an_unbekannt": "unknown (capabilities not reachable), add `kontakt` to the configuration",
+    "anbieter_unbekannt": "unknown",
+    "zeit": "{jahr}-{monat}-{tag}, {stunde}:{minute} UTC",
+    "text": "DRAFT, not sent automatically. Check before sending and add the sender.\n\nTo: {an}\nSubject: Query about the service {dienst} ({lauf_id})\n\nDear Sir or Madam,\n\nwhile retrieving your service automatically, we noticed the following:\n\n  Finding:  {befund}\n  Time:     {zeit}\n  Request:  {abfrage}\n\nThe request can be reproduced with the URL above. Could you tell us whether this is a\ndisruption or an intended change?\n\nKind regards\n\n[Name, institution]\n\n(Source in the configuration: {name}; provider according to the service: {anbieter})\n"
+  },
+  "verzeichnis": {
+    "titel": "# Source register",
+    "hinweis": "Rewritten after every import run. Do not edit by hand.",
+    "kopf": "| Source | Type | Provider | Contact | Licence | Last successful retrieval | Objects | Last run |",
+    "noch_nie": "never",
+    "zeit": "{jahr}-{monat}-{tag} {stunde}:{minute} UTC",
+    "ergebnis": {
+      "ok": "ok",
+      "fehler": "error",
+      "angehalten": "stopped",
+      "nicht_faellig": "not due",
+      "unvollstaendig": "incomplete (nothing deleted, will be retried)"
+    }
+  },
+  "karte": {
+    "lang": "en",
+    "art_import": "Import run",
+    "art_probelauf": "Dry run (no lasting changes to the data)",
+    "zeit": "{jahr}-{monat}-{tag}, {stunde}:{minute} UTC",
+    "abbruch": "Run aborted (technical error): {fehler}.",
+    "unter": "What this run changed per source. Tap a name to jump there.",
+    "grundkarte": "Base map:",
+    "karte": "Map",
+    "luftbild": "Aerial",
+    "aenderung": {
+      "neu": "new",
+      "geaendert": "changed",
+      "geloescht": "deleted",
+      "unveraendert": "unchanged"
+    },
+    "status": {
+      "ok": "ok",
+      "unvollstaendig": "incomplete",
+      "angehalten": "stopped",
+      "fehler": "error",
+      "nicht_faellig": "not due"
+    },
+    "objekt": "Object",
+    "spalte_aenderung": "Change",
+    "springen": "Jump to the changes of this source",
+    "ohne_grund": "No background map: the page loads nothing from the network. Enable with karte.hintergrund in the configuration."
+  }
+}

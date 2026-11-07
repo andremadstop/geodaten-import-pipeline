@@ -1,0 +1,82 @@
+# Skalierungsbeleg (Antwort 32 der TH: „… sollte auch für ganz Deutschland funktionieren“):
+# alle Gemeinden Deutschlands aus dem VG250-WFS des BKG und INKAR auf Gemeindeebene bundesweit,
+# in die Bestandstabellen von MOSIDI. Dieselbe Pipeline wie für Brandenburg, nur andere Konfiguration.
+# Aufruf: docker compose run --rm pipeline --config /app/config/deutschland.yaml --alle
+# Belegläufe: beispielberichte/deutschland/
+berichte: /app/berichte
+quellen:
+  gemeinden_vg250:
+    # VG250 des BKG: Gemeinden mit allen Feldern, die auch "Kommunale Gebiete Deutschland" hat
+    # (Entscheidung E22). Schlüssel ist die Objekt-ID des Dienstes (Antwort 31); ein AGS kann in der
+    # VG250 mehrfach vorkommen (Geofaktor: Land- und Wasserflächen).
+    titel: "Verwaltungsgebiete 1:250 000, Gemeinden"
+    typ: wfs
+    url: https://sgx.geodatenzentrum.de/wfs_vg250
+    typename: vg250:vg250_gem
+    id_feld: objid
+    geometrie_feld: geom
+    crs: urn:ogc:def:crs:EPSG::25832
+    bbox: [200000, 5200000, 1000000, 6150000]   # ganz Deutschland, ETRS89/UTM32
+    # Der Dienst kann Paging (STARTINDEX): 1000 Objekte je Seite statt Kacheln
+    seitengroesse: 1000
+    felder: {beginn: beginn, ade: ade, gf: gf, bsg: bsg, ars: ars, ags: ags, sdv_ars: sdv_ars, gen: gen,
+             bez: bez, ibz: ibz, bem: bem, nbd: nbd, sn_l: sn_l, sn_r: sn_r, sn_k: sn_k, sn_v1: sn_v1,
+             sn_v2: sn_v2, sn_g: sn_g, fk_s3: fk_s3, nuts: nuts, ars_0: ars_0, ags_0: ags_0, wsk: wsk}
+    karte: false        # 11 000 Flächen: die Änderungskarte würde zu groß
+    rhythmus: monatlich
+    lizenz: "© BKG (2026) dl-de/by-2-0"
+    ziel:
+      tabelle: "Kommunale Gebiete Deutschland"
+      loeschen: false    # Raumdaten bleiben (Antwort 74), entfallene Objekte stehen im Bericht
+      schluessel: [objid]
+      geometrie: geom
+      spalten: {objid: _id, beginn: beginn, ade: ade, gf: gf, bsg: bsg, ars: ars, nationalco: ags,
+                sdv_ars: sdv_ars, name: gen, bez: bez, ibz: ibz, bem: bem, nbd: nbd, sn_l: sn_l,
+                sn_r: sn_r, sn_k: sn_k, sn_v1: sn_v1, sn_v2: sn_v2, sn_g: sn_g, fk_s3: fk_s3, nuts: nuts,
+                ars_0: ars_0, ags_0: ags_0, wsk: wsk}
+      metadaten: {je: tabelle}
+
+  inkar_gemeinden_de:
+    # Abruf per URL wie in config/quellen.yaml (Antwort 33): robots.txt von www.bbr-server.de sperrt
+    # automatische Abrufe, abgerufen wird nur mit der benannten Freigabe (E50); alternativ abgelegte Datei
+    # (`datei` oder PIPELINE_INKAR_DATEI), dann ohne Abruf
+    titel: "INKAR, Indikatoren je Gemeinde in Deutschland"
+    typ: inkar
+    url: https://www.bbr-server.de/imagemap/inkar/download/inkar_{jahr}.zip
+    robots_freigabe: "Vorgabe des Auftraggebers, Antwort 33 (VA-2026-536); Erlaubnis des BBSR wird in AP 1 schriftlich eingeholt"
+    jahr: neuester
+    max_mb: 600
+    zeitbudget_min: 90   # Download (rund 430 MB), Lesen und Schreiben zählen zum Budget; Standard 30
+    max_entpackt_mb: 10000
+    max_packrate: 100
+    form: lang
+    raumbezug: Gemeinden
+    # Anders als in quellen.yaml ohne Einschränkung auf Brandenburg
+    kennziffer_beginnt: ""   # alle Länder
+    kennziffer_stellen: 8
+    zeitbezug: alle
+    schluessel: [Kennziffer, Bereich, Kuerzel, Indikator, Zeitbezug]
+    indikatoren: [xbev, q_bev_fl, e5_bev, q_pendlersaldo, alo]
+    karte: false
+    rhythmus: monatlich
+    lizenz: "INKAR, © BBSR Bonn 2025, dl-de/by-2-0"
+    kontakt: {anbieter: "Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)", email: null}
+    ziel:
+      tabelle: dashboard_data_de
+      schluessel: [kennziffer, indikator, zeitbezug]
+      spalten: {indikator: indikator, kennziffer: kennziffer, wert: wert, zeitbezug: zeitbezug}
+      fest: {source: INKAR, granularity: Gemeindeebene}
+      pflicht: [wert, zeitbezug]            # Antwort 63: ohne Wert oder Jahr auslassen, mit Warnung
+      # Antworten 31/62: Quellschlüssel Kennziffer, Bereich, Kürzel, Indikator, Zeitbezug; dashboard_data_de
+      # hat nur kennziffer, indikator, zeitbezug (Schema unverändert, Antworten 27/29). Feste Regel (E40):
+      # indikator = Langtext, außer im Bereich ZOM mit dem Bereich in Klammern, z. B.
+      # „Einwohnerdichte“ (ZOM) und „Einwohnerdichte (LRB)“. ZOM bleibt ohne Zusatz, weil MOSIDI die
+      # Indikatorenübersicht des Blatts ZOM als dashboard_data_metadata liest (Kurzname = Langtext).
+      # Hängt nur vom Schlüssel der Zeile ab, nie von Werten; INKAR 2025: 355 Reihen, 355 Namen.
+      zusatz: {spalte: indikator, feld: bereich, ausser: [ZOM]}
+      # data_type (Codex-Prüfung B11): MOSIDI liest die Spalte nicht und setzt sie nicht; die Pipeline
+      # schreibt „indikator“, wie dct_type dieser Zeilen in table_metadata (E40, Abgleich in AP 1)
+      konstant: {data_type: indikator}
+      gebiet: {tabelle: "Kommunale Gebiete Deutschland", spalte: nationalco, zielspalte: kennziffer,
+               geometrie: geom}
+      metadaten: {je: indikator}

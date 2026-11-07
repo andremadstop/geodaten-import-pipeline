@@ -1,0 +1,42 @@
+                                                      version                                                       
+--------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+(1 row)
+
+ postgis_lib_version 
+---------------------
+ 3.6.4
+(1 row)
+
+         quelle         |                 tabelle                  | status | gelesen |  neu  | geaendert | entfernt | unveraendert | dauer_s 
+------------------------+------------------------------------------+--------+---------+-------+-----------+----------+--------------+---------
+ alkis_gebaeude_thb     | Gebäude (ALKIS)                          | ok     |     882 |   882 |         0 |        0 |            0 |    3.22
+ bevoelkerung_gemeinden | dashboard_data_de                        | ok     |     413 |  1239 |         0 |        0 |            0 |    1.41
+ flaeche_gemeinden      | dashboard_data_de                        | ok     |     413 |   413 |         0 |        0 |            0 |    1.28
+ gemeinden_lgb          | Kommunale Gebiete Brandenburg (InNoWest) | ok     |     413 |   413 |         0 |        0 |            0 |    7.82
+ inkar_gemeinden        | dashboard_data_de                        | ok     |   62929 | 57259 |         0 |        0 |            0 |   98.73
+ kreise_lgb             | Landkreis                                | ok     |      18 |    18 |         0 |        0 |            0 |     2.2
+(6 rows)
+
+                source                | count 
+--------------------------------------+-------
+ Amt für Statistik Berlin-Brandenburg |  1652
+ INKAR                                | 57259
+(2 rows)
+
+ table_metadata_zeilen 
+-----------------------
+                    14
+(1 row)
+
+ tabellen_public 
+-----------------
+              39
+(1 row)
+
+     rolname     | rolsuper | rolcreatedb | rolcreaterole 
+-----------------+----------+-------------+---------------
+ pipeline_import | f        | f           | f
+ mosidi_lesen    | f        | f           | f
+(2 rows)
+

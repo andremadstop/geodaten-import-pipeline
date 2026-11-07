@@ -1,0 +1,77 @@
+{
+  "lauf_id": "20261030T060400Z",
+  "start": "2026-10-30T06:04:00.108796+00:00",
+  "quellen": [
+    {
+      "quelle": "alkis_gebaeude_thb",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 882,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 882,
+        "geloescht": 0
+      },
+      "warnungen": [
+        "Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung"
+      ],
+      "laufzeit_s": 2.92
+    },
+    {
+      "quelle": "kreise_bkg",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 48,
+        "neu": 48,
+        "geaendert": 0,
+        "unveraendert": 0,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "laufzeit_s": 1.36
+    },
+    {
+      "quelle": "kreise_merkmale_csv",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 6,
+        "neu": 5,
+        "geaendert": 0,
+        "unveraendert": 0,
+        "geloescht": 0
+      },
+      "warnungen": [
+        "1 Zeilen ohne passendes Gebiet in 'kreise_bkg' übersprungen: 99999"
+      ],
+      "laufzeit_s": 0.01
+    },
+    {
+      "quelle": "standorte_csv",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 3,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 3,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "laufzeit_s": 0.0
+    },
+    {
+      "quelle": "kaputte_quelle",
+      "typ": "wfs",
+      "status": "fehler",
+      "fehler": "ConnectionError: HTTPSConnectionPool(host='wfs.example.invalid', port=443): Max retries exceeded with url: /ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0 (Caused by NameResolutionError(\"HTTPSConnection(host='wfs.example.invalid', port=443): Failed to resolve 'wfs.example.invalid' ([Errno -2] Name or service not known)\"))",
+      "laufzeit_s": 0.01
+    }
+  ],
+  "laufzeit_s": 4.35,
+  "fehlgeschlagen": [
+    "kaputte_quelle"
+  ]
+}

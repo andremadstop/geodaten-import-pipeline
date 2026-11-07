@@ -1,0 +1,16 @@
+$ ./pruefen.sh   (05.11.2026 12:30 MEZ, nach dem Stagen des Abgabestands; Teilbäume aus git write-tree: pipeline e32fdbf5fae98cf5ee24c8503b2792a7b5439799, config 1987b73793d04804acc7b6f4a0e2b89fbe043889, sql 15e2b3f2414d0c053c72af5479dd5c159dc4967d, tests 8e341f8b42852dc13dabc260e079efec76a2e4e0, Dockerfile 2953066ba034c0772b8647fcb89c9a710cb5028a)
+== ruff
+All checks passed!
+== bandit
+[tester]	WARNING	nosec encountered (B603), but no failed test on file pipeline/quellen.py:758
+== pip-audit
+No known vulnerabilities found
+== pytest
+..........sssssssssssssssssssssssssssssssssss........................... [ 42%]
+........................................................................ [ 85%]
+........................                                                 [100%]
+133 passed, 35 skipped in 3.05s
+== detect-secrets
+== sbom
+Alles in Ordnung.
+rc=0

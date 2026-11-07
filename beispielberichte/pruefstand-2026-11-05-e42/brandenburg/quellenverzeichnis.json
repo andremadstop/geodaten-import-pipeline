@@ -1,0 +1,68 @@
+{
+  "alkis_gebaeude_thb": {
+    "typ": "wfs",
+    "adresse": "https://isk.geobasis-bb.de/ows/alkis_vereinf_wfs",
+    "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+    "email": "kundenservice@geobasis-bb.de",
+    "lizenz": "© GeoBasis-DE/LGB, dl-de/by-2-0",
+    "letzter_lauf": "20261105T105800Z",
+    "ergebnis": "ok",
+    "letzter_erfolg": "20261105T105800Z",
+    "objekte": 882
+  },
+  "gemeinden_lgb": {
+    "typ": "wfs",
+    "adresse": "https://isk.geobasis-bb.de/ows/vg_wfs",
+    "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+    "email": "kundenservice@geobasis-bb.de",
+    "lizenz": "© GeoBasis-DE/LGB, dl-de/by-2-0",
+    "letzter_lauf": "20261105T105800Z",
+    "ergebnis": "ok",
+    "letzter_erfolg": "20261105T105800Z",
+    "objekte": 413
+  },
+  "kreise_lgb": {
+    "typ": "wfs",
+    "adresse": "https://isk.geobasis-bb.de/ows/vg_wfs",
+    "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+    "email": "kundenservice@geobasis-bb.de",
+    "lizenz": "© GeoBasis-DE/LGB, dl-de/by-2-0",
+    "letzter_lauf": "20261105T105800Z",
+    "ergebnis": "ok",
+    "letzter_erfolg": "20261105T105800Z",
+    "objekte": 18
+  },
+  "bevoelkerung_gemeinden": {
+    "typ": "csv",
+    "adresse": "https://www.regionalstatistik.de/genesisws/downloader/00/tables/12411-01-01-5-B_00.csv",
+    "anbieter": "Amt für Statistik Berlin-Brandenburg / Regionaldatenbank Deutschland",
+    "email": "regionaldatenbank@it.nrw.de",
+    "lizenz": "© Statistische Ämter des Bundes und der Länder, Deutschland, 2026, dl-de/by-2-0",
+    "letzter_lauf": "20261105T105800Z",
+    "ergebnis": "ok",
+    "letzter_erfolg": "20261105T105800Z",
+    "objekte": 1239
+  },
+  "flaeche_gemeinden": {
+    "typ": "csv",
+    "adresse": "https://www.regionalstatistik.de/genesisws/downloader/00/tables/11111-01-01-5-B_00.csv",
+    "anbieter": "Amt für Statistik Berlin-Brandenburg / Regionaldatenbank Deutschland",
+    "email": "regionaldatenbank@it.nrw.de",
+    "lizenz": "© Statistische Ämter des Bundes und der Länder, Deutschland, 2026, dl-de/by-2-0",
+    "letzter_lauf": "20261105T105800Z",
+    "ergebnis": "ok",
+    "letzter_erfolg": "20261105T105800Z",
+    "objekte": 413
+  },
+  "inkar_gemeinden": {
+    "typ": "inkar",
+    "adresse": "https://www.bbr-server.de/imagemap/inkar/download/inkar_{jahr}.zip",
+    "anbieter": "Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)",
+    "email": null,
+    "lizenz": "INKAR, © BBSR Bonn 2025, dl-de/by-2-0",
+    "letzter_lauf": "20261105T105800Z",
+    "ergebnis": "ok",
+    "letzter_erfolg": "20261105T105800Z",
+    "objekte": 62929
+  }
+}

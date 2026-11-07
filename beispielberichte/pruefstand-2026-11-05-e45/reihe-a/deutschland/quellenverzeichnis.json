@@ -1,0 +1,24 @@
+{
+  "gemeinden_vg250": {
+    "typ": "wfs",
+    "adresse": "https://sgx.geodatenzentrum.de/wfs_vg250",
+    "anbieter": "Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie",
+    "email": "dlz@bkg.bund.de",
+    "lizenz": "© BKG (2026) dl-de/by-2-0",
+    "letzter_lauf": "20261105T131705Z",
+    "ergebnis": "ok",
+    "letzter_erfolg": "20261105T131705Z",
+    "objekte": 11103
+  },
+  "inkar_gemeinden_de": {
+    "typ": "inkar",
+    "adresse": "https://www.bbr-server.de/imagemap/inkar/download/inkar_{jahr}.zip",
+    "anbieter": "Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)",
+    "email": null,
+    "lizenz": "INKAR, © BBSR Bonn 2025, dl-de/by-2-0",
+    "letzter_lauf": "20261105T131705Z",
+    "ergebnis": "ok",
+    "letzter_erfolg": "20261105T131705Z",
+    "objekte": 1640420
+  }
+}

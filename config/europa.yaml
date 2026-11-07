@@ -1,0 +1,71 @@
+# Probelauf Europa (03.11.2026): alle Gemeinden (LAU, Local Administrative Units) der Gemeindegrenzen
+# von Eurostat GISCO, Stand LAU 2024, mit Bevölkerung, Bevölkerungsdichte und Fläche je LAU.
+# Dieselbe Pipeline wie für Brandenburg und Deutschland, dazu der Quelltyp geojson (Entscheidung E30).
+# Aufruf: docker compose run --rm pipeline --config /app/config/europa.yaml --alle
+# Belegläufe: beispielberichte/europa/
+#
+# Nur für eine eigene Testdatenbank: MOSIDI hat keine Tabelle für europäische Gemeinden, die LAU
+# landen in "Kommunale Gebiete Deutschland" (E30). Nicht in dieselbe Datenbank wie
+# config/deutschland.yaml laden (beide schreiben table_metadata für diese Tabelle).
+#
+# Nutzungsbedingungen GISCO (Statistical units, Download-Regeln, gelesen am 03.11.2026): keine
+# kommerzielle Nutzung (dafür Lizenz über EuroGeographics), Quellenangabe Pflicht, Vermerk
+# „© EuroGeographics bezüglich der Verwaltungsgrenzen“. robots.txt von gisco-services: Allow: /.
+berichte: /app/berichte
+quellen:
+  gemeinden_lau:
+    titel: "Local Administrative Units (LAU) 2024, Eurostat GISCO"
+    beschreibung: "Gemeindegrenzen (LAU) der EU-Staaten und von CH, NO, IS, LI, AL, MK, RS, Maßstab 1:1 Mio., Stand 01.01.2024."
+    typ: geojson
+    # Einmal auf die Platte geladen (cache/), danach nur bei Änderung (If-Modified-Since)
+    url: https://gisco-services.ec.europa.eu/distribution/v2/lau/geojson/LAU_RG_01M_2024_4326.geojson
+    max_mb: 300            # Datei am 03.11.2026: 150 MB
+    # Die GeoJSON-Datei wird gestreamt gelesen, nicht ganz in den Speicher (E30)
+    id_feld: GISCO_ID      # Ländercode und nationaler LAU-Code, z. B. DE_12054000, höchstens 16 Zeichen
+    felder: {LAU_NAME: name, CNTR_CODE: land}
+    karte: false           # 98 000 Flächen: die Änderungskarte würde zu groß
+    rhythmus: jaehrlich
+    lizenz: "© EuroGeographics bezüglich der Verwaltungsgrenzen (Eurostat GISCO, keine kommerzielle Nutzung)"
+    kontakt: {anbieter: "Eurostat GISCO", email: null}
+    ziel:
+      tabelle: "Kommunale Gebiete Deutschland"
+      schluessel: [objid]
+      geometrie: geom
+      spalten: {objid: _id, name: name}   # name ist varchar(60): seit E47 wird nichts gekürzt, die 12 längeren LAU-Namen halten ihre Zeile zurück (nicht angelegt)
+      metadaten: {je: tabelle}
+
+  kennzahlen_lau:
+    # Dieselben LAU als Tabelle (CSV ohne Geometrie): Bevölkerung, Dichte und Fläche als je eine Zeile
+    # in dashboard_data_de. Eine Quelle für alle drei Werte: Schreiben zwei Quellen im selben Lauf
+    # viele Zeilen in dieselbe Tabelle, plant die Datenbank den Vergleich der zweiten ohne Statistik
+    # der gerade gefüllten Tabelle (Befund in beispielberichte/europa/README.md; seit E31 abgefangen,
+    # die eine Quelle bleibt trotzdem: ein Abruf der CSV je Lauf).
+    # Eurostat führt fehlende Bevölkerungszahlen als 0 (z. B. ganz Frankreich und Spanien); 0 gilt hier
+    # deshalb als „kein Wert“ und wird als null abgelegt. Damit sind auch echte Nullen (gemeindefreie
+    # Gebiete) null. Keine Fläche ist 0 (geprüft am 03.11.2026).
+    titel: "Bevölkerung, Bevölkerungsdichte und Fläche je LAU 2024, Eurostat GISCO"
+    typ: csv
+    pfad: https://gisco-services.ec.europa.eu/distribution/v2/lau/csv/LAU_RG_01M_2024_4326.csv
+    id_spalte: GISCO_ID
+    spalten: {POP_2024: bevoelkerung, POP_DENS_2024: dichte, AREA_KM2: flaeche_km2}
+    zahl_felder: [bevoelkerung, dichte, flaeche_km2]
+    # siehe oben: 0 gilt als fehlender Wert
+    fehlwerte: ["0"]
+    zeit_spalte: YEAR
+    gebiet: {schluessel_spalte: GISCO_ID}
+    karte: false
+    rhythmus: jaehrlich
+    lizenz: "Eurostat GISCO, LAU 2024; Verwaltungsgrenzen © EuroGeographics"
+    kontakt: {anbieter: "Eurostat GISCO", email: null}
+    ziel:
+      tabelle: dashboard_data_de
+      schluessel: [kennziffer, indikator, zeitbezug]
+      spalten: {indikator: _indikator, kennziffer: _gebiet, wert: _wert, zeitbezug: _jahr}
+      fest: {source: "Eurostat GISCO", granularity: LAU}
+      je_wert:
+        bevoelkerung: "Bevölkerung (LAU, Eurostat)"
+        dichte: "Bevölkerungsdichte je km² (LAU, Eurostat)"
+        flaeche_km2: "Fläche in km² (LAU, Eurostat)"
+      gebiet: {tabelle: "Kommunale Gebiete Deutschland", spalte: objid, zielspalte: kennziffer,
+               geometrie: geom}
+      metadaten: {je: indikator}

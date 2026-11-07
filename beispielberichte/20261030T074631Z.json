@@ -1,0 +1,67 @@
+{
+  "lauf_id": "20261030T074631Z",
+  "start": "2026-10-30T07:46:31.590881+00:00",
+  "quellen": [
+    {
+      "quelle": "kreise_bkg",
+      "typ": "wfs",
+      "status": "angehalten",
+      "zaehler": {
+        "gelesen": 5,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 0,
+        "geloescht": 0
+      },
+      "warnungen": [
+        "Quelle lieferte 5 statt bisher 48 Objekte (Rückgang über 50%), alter Stand bleibt unverändert"
+      ],
+      "hinweise": [],
+      "info": {
+        "kontakt": {
+          "anbieter": "Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie",
+          "email": "dlz@bkg.bund.de"
+        },
+        "update_sequence": "128464",
+        "felder": [
+          "ade",
+          "ags",
+          "ags_0",
+          "ars",
+          "ars_0",
+          "beginn",
+          "bem",
+          "bez",
+          "bsg",
+          "dlm_id",
+          "fk_s3",
+          "gen",
+          "geom",
+          "gf",
+          "ibz",
+          "lkz",
+          "nbd",
+          "nuts",
+          "objid",
+          "sdv_ars",
+          "sn_g",
+          "sn_k",
+          "sn_l",
+          "sn_r",
+          "sn_v1",
+          "sn_v2",
+          "wsk"
+        ],
+        "objekte": 5
+      },
+      "letzte_abfrage": "https://sgx.geodatenzentrum.de/wfs_vg250?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=vg250%3Avg250_krs&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=500&STARTINDEX=0&BBOX=360000%2C5800000%2C380000%2C5820000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "laufzeit_s": 0.72,
+      "meldung": "20261030T074631Z-meldung-kreise_bkg.txt"
+    }
+  ],
+  "laufzeit_s": 0.75,
+  "fehlgeschlagen": [],
+  "angehalten": [
+    "kreise_bkg"
+  ]
+}

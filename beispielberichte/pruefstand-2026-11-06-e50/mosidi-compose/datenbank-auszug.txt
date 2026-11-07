@@ -1,0 +1,93 @@
+== Version
+                             version                             | postgis_lib_version 
+-----------------------------------------------------------------+---------------------
+ PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu | 3.6.4
+(1 row)
+
+== Laufprotokoll
+     lauf_id      |         quelle         |                 tabelle                  | status | gelesen |  neu  | geaendert | entfernt | unveraendert | uebernommen | zurueckgehalten | dauer_s 
+------------------+------------------------+------------------------------------------+--------+---------+-------+-----------+----------+--------------+-------------+-----------------+---------
+ 20261106T214503Z | alkis_gebaeude_thb     | Gebäude (ALKIS)                          | ok     |     882 |   882 |         0 |        0 |            0 |           0 |               0 |    4.39
+ 20261106T214503Z | bevoelkerung_gemeinden | dashboard_data_de                        | ok     |     413 |   413 |         0 |        0 |            0 |           0 |               0 |    1.97
+ 20261106T214503Z | flaeche_gemeinden      | dashboard_data_de                        | ok     |     413 |   413 |         0 |        0 |            0 |           0 |               0 |    4.58
+ 20261106T214503Z | gemeinden_lgb          | Kommunale Gebiete Brandenburg (InNoWest) | ok     |     413 |   413 |         0 |        0 |            0 |           0 |               0 |    5.68
+ 20261106T214503Z | inkar_gemeinden        | dashboard_data_de                        | ok     |   62929 | 62929 |         0 |        0 |            0 |           0 |               0 |  126.67
+ 20261106T214503Z | kreise_lgb             | Landkreis                                | ok     |      18 |    18 |         0 |        0 |            0 |           0 |               0 |    2.29
+ 20261106T214732Z | alkis_gebaeude_thb     | Gebäude (ALKIS)                          | ok     |     882 |     0 |         0 |        0 |          882 |           0 |               0 |    3.75
+ 20261106T214732Z | bevoelkerung_gemeinden | dashboard_data_de                        | ok     |     413 |     0 |         0 |        0 |          413 |           0 |               0 |    1.63
+ 20261106T214732Z | flaeche_gemeinden      | dashboard_data_de                        | ok     |     413 |     0 |         0 |        0 |          413 |           0 |               0 |    4.66
+ 20261106T214732Z | gemeinden_lgb          | Kommunale Gebiete Brandenburg (InNoWest) | ok     |     413 |     0 |         0 |        0 |          413 |           0 |               0 |    4.92
+ 20261106T214732Z | inkar_gemeinden        | dashboard_data_de                        | ok     |   62929 |     0 |         0 |        0 |        62929 |           0 |               0 |   125.4
+ 20261106T214732Z | kreise_lgb             | Landkreis                                | ok     |      18 |     0 |         0 |        0 |           18 |           0 |               0 |    2.05
+(12 rows)
+
+== Kennzahlen je Herausgeber (dashboard_data_de)
+                source                |  granularity  | data_type | zeilen | indikatoren | kennziffern | min  | max  
+--------------------------------------+---------------+-----------+--------+-------------+-------------+------+------
+ Amt für Statistik Berlin-Brandenburg | Gemeindeebene | indikator |    826 |           2 |         413 | 2024 | 2025
+ INKAR                                | Gemeindeebene | indikator |  62929 |           9 |         413 | 1995 | 2023
+(2 rows)
+
+== Doppelte Zielschlüssel in dashboard_data_de (muss 0 sein)
+ count 
+-------
+     0
+(1 row)
+
+== Zeilen der Geometrietabellen
+                 tabelle                  | count 
+------------------------------------------+-------
+ Gebäude (ALKIS)                          |   882
+ Kommunale Gebiete Brandenburg (InNoWest) |   413
+ Landkreis                                |    18
+(3 rows)
+
+== table_metadata
+                   dct_catalog_publisher                    | dct_type  | count 
+------------------------------------------------------------+-----------+-------
+ Amt für Statistik Berlin-Brandenburg                       | indikator |     2
+ INKAR                                                      | indikator |     9
+ Landesvermessung und Geobasisinformation Brandenburg (LGB) | geodaten  |     3
+(3 rows)
+
+== Katalog: source_granularities (Zeilen je Herausgeber und Raumebene) und offene Aktualisierungen
+                source                |  granularity  | zeilen 
+--------------------------------------+---------------+--------
+ Amt für Statistik Berlin-Brandenburg | Gemeindeebene |      2
+ INKAR                                | Gemeindeebene |      9
+(2 rows)
+
+ katalog_offen 
+---------------
+             0
+(1 row)
+
+== Eigentümer: View source_granularities und Funktion pipeline_meta.katalog_aktualisieren()
+ view  | funktion | security_definer 
+-------+----------+------------------
+ admin | admin    | t
+(1 row)
+
+== Objekte in public
+ relkind | count 
+---------+-------
+ S       |    25
+ m       |     1
+ r       |    39
+ v       |     2
+(4 rows)
+
+== Rollen der Pipeline
+     rolname     | rolsuper | rolcreatedb | rolcreaterole 
+-----------------+----------+-------------+---------------
+ mosidi_lesen    | f        | f           | f
+ pipeline_import | f        | f           | f
+(2 rows)
+
+== Schreibrechte von pipeline_import in public (Tabellen)
+ privilege_type | tabellen 
+----------------+----------
+ DELETE         |        1
+ SELECT         |        5
+(2 rows)
+

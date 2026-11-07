@@ -1,0 +1,151 @@
+== Gemeindeflächen (LAU) in "Kommunale Gebiete Deutschland": Anzahl, Länder, Geometrie
+  lau  | laender | ungueltig | ohne_geometrie |     art      
+-------+---------+-----------+----------------+--------------
+ 97987 |      34 |         0 |              0 | MULTIPOLYGON
+
+== LAU je Land
+ land | count 
+------+-------
+ AL   |    61
+ AT   |  2093
+ BE   |   581
+ BG   |   265
+ CH   |  2180
+ CY   |   615
+ CZ   |  6258
+ DE   | 10978
+ DK   |    99
+ EE   |    79
+ EL   |  6142
+ ES   |  8132
+ FI   |   309
+ FR   | 34946
+ HR   |   556
+ HU   |  3155
+ IE   |   166
+ IS   |    64
+ IT   |  7900
+ LI   |    11
+ LT   |    60
+ LU   |   100
+ LV   |    43
+ MK   |    80
+ MT   |    68
+ NL   |   342
+ NO   |   357
+ PL   |  2477
+ PT   |  3092
+ RO   |  3181
+ RS   |   168
+ SE   |   290
+ SI   |   212
+ SK   |  2927
+
+== Ausdehnung (EPSG:4326)
+                                    st_extent                                    
+---------------------------------------------------------------------------------
+ BOX(-63.15081505799998 -21.388811480999948,55.83573044000008 71.18223661800005)
+
+== Namen mit 60 Zeichen (Spalte varchar(60)): 12 davon sind in der Quelle länger (61 bis 76) und wurden gekürzt, PT_130335 und PT_160943 haben genau 60; nur Schlüssel
+   objid   
+-----------
+ CY_3311
+ PT_011321
+ PT_020910
+ PT_030293
+ PT_050434
+ PT_070107
+ PT_100617
+ PT_111128
+ PT_130335
+ PT_131217
+ PT_150107
+ PT_151210
+ PT_160943
+ PT_170361
+
+== Kennzahlen in dashboard_data_de je Indikator
+                 indikator                 |     source     | granularity | zeitbezug | zeilen | mit_zahl | null_werte 
+-------------------------------------------+----------------+-------------+-----------+--------+----------+------------
+ Bevölkerung (LAU, Eurostat)               | Eurostat GISCO | LAU         |      2024 |  97987 |    54128 |      43859
+ Bevölkerungsdichte je km² (LAU, Eurostat) | Eurostat GISCO | LAU         |      2024 |  97987 |    54128 |      43859
+ Fläche in km² (LAU, Eurostat)             | Eurostat GISCO | LAU         |      2024 |  97987 |    97987 |          0
+
+== Bevölkerung mit Zahl je Land
+ land |  lau  | mit_zahl |  summe   
+------+-------+----------+----------
+ AL   |    61 |        0 |         
+ AT   |  2093 |     2093 |  9158750
+ BE   |   581 |      581 | 11763650
+ BG   |   265 |      265 |  6445481
+ CH   |  2180 |     2136 |  8815385
+ CY   |   615 |      395 |   923272
+ CZ   |  6258 |     6254 | 10900555
+ DE   | 10978 |    10775 | 84669326
+ DK   |    99 |       99 |  5961249
+ EE   |    79 |       79 |  1374687
+ EL   |  6142 |     6126 | 10482487
+ ES   |  8132 |        0 |         
+ FI   |   309 |      309 |  5603851
+ FR   | 34946 |        0 |         
+ HR   |   556 |      556 |  3871833
+ HU   |  3155 |     3155 |  9584627
+ IE   |   166 |      166 |  5149139
+ IS   |    64 |        0 |         
+ IT   |  7900 |     7900 | 58989749
+ LI   |    11 |       11 |    40023
+ LT   |    60 |       60 |  2885891
+ LU   |   100 |      100 |   672050
+ LV   |    43 |       43 |  1881927
+ MK   |    80 |       80 |  1826247
+ MT   |    68 |       68 |   563443
+ NL   |   342 |      342 | 17942942
+ NO   |   357 |      357 |  5550203
+ PL   |  2477 |     2477 | 37636508
+ PT   |  3092 |     3092 | 10343066
+ RO   |  3181 |     3181 | 21833227
+ RS   |   168 |        0 |         
+ SE   |   290 |      290 | 10551707
+ SI   |   212 |      212 |  2123949
+ SK   |  2927 |     2926 |  5424687
+
+== table_metadata
+                table_name                 | dct_catalog_publisher | dcatde_politicalgeocodingleveluri |                      dct_accrualperiodicity                       | geometry_type |                            lizenz                            
+-------------------------------------------+-----------------------+-----------------------------------+-------------------------------------------------------------------+---------------+--------------------------------------------------------------
+ Bevölkerung (LAU, Eurostat)               | Eurostat GISCO        | LAU                               | http://publications.europa.eu/resource/authority/frequency/ANNUAL | Polygon       | Eurostat GISCO, LAU 2024; Verwaltungsgrenzen © EuroGeographi
+ Bevölkerungsdichte je km² (LAU, Eurostat) | Eurostat GISCO        | LAU                               | http://publications.europa.eu/resource/authority/frequency/ANNUAL | Polygon       | Eurostat GISCO, LAU 2024; Verwaltungsgrenzen © EuroGeographi
+ Fläche in km² (LAU, Eurostat)             | Eurostat GISCO        | LAU                               | http://publications.europa.eu/resource/authority/frequency/ANNUAL | Polygon       | Eurostat GISCO, LAU 2024; Verwaltungsgrenzen © EuroGeographi
+ Kommunale Gebiete Deutschland             | Eurostat GISCO        |                                   | http://publications.europa.eu/resource/authority/frequency/ANNUAL | MultiPolygon  | © EuroGeographics bezüglich der Verwaltungsgrenzen (Eurostat
+
+== Laufprotokoll pipeline_meta.quellenlauf
+     lauf_id      |     quelle     | status | gelesen |  neu   | geaendert | entfernt | unveraendert | dauer_s 
+------------------+----------------+--------+---------+--------+-----------+----------+--------------+---------
+ 20261103T171337Z | gemeinden_lau  | ok     |   97987 |  97987 |         0 |        0 |            0 |   31.74
+ 20261103T171337Z | kennzahlen_lau | ok     |   97987 | 293961 |         0 |        0 |            0 |   23.56
+ 20261103T171446Z | gemeinden_lau  | ok     |   97987 |      0 |         0 |        0 |        97987 |   28.42
+ 20261103T171446Z | kennzahlen_lau | ok     |   97987 |      0 |         0 |        0 |       293961 |   17.51
+
+== Größen
+ datenbank 
+-----------
+ 283 MB
+
+            relname            | groesse 
+-------------------------------+---------
+ bestand                       | 108 MB
+ Kommunale Gebiete Deutschland | 65 MB
+ aenderung                     | 56 MB
+ dashboard_data_de             | 38 MB
+ table_metadata                | 32 kB
+ quellenlauf                   | 32 kB
+ quellenstand                  | 32 kB
+ lauf                          | 32 kB
+
+                                                       version                                                        
+----------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+
+                                                                                                                                                                                   postgis_full_version                                                                                                                                                                                    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ POSTGIS="3.6.4 94d984b" [EXTENSION] PGSQL="160" GEOS="3.14.1-CAPI-1.20.5" (compiled against GEOS 3.13.1) PROJ="9.8.1 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/var/lib/postgresql/.local/share/proj DATABASE_PATH=/usr/share/proj/proj.db" (compiled against PROJ 9.6.0) LIBXML="2.9.14" LIBJSON="0.18" LIBPROTOBUF="1.5.1" WAGYU="0.5.0 (Internal)"
+

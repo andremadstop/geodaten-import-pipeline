@@ -1,0 +1,13 @@
+# Neue Quelle vor Aufnahme in den Betrieb testen (Probelauf). Korrigierte Fassung.
+berichte: /app/berichte
+quellen:
+  gemeinden_bkg:
+    typ: wfs
+    url: https://sgx.geodatenzentrum.de/wfs_vg250
+    typename: vg250:vg250_gem
+    id_feld: objid
+    geometrie_feld: geom
+    crs: urn:ogc:def:crs:EPSG::25833
+    bbox: [360000, 5800000, 380000, 5820000]
+    felder: {ags: ags, gen: name}
+    lizenz: "© BKG (2026) dl-de/by-2-0"

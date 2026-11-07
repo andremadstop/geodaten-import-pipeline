@@ -1,0 +1,10 @@
+# Lauf 2026-11-05T10:29:09Z, sha256 der Datei 82f6923a4bdce8f3…
+# Blatt ZOM aus inkar_2025.zip:Indikatoren*bersicht (INKAR *).xlsx, Kopfzeile 2: Spalten „Kürzel“ und „Kurzname“
+# Langtexte der Reihen mit Bereich ZOM, Raumbezug Gemeinden, aus inkar_2025.csv
+Kürzel;Kurzname im Blatt ZOM;Langtext der ZOM-Reihen;gleich
+xbev;Bevölkerung;Bevölkerung;ja
+q_bev_fl;Einwohnerdichte;Einwohnerdichte;ja
+e5_bev;Bevölkerungsentwicklung;Bevölkerungsentwicklung;ja
+q_pendlersaldo;Pendlersaldo;Pendlersaldo;ja
+alo;–;–;keine ZOM-Reihe
+# Laufzeit 95 s (Wandzeit)

@@ -1,0 +1,73 @@
+{
+  "_hinweis": "Texte der Ausgaben auf Deutsch (Standard). Platzhalter in geschweiften Klammern nicht übersetzen. Fehlt ein Text in einer anderen Sprache, gilt dieser.",
+  "bericht": {
+    "art_import": "Importlauf",
+    "art_probelauf": "Probelauf, keine dauerhaften Änderungen an den Fachdaten",
+    "kopf": "{art} {lauf_id} · {laufzeit} s",
+    "abbruch": "  TECHNISCH ABGEBROCHEN: {fehler}",
+    "ok": "  {quelle:<24} ok     neu {neu:>5}  geändert {geaendert:>5}  gelöscht {geloescht:>5}  unverändert {unveraendert:>5}",
+    "unvollstaendig": "  {quelle:<24} UNVOLLSTÄNDIG neu {neu:>5}  geändert {geaendert:>5}  gelöscht {geloescht:>5}  unverändert {unveraendert:>5}  (Lücke im Abruf, wird wiederholt)",
+    "angehalten": "  {quelle:<24} ANGEHALTEN, alter Stand bleibt",
+    "fehler": "  {quelle:<24} FEHLER {fehler}",
+    "warnung": "      Warnung: {text}",
+    "hinweis": "      Hinweis: {text}",
+    "meldung": "      Meldungsentwurf an den Anbieter: {datei}",
+    "katalog_aktualisiert": "  Katalog: {view} aktualisiert",
+    "katalog_fehlt": "  Hinweis: {view} gibt es in dieser Datenbank nicht, Katalog nicht aktualisiert",
+    "katalog_keine_materialized_view": "  Hinweis: {view} ist keine Materialized View, nicht aktualisiert",
+    "katalog_fehler": "  WARNUNG: Katalog {view} nicht aktualisiert: {fehler}",
+    "karte": "  Änderungskarte: {datei}",
+    "ausgabe_fehler": "  WARNUNG: {text} (der Bericht ist vollständig)",
+    "leerlieferung_ungenutzt": "  HINWEIS: Freigabe der Leerlieferung für {quelle} nicht genutzt, {warum}: {grund}",
+    "nicht_faellig": "  {quelle:<24} nicht fällig (Rhythmus {rhythmus}, wieder ab {termin})"
+  },
+  "meldung": {
+    "an_unbekannt": "nicht ermittelbar (Capabilities nicht erreichbar), `kontakt` in der Konfiguration eintragen",
+    "anbieter_unbekannt": "unbekannt",
+    "zeit": "{tag}.{monat}.{jahr}, {stunde}:{minute} UTC",
+    "text": "ENTWURF, wird nicht automatisch versendet. Vor dem Senden prüfen und Absender ergänzen.\n\nAn: {an}\nBetreff: Rückfrage zum Dienst {dienst} ({lauf_id})\n\nSehr geehrte Damen und Herren,\n\nbeim automatischen Abruf Ihres Dienstes ist uns Folgendes aufgefallen:\n\n  Befund:   {befund}\n  Zeitpunkt: {zeit}\n  Abfrage:  {abfrage}\n\nDie Abfrage lässt sich mit der angegebenen URL nachstellen. Können Sie uns sagen, ob es sich um\neine Störung oder um eine beabsichtigte Änderung handelt?\n\nMit freundlichen Grüßen\n\n[Name, Einrichtung]\n\n(Quelle in der Konfiguration: {name}; Anbieter laut Dienst: {anbieter})\n"
+  },
+  "verzeichnis": {
+    "titel": "# Quellenverzeichnis",
+    "hinweis": "Wird nach jedem Importlauf neu geschrieben. Nicht von Hand bearbeiten.",
+    "kopf": "| Quelle | Typ | Anbieter | Kontakt | Lizenz | Letzter erfolgreicher Abruf | Objekte | Letzter Lauf |",
+    "noch_nie": "noch nie",
+    "leer": "–",
+    "zeit": "{tag}.{monat}.{jahr} {stunde}:{minute} UTC",
+    "ergebnis": {
+      "ok": "ok",
+      "fehler": "fehler",
+      "angehalten": "angehalten",
+      "nicht_faellig": "nicht fällig",
+      "unvollstaendig": "unvollständig (nichts gelöscht, wird wiederholt)"
+    }
+  },
+  "karte": {
+    "lang": "de",
+    "art_import": "Importlauf",
+    "art_probelauf": "Probelauf (keine dauerhaften Änderungen an den Fachdaten)",
+    "zeit": "{tag}.{monat}.{jahr}, {stunde}:{minute} UTC",
+    "abbruch": "Lauf technisch abgebrochen: {fehler}.",
+    "unter": "Was dieser Lauf je Quelle verändert hat. Name antippen: dorthin springen.",
+    "grundkarte": "Grundkarte:",
+    "karte": "Karte",
+    "luftbild": "Luftbild",
+    "aenderung": {
+      "neu": "neu",
+      "geaendert": "geändert",
+      "geloescht": "gelöscht",
+      "unveraendert": "unverändert"
+    },
+    "status": {
+      "ok": "ok",
+      "unvollstaendig": "unvollständig",
+      "angehalten": "angehalten",
+      "fehler": "Fehler",
+      "nicht_faellig": "nicht fällig"
+    },
+    "objekt": "Objekt",
+    "spalte_aenderung": "Änderung",
+    "springen": "Zu den Änderungen dieser Quelle springen",
+    "ohne_grund": "Ohne Hintergrundkarte: Die Seite lädt nichts aus dem Netz. Einschalten mit karte.hintergrund in der Konfiguration."
+  }
+}

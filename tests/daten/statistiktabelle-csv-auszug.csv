@@ -1,0 +1,19 @@
+Tabelle: 12411-01-01-5-B
+Bevölkerung nach Geschlecht - Stichtag 31.12. - regionale;;;;
+Ebenen;;;;
+Fortschreibung des Bevölkerungsstandes;;;;
+Bevölkerungsstand (Anzahl);;;;
+;;Stichtag;Stichtag;Stichtag
+;;31.12.2025;31.12.2025;31.12.2025
+;;Insgesamt;männlich;weiblich
+01001000;Flensburg, kreisfreie Stadt;90000;44000;46000
+12051000;Brandenburg an der Havel, kreisfreie Stadt;50000;24000;26000
+12060005;Ahrensfelde;10000;4900;5100
+12060012;Althüttendorf;500;240;260
+12060096;Hohensaaten;-;-;-
+Sachsen-Anhalt (2013): Gebietsstand 01.01.2014"
+"© Statistische Ämter des Bundes und der Länder, Deutschland, 2026.
+Dieses Werk ist lizenziert unter der Datenlizenz Deutschland
+- Namensnennung - Version 2.0."
+Stand: 13.07.2026 / 13:04:06
+TESTDATEN: Alle Zahlen in dieser Datei sind erfunden, keine amtlichen Werte. Aufbau, Kopf, Fußblock, Schlüssel und Namen wie in der Tabelle 12411-01-01-5-B der Regionaldatenbank (siehe tests/daten/README.md).

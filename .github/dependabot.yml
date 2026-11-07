@@ -1,0 +1,20 @@
+# Wöchentliche Pull Requests für Updates: Python-Pakete, Basis-Images, GitHub Actions.
+# Jedes Update läuft vor dem Zusammenführen durch pruefen.sh.
+version: 2
+updates:
+  # Python-Pakete in requirements.txt (festgeschrieben mit Prüfsummen)
+  - package-ecosystem: pip
+    directory: /
+    schedule: {interval: weekly}
+  # Basis-Image im Dockerfile (über den Digest festgeschrieben)
+  - package-ecosystem: docker
+    directory: /
+    schedule: {interval: weekly}
+  # PostGIS-Image der Testumgebung in docker-compose.yml (Digest)
+  - package-ecosystem: docker-compose
+    directory: /
+    schedule: {interval: weekly}
+  # Actions in .github/workflows/ (Commit-Hashes mit der Version als Kommentar)
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: {interval: weekly}

@@ -1,0 +1,10 @@
+{
+ "datei": "geodaten-import-pipeline-angebot-va-2026-536.cc.json.gz",
+ "ref": "angebot-va-2026-536",
+ "stand": "gestagter Abgabestand nach E51 (Teilbäume pipeline 34175c7, tests a0630aa)",
+ "erzeugt": "2026-11-07",
+ "werkzeug": "codecharta/codecharta-analysis@sha256:ae97d9425ef81c00b52947a1d9d1c7cad1346204a3a288ef4fb90f07b7efd2b1",
+ "netz": false,
+ "autoren": false,
+ "gitkennzahlen": false
+}

@@ -1,0 +1,8 @@
+Importlauf 20261105T092801Z · 297.51 s
+  gemeinden_vg250          ok     neu 11103  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsSorting=FALSE, Seiten ohne feste Reihenfolge
+  inkar_gemeinden_de       ok     neu 1640420  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Neueste Datei: inkar_2025.zip
+      Hinweis: Datei unverändert seit dem letzten Abruf: inkar_2025.zip
+      Hinweis: 10946 von 10978 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Deutschland“ (nationalco); ohne: 07232089, 07232096, 09473453, 09475452, 09479453, 09479456, 09479462, 09479463, 09672457, 13071017 …
+  Änderungskarte: 20261105T092801Z-karte.html

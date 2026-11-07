@@ -1,0 +1,7 @@
+Importlauf 20261102T082755Z · 97.8 s
+  gemeinden_lgb            ok     neu     0  geändert     0  gelöscht     0  unverändert   413
+      Hinweis: Dienst bietet keine Feldliste (queryables), Felder aus den Objekten
+  inkar_gemeinden          ok     neu   413  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Neueste Datei: inkar_2025.zip
+      Hinweis: Datei unverändert seit dem letzten Abruf: inkar_2025.zip
+  Änderungskarte: 20261102T082755Z-karte.html

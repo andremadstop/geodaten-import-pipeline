@@ -1,0 +1,24 @@
+# Lizenz: Apache-2.0 (LICENSE, NOTICE). Kein [project]-Abschnitt: Abhängigkeiten stehen mit
+# Prüfsummen in requirements.txt, ausgeführt wird mit `uv run --no-project` (pruefen.sh).
+# ruff: Stil- und Fehlerprüfung, läuft in pruefen.sh (nur `ruff check`, keine automatische Formatierung)
+[tool.ruff]
+line-length = 110
+# Python-Version des Basis-Images im Dockerfile
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/W pycodestyle, F pyflakes, I Importreihenfolge, UP moderne Syntax für py312, B typische Fehlerquellen
+# (bugbear), SIM Vereinfachungen, S Sicherheitsregeln (bandit)
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "S"]
+# SQL entsteht aus festen Bausteinen; Tabellen- und Spaltennamen aus der Konfiguration nur über
+# psycopg.sql.Identifier, Werte als Parameter oder psycopg.sql.Literal (pipeline/ziel.py)
+ignore = ["S608"]
+
+[tool.ruff.lint.per-file-ignores]
+# assert ist in Tests das Mittel der Wahl (S101 warnt sonst, weil python -O asserts entfernt)
+"tests/*" = ["S101"]
+"pipeline/karte.py" = ["E501"]  # HTML/JS-Vorlage der Karte
+
+# pytest sucht Tests nur unter tests/, auch wenn es ohne Pfad aus dem Wurzelverzeichnis gestartet wird
+[tool.pytest.ini_options]
+testpaths = ["tests"]

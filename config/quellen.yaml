@@ -1,0 +1,305 @@
+# Quellen der Pipeline und ihre Ziele in der Datenbank der Plattform MOSIDI.
+# Neue Quelle = neuer Eintrag, keine Codeänderung. Zieltabellen und Spalten stehen unter `ziel`
+# und entsprechen dem öffentlichen Schema im Repository MOSIDI-ORG/MOSIDI
+# (services/backend/src/db_table_schema/schema.sqlalchemy, Stand 02.11.2026). Abgleich mit dem DDL,
+# das die TH zu Projektbeginn liefert: Arbeitspaket 1. Was `ziel` bedeutet: pipeline/ziel.py.
+#
+# Optional je Quelle:
+#   rhythmus: monatlich  taeglich | woechentlich | monatlich | vierteljaehrlich | jaehrlich; die Quelle
+#                        lädt nur, wenn der Takt seit dem letzten Erfolg abgelaufen ist (Antwort 37).
+#                        Ohne Angabe: bei jedem Lauf. --alle oder --nur QUELLE laden trotzdem.
+#   max_rueckgang: 0.5   Schutz: liefert die Quelle über 50 % weniger Objekte, bleibt der alte Stand (null = aus)
+#   max_mb: 200          Größenlimit je Antwort
+#   kontakt: {anbieter: …, email: …}   für Meldungsentwürfe, wenn der Dienst keinen Kontakt nennt (CSV)
+#   erlaube_http: true   nur, wenn ein Anbieter kein https anbietet
+#   zeitbudget_min: 30   Höchstlaufzeit der Quelle in Minuten (Standard 30, oben für alle Quellen setzbar);
+#                        bei Überschreitung wird ihre Transaktion zurückgerollt, die nächste Quelle läuft (E50).
+#                        Gilt seit E51 auch für Datenbankanweisungen (statement_timeout = Rest des Budgets)
+#   db_sperre_max_s: 300 Wartegrenze für Sperren auf der Zieltabelle in Sekunden (Standard 300, oben setzbar;
+#                        lock_timeout); hält eine andere Sitzung die Tabelle länger gesperrt, wird die Quelle
+#                        zurückgerollt und die nächste läuft (E51)
+#   robots_freigabe: "…" benannte Freigabe für den Rechner der eigenen Adresse, wenn dessen robots.txt
+#                        automatische Abrufe sperrt; steht in Bericht, Protokoll und --ziele (E50)
+# Fachlicher Schlüssel je Quelle (Antwort 31): bei WFS die Objekt-ID des Dienstes (`id_feld`), bei
+# INKAR Kennziffer, Bereich, Kürzel, Indikator, Zeitbezug (`schluessel`); in der Zieltabelle die
+# Spalten unter `ziel.schluessel`.
+#
+# Angaben je WFS-Quelle (pipeline/quellen.py, wfs):
+#   url, typename        Dienst und Objektart
+#   id_feld              Objekt-ID des Dienstes, fachlicher Schlüssel der Quelle: Name eines Kindelements des
+#                        Features oder "@gml:id" für das Attribut gml:id des Features (E51; nur, wenn der Dienst
+#                        gml:id über Abrufe hinweg gleich vergibt; ohne SORTBY)
+#   geometrie_feld       Geometrie-Attribut der Objektart
+#   crs, bbox            Bezugssystem der Abfrage und Ausschnitt in diesem System
+#   felder               Quellfeld: Name in der Pipeline; nur diese werden übernommen (ohne Angabe alle)
+#   kachel_m             Kantenlänge der Kacheln in Metern, wenn der Dienst kein Paging kann
+#                        (Standard 500); sonst seitenweise mit `seitengroesse` Objekten (Standard 500)
+# Je Quelle außerdem `titel` und `beschreibung` für den Metadatensatz in table_metadata; ohne Angabe
+# nimmt die Pipeline, was der Dienst über sich sagt.
+#
+# Ordner für Berichte, Änderungskarten, Meldungsentwürfe und Quellenverzeichnis (im Container; die
+# Compose-Dateien hängen ihn vom Host ein)
+berichte: /app/berichte
+# Sprache von Textbericht, Meldungsentwürfen, Quellenverzeichnis und Änderungskarte: de (Standard) oder en.
+# Weitere Sprachen: Datei pipeline/sprachen/<code>.json anlegen. PIPELINE_SPRACHE hat Vorrang.
+# sprache: en
+# Laufdateien (Bericht, Karte, Meldungen, Archiv) älter als so viele Tage löschen. Der jüngste
+# Bericht bleibt immer, er ist der Vergleichsstand. Ohne Angabe wird nichts gelöscht.
+# Den Vergleich der Feldliste zieht jede Quelle aus dem letzten Bericht, in dem sie geladen wurde; die
+# Frist deshalb nicht kürzer wählen als den längsten Rhythmus, sonst fehlt dieser Vergleich.
+# aufbewahrung_tage: 180
+# Stand jeder Quelle, die sich geändert hat, als GeoJSON unter berichte/archiv/<lauf>/ ablegen,
+# damit sich später sagen lässt, welcher Datenstand einer Auswertung zugrunde lag.
+# archiv: true
+#
+# Je Eintrag eine Quelle. Ihr Name steht im Bestandsregister (pipeline_meta.bestand), in den Berichten
+# und im Quellenverzeichnis; eine umbenannte Quelle ist für die Pipeline eine neue.
+quellen:
+  alkis_gebaeude_thb:
+    # WFS der Geobasis Brandenburg (LGB): ALKIS vereinfacht, Gebäude. Die Bestandstabelle
+    # "Gebäude (ALKIS)" hat dieselben Feldnamen; flood_risk und kita_aa_walk füllt MOSIDI selbst,
+    # die Pipeline lässt sie stehen. Ausschnitt: Campus TH Brandenburg, ETRS89/UTM33 (EPSG:25833).
+    titel: "Gebäude ALKIS vereinfacht, Campus TH Brandenburg"
+    typ: wfs
+    url: https://isk.geobasis-bb.de/ows/alkis_vereinf_wfs
+    typename: ave:GebaeudeBauwerk
+    id_feld: oid
+    geometrie_feld: geometrie
+    crs: urn:ogc:def:crs:EPSG::25833
+    bbox: [332000, 5809400, 333200, 5810400]
+    kachel_m: 400
+    felder: {aktualit: aktualit, gebnutzbez: gebnutzbez, funktion: funktion, name: name,
+             anzahlgs: anzahlgs, lagebeztxt: lagebeztxt}
+    rhythmus: woechentlich
+    lizenz: "© GeoBasis-DE/LGB, dl-de/by-2-0"
+    ziel:
+      tabelle: "Gebäude (ALKIS)"
+      loeschen: false    # Raumdaten bleiben (Antwort 74), entfallene Objekte stehen im Bericht
+      schluessel: [oid]
+      geometrie: geom
+      spalten: {oid: _id, aktualit: aktualit, gebnutzbez: gebnutzbez, funktion: funktion,
+                name: name, anzahlgs: anzahlgs, lagebeztxt: lagebeztxt}
+      metadaten: {je: tabelle}
+
+  gemeinden_lgb:
+    # WFS der Geobasis Brandenburg (LGB): Verwaltungsgrenzen, Gemeinden. Ziel ist die Bestandstabelle
+    # der Gemeindeflächen Brandenburgs. Annahme des Prototyps: nationalco trägt dort den Amtlichen
+    # Gemeindeschlüssel (AGS, INSPIRE nationalCode; in AP 1 gegen die Daten der TH prüfen),
+    # über ihn hängen die Kennzahlen in dashboard_data_de (Antwort 28). id hat in der Tabelle keinen
+    # Vorgabewert; neue Zeilen bekommen den AGS als id, vorhandene behalten ihre.
+    titel: "Verwaltungsgrenzen Brandenburg, Gemeinden"
+    beschreibung: "Gemeindeflächen mit Amtlichem Gemeindeschlüssel; Geometrie für Kennzahlen auf Gemeindeebene."
+    typ: wfs
+    url: https://isk.geobasis-bb.de/ows/vg_wfs
+    typename: app:gem
+    id_feld: ags
+    geometrie_feld: geom
+    crs: urn:ogc:def:crs:EPSG::25833
+    bbox: [250000, 5690000, 480000, 5940000]   # ganz Brandenburg; Dienst kann kein Paging
+    kachel_m: 250000                            # eine Abfrage für das ganze Land
+    felder: {gem_name: name, krss: kreisschluessel, gem_aktualitaet: aktualitaet}
+    rhythmus: monatlich
+    lizenz: "© GeoBasis-DE/LGB, dl-de/by-2-0"
+    ziel:
+      tabelle: "Kommunale Gebiete Brandenburg (InNoWest)"
+      loeschen: false    # Raumdaten bleiben (Antwort 74), entfallene Objekte stehen im Bericht
+      schluessel: [nationalco]
+      geometrie: geom
+      spalten: {id: _id, nationalco: _id, name: name}
+      nur_einfuegen: [id]
+      # Ein Metadatensatz in table_metadata für die ganze Tabelle (`je: indikator`: einer je Indikator,
+      # so bei den Kennzahlen unten)
+      metadaten: {je: tabelle}
+
+  kreise_lgb:
+    # Dieselbe Quelle, Landkreise und kreisfreie Städte, in die Bestandstabelle "Landkreis".
+    titel: "Verwaltungsgrenzen Brandenburg, Kreise"
+    typ: wfs
+    url: https://isk.geobasis-bb.de/ows/vg_wfs
+    typename: app:krs
+    id_feld: krss
+    geometrie_feld: geom
+    crs: urn:ogc:def:crs:EPSG::25833
+    bbox: [250000, 5690000, 480000, 5940000]
+    kachel_m: 250000
+    felder: {krs_name: name, krs_art: art}
+    rhythmus: monatlich
+    lizenz: "© GeoBasis-DE/LGB, dl-de/by-2-0"
+    ziel:
+      tabelle: Landkreis
+      loeschen: false    # Raumdaten bleiben (Antwort 74), entfallene Objekte stehen im Bericht
+      schluessel: [nationalco]
+      geometrie: geom
+      spalten: {id: _id, nationalco: _id, name: name}
+      nur_einfuegen: [id]
+      metadaten: {je: tabelle}
+
+  bevoelkerung_gemeinden:
+    # Amt für Statistik Berlin-Brandenburg (AfS), Statistischer Bericht A I 4 / A V 2 – j (jährlich, Juni):
+    # Bevölkerung je Gemeinde am Jahresende, als XLSX (E48; Antworten 33 und 49 der TH). Das AfS bietet die
+    # Gemeindetabellen nicht als CSV an, und jede Ausgabe hat eine neue Adresse mit Prüfsummen im Pfad. Die
+    # Pipeline liest deshalb den Link von der Seite des Berichts (`seite`, `datei_muster`, jüngstes Jahr) und
+    # folgt nur Links auf diesen Rechner und auf `link_rechner`. robots.txt erlaubt beides (06.11.2026).
+    # Ersatzweise, ohne Netzabruf (Antwort 33): `pfad: /app/config/<Datei>.xlsx` statt `seite`.
+    # Gemeinden: 409 kreisangehörige in den Blättern 3.1 bis 3.14, die 4 kreisfreien Städte nur in Blatt 2.
+    # Summenzeilen der Kreise und des Landes (Schlüssel auf 000) fallen heraus, außer den kreisfreien Städten;
+    # die Landessumme 12000000 ist die Gegenprobe (`summe`). Die Spalten findet die Pipeline über ihre
+    # Beschriftung (ohne Leerzeichen, Zeilenumbrüche und Fußnotenzeichen verglichen), nicht über die Position.
+    typ: xlsx
+    titel: "Bevölkerung insgesamt je Gemeinde am 31.12. (Statistischer Bericht A I 4 / A V 2)"
+    beschreibung: "Fortschreibung des Bevölkerungsstandes je Gemeinde in Brandenburg am Jahresende, insgesamt; jüngster Bericht des Amts für Statistik Berlin-Brandenburg."
+    seite: https://www.statistik-berlin-brandenburg.de/a-i-4-a-v-2-j/   # mit Schrägstrich, sonst Weiterleitung
+    datei_muster: '^SB_A01-04[_-]00_(?P<jahr>\d{4})j01_BB\.xlsx$'
+    link_rechner: [download.statistik-berlin-brandenburg.de]
+    max_mb: 20                 # Größe der XLSX (Ausgabe 2025: 0,4 MB)
+    max_entpackt_mb: 100       # alle Teile entpackt zusammen (Ausgabe 2025: 8,6 MB, davon ein Bild 7,6 MB)
+    blaetter: &blaetter_afs ["2.", "3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8", "3.9", "3.10",
+                             "3.11", "3.12", "3.13", "3.14"]
+    schluessel: "Amtlicher Gemeinde-schlüssel"   # steht zweimal je Blatt, beide Spalten müssen gleich sein
+    schluessel_form: '^\d{8}$'                   # gültiger Schlüssel einer Datenzeile, gleich welcher Ebene
+    zeilen_auswahl: &auswahl_afs
+      schluessel: '^12\d{6}$'                    # Brandenburg
+      ohne: '^\d{5}000$'                         # Summen der Kreise und des Landes …
+      ohne_ausser: '^1205[1-4]000$'              # … außer den kreisfreien Städten, die selbst Gemeinden sind
+    werte:
+      bevoelkerung:
+        kopf: "Bevölkerung am Jahresende"
+        zeitbezug: {muster: 'im Jahr (\d{4})', als: '{}-12-31'}   # Titel „… Bevölkerung im Jahr 2025 …“
+    # Landessumme 12000000 in Blatt 2.; teilsummen: Kreissumme je Blatt (Schlüssel auf 000, Gruppe =
+    # Kreisstelle). Jede Gemeinde muss zur Kreissumme ihres Blatts gehören, und die muss stimmen
+    summe: {schluessel: "12000000", toleranz: 0, teilsummen: '^(\d{5})000$'}
+    rhythmus: monatlich        # der Bericht erscheint jährlich; unverändert: If-Modified-Since, Antwort 304
+    lizenz: "Amt für Statistik Berlin-Brandenburg, CC BY 3.0 DE"
+    kontakt: {anbieter: "Amt für Statistik Berlin-Brandenburg", email: bevoelkerung@statistik-bbb.de}
+    ziel: &kennzahlen_afs
+      tabelle: dashboard_data_de
+      schluessel: [kennziffer, indikator, zeitbezug]
+      spalten: {indikator: _indikator, kennziffer: _gebiet, wert: _wert, zeitbezug: _jahr}
+      fest: {source: "Amt für Statistik Berlin-Brandenburg", granularity: Gemeindeebene}
+      konstant: {data_type: indikator}      # E40, wie bei INKAR
+      pflicht: [wert, zeitbezug]
+      je_wert:
+        bevoelkerung: "Bevölkerung insgesamt (Stichtag 31.12.)"
+      gebiet: {tabelle: "Kommunale Gebiete Brandenburg (InNoWest)", spalte: nationalco,
+               zielspalte: kennziffer, geometrie: geom}
+      metadaten: {je: indikator}
+
+  flaeche_gemeinden:
+    # Derselbe Bericht: Fläche je Gemeinde in km² mit zwei Nachkommastellen. Sie gilt nicht zum Jahresende des
+    # Berichtsjahrs, sondern laut Fußnote 4 zum Stand des Vorjahres („Stand 31.12.2024“ in der Ausgabe 2025);
+    # der Zeitbezug kommt deshalb aus dieser Fußnote. Die Datei wird nur einmal geladen (cache/, 304).
+    typ: xlsx
+    titel: "Gebietsfläche in km² je Gemeinde (Statistischer Bericht A I 4 / A V 2)"
+    beschreibung: "Gebietsfläche je Gemeinde in Brandenburg in km², Stand laut Fußnote des jüngsten Berichts des Amts für Statistik Berlin-Brandenburg."
+    seite: https://www.statistik-berlin-brandenburg.de/a-i-4-a-v-2-j/   # mit Schrägstrich, sonst Weiterleitung
+    datei_muster: '^SB_A01-04[_-]00_(?P<jahr>\d{4})j01_BB\.xlsx$'
+    link_rechner: [download.statistik-berlin-brandenburg.de]
+    max_mb: 20
+    max_entpackt_mb: 100
+    blaetter: *blaetter_afs
+    schluessel: "Amtlicher Gemeinde-schlüssel"
+    schluessel_form: '^\d{8}$'
+    zeilen_auswahl: *auswahl_afs
+    werte:
+      flaeche_km2:
+        kopf: "Fläche in km²"
+        zeitbezug: {muster: '^\d+ Stand (\d{2}\.\d{2}\.\d{4})$'}   # Fußnote „4 Stand 31.12.2024“
+    # km²; Rundung der Gemeindeflächen (2025: Land 0,05 km², größte Abweichung einer Kreissumme 0,03 km²)
+    summe: {schluessel: "12000000", toleranz: 1, teilsummen: '^(\d{5})000$'}
+    rhythmus: monatlich
+    lizenz: "Amt für Statistik Berlin-Brandenburg, CC BY 3.0 DE"
+    kontakt: {anbieter: "Amt für Statistik Berlin-Brandenburg", email: bevoelkerung@statistik-bbb.de}
+    ziel:
+      <<: *kennzahlen_afs
+      je_wert:
+        flaeche_km2: "Gebietsfläche in km² (Stichtag 31.12.)"
+      # Prüfregel: Gebietsfläche der Statistik gegen die Fläche des LGB-Polygons (Antwort 28: über den AGS)
+      gebiet: {tabelle: "Kommunale Gebiete Brandenburg (InNoWest)", spalte: nationalco,
+               zielspalte: kennziffer, geometrie: geom,
+               flaeche_pruefen: {wert: wert, faktor_km2: 1, toleranz_prozent: 0.5}}
+
+  inkar_gemeinden:
+    # INKAR des BBSR im Vollumfang wie der Import der TH (services/backend/src/inkar_import; Antwort 33:
+    # Umfang und Raumebenen „ergeben sich aus den bestehenden Skripten und deren Konfiguration“; E51, Befund
+    # W2): alle Indikatoren, alle Gemeinden Deutschlands, alle Jahre, Raumbezug Gemeinden (fest im Code des
+    # Imports, inkar_db_import.py Z. 105 bis 107; config.xml nennt nur die Spalten). Gesamtdatei als ZIP
+    # (rund 430 MB, entpackt rund 6,8 GB), eine Zeile je Indikator, Gemeinde und Jahr in dashboard_data_de;
+    # INKAR 2025: 33 547 606 Zeilen, 355 Indikatornamen, 10 978 Gemeinden, Zeitbezug 1995 bis 2024. In indikator
+    # steht der Langtext aus der Spalte Indikator, wie beim Import der TH (Regel unten, E40).
+    # Gemessen am Abgabestand nach E51 mit dieser Datei (beispielberichte/pruefstand-2026-11-07-e51/quellen/,
+    # INKAR aus der abgelegten Datei, parallel genutzter Entwicklungsrechner): Erstlauf 129,7 min, unveränderter
+    # Folgelauf 159,7 min, Datenbank danach 24 GB, während der Läufe mindestens 66 GB (Proben alle 5 min, also
+    # eine Untergrenze; Plattenplatz mit Reserve darüber vorsehen). Davor nach E50 mit der Prüfkonfiguration
+    # beispielberichte/pruefstand-2026-11-06-e50/inkar-vollumfang/vollumfang.yaml (INKAR allein, 146,5 min).
+    # Unterschiede zu jener Datei, alle begründet:
+    #   - Name inkar_gemeinden statt inkar_gemeinden_vollumfang: Unter diesem Namen steht die Quelle im
+    #     Bestandsregister; ein neuer Name wäre für die Pipeline eine neue Quelle
+    #   - url mit robots_freigabe statt nur abgelegter Datei: Regelbetrieb per URL (Antwort 33, E50)
+    #   - rhythmus monatlich: die Datei erscheint jährlich, unverändert antwortet der Server mit 304
+    # Gleich wie dort: kein ziel.gebiet. Die Gemeindeflächen in MOSIDI ("Kommunale Gebiete Brandenburg
+    # (InNoWest)") decken nur Brandenburg; für ganz Deutschland wäre die Gebietsprüfung ein Hinweis ohne
+    # Aussage. Die Verknüpfung mit Flächen für ganz Deutschland zeigt config/deutschland.yaml (VG250).
+    # Die reduzierte Fassung (fünf Kürzel, Brandenburg) ist die Prüfkonfiguration config/pruefkonfiguration.yaml.
+    #
+    # Abweichung vom Import der TH, vor dem Regelbetrieb zu klären (Nachprüfung zu E51; offen seit E28): Die
+    # Pipeline schreibt die Kennziffer achtstellig wie in der INKAR-Datei; der Import der TH wandelt sie in
+    # eine Zahl (config.xml: integer, inkar_db_import.py: convert_or_na), danach in Text, und legt Gemeinden
+    # mit führender Null siebenstellig ab. Bis E50 (nur Brandenburg, 12…) folgenlos; im Vollumfang betrifft es
+    # die Länder 01 bis 09: 25 972 031 von 33 547 606 Zeilen (77 %), 8 526 von 10 978 Gemeinden (gezählt am
+    # 07.11.2026 aus cache/inkar_2025.zip, ohne Netz). „Wie der Import der TH“ gilt also für Umfang und Zeilen,
+    # nicht für die Form der Kennziffer. Welche Form die Plattform erwartet, legt die TH fest; bis dahin bleibt
+    # der Code unverändert (Kennziffer achtstellig)
+    #
+    # Bezug: Die url ist die Adresse, die die TH vorgibt (Antwort 33: „Der Abruf der INKAR-Daten erfolgt
+    # automatisch per URL“). robots.txt von www.bbr-server.de sperrt automatische Abrufe (Disallow: /,
+    # 06.11.2026); die Pipeline ruft den Rechner nur mit der benannten Freigabe unten ab, und jeder Abruf steht
+    # mit dieser Freigabe im Bericht und im Protokoll (E50). Ohne robots_freigabe bricht die Quelle ohne Abruf
+    # ab. Zusätzlich möglich, etwa für Prüfläufe: abgelegte Gesamtdatei (`datei: /app/cache/inkar_JJJJ.zip`
+    # hier oder PIPELINE_INKAR_DATEI), dann ohne jeden Abruf.
+    titel: "INKAR, Indikatoren je Gemeinde in Deutschland (Vollumfang)"
+    typ: inkar
+    url: https://www.bbr-server.de/imagemap/inkar/download/inkar_{jahr}.zip
+    # Benannte Freigabe für genau diesen Rechner und diese Quelle (E50); der Text erscheint in jedem Bericht,
+    # im Protokoll und in --ziele. Die schriftliche Anfrage an das BBSR läuft parallel in AP 1 und ist keine
+    # Bedingung für den Abruf; widerspricht das BBSR, entscheidet die TH über diese Freigabe (Risikotabelle des
+    # Angebots), die Pipeline liefert den Abruf per URL, die abgelegte Datei bleibt der Ersatzweg.
+    robots_freigabe: "Vorgabe des Auftraggebers, Antwort 33 (VA-2026-536); Erlaubnis des BBSR wird in AP 1 schriftlich eingeholt"
+    jahr: neuester           # {jahr} = jüngstes vorhandenes Jahr, oder eine feste Jahreszahl
+    max_mb: 600              # Größe des ZIP
+    # Zeitbudget (E51, bemessen an 146,5 min nach E50 plus rund 60 %): am Abgabestand gemessen 129,4 min
+    # (Erstlauf) und 158,2 min (unveränderter Folgelauf) für INKAR aus der abgelegten Datei auf einem parallel
+    # genutzten Entwicklungsrechner, höchstens 66 % des Budgets; dazu der Download von rund 430 MB (nicht
+    # gemessen, nur Attrappen). Nicht gemessen sind ein Lauf mit Änderungen im Vollumfang und der Zielrechner
+    # der TH. Download, Lesen und Schreiben zählen zum Budget; überschritten, wird die
+    # Quelle zurückgerollt, der alte Stand bleibt und die nächste Quelle läuft
+    zeitbudget_min: 240
+    max_entpackt_mb: 10000   # Größe der CSV im ZIP
+    max_packrate: 100        # Schutz gegen ZIP-Bomben (INKAR: rund 16:1)
+    form: lang               # eine Zeile je Indikator, Gebiet und Jahr
+    raumbezug: Gemeinden
+    kennziffer_beginnt: ""   # alle Länder, wie der Import der TH; "12" nur Brandenburg (Prüfkonfiguration)
+    kennziffer_stellen: 8    # Gemeindeschlüssel, schließt fremde Gebietsarten aus
+    zeitbezug: alle          # ganze Zeitreihe; oder neuester, oder eine Jahreszahl
+    schluessel: [Kennziffer, Bereich, Kuerzel, Indikator, Zeitbezug]   # Antwort 31
+    indikatoren: alle        # alle Indikatoren des Raumbezugs, wie der Import der TH; oder eine Liste von Kürzeln
+    karte: false             # rund 33,5 Mio. Zeilen; eine Änderungskarte wäre hier ohne Aussage
+    rhythmus: monatlich
+    lizenz: "INKAR, © BBSR Bonn 2025, dl-de/by-2-0"
+    kontakt: {anbieter: "Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)", email: null}
+    ziel:
+      tabelle: dashboard_data_de
+      schluessel: [kennziffer, indikator, zeitbezug]
+      spalten: {indikator: indikator, kennziffer: kennziffer, wert: wert, zeitbezug: zeitbezug}
+      fest: {source: INKAR, granularity: Gemeindeebene}
+      pflicht: [wert, zeitbezug]            # Antwort 63: ohne Wert oder Jahr auslassen, mit Warnung
+      # Antworten 31/62: Quellschlüssel Kennziffer, Bereich, Kürzel, Indikator, Zeitbezug; dashboard_data_de
+      # hat nur kennziffer, indikator, zeitbezug (Schema unverändert, Antworten 27/29). Feste Regel (E40):
+      # indikator = Langtext, außer im Bereich ZOM mit dem Bereich in Klammern, z. B.
+      # „Einwohnerdichte“ (ZOM) und „Einwohnerdichte (LRB)“. ZOM bleibt ohne Zusatz, weil MOSIDI die
+      # Indikatorenübersicht des Blatts ZOM als dashboard_data_metadata liest (Kurzname = Langtext).
+      # Hängt nur vom Schlüssel der Zeile ab, nie von Werten; INKAR 2025: 355 Reihen, 355 Namen.
+      zusatz: {spalte: indikator, feld: bereich, ausser: [ZOM]}
+      # data_type (Codex-Prüfung B11): MOSIDI liest die Spalte nicht und setzt sie nicht; die Pipeline
+      # schreibt „indikator“, wie dct_type dieser Zeilen in table_metadata (E40, Abgleich in AP 1)
+      konstant: {data_type: indikator}
+      metadaten: {je: indikator}

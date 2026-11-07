@@ -1,0 +1,113 @@
+# Nur Kommentare? Maschineller Vergleich zweier Stände (E49, nur-kommentare.py)
+Datum: 2026-11-06T11:50:27+01:00
+Baum alt: Stand vor E49 (Baum efbd6f6a4eb2ae9e37d3f1af731d904dcfde7583)
+Baum neu: dccf98bf4a71bad6df96195a88c69d48919fe96c (git write-tree nach git add -A)
+Zwischenstand: Baum 8e0e8b473a64dc1fe7b7e3f3a9e66ce2c743f071 (Namensnennung basemap.de)
+Python 3.13.12, PyYAML 6.0.3
+Ausgenommen: beispielberichte/pruefstand-2026-11-06-e49/ (Skript und Protokoll dieses Prüfstands)
+
+## Selbsttest
+OK           YAML: Schlüssel vertauscht (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           YAML: 1 -> true (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           YAML: nur Kommentare: erwartet OK, erhalten OK
+OK           TOML: 1 -> 1.0 (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           TOML: nur Kommentare: erwartet OK, erhalten OK
+OK           SQL: Leerraum in Zeichenkette (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           SQL: Leerraum in zitiertem Bezeichner (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           SQL: E-String mit Backslash-Escape (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           SQL: nur Kommentare und Leerraum außerhalb von Literalen: erwartet OK, erhalten OK
+OK           SQL: Kommentar in einem $$-Körper: erwartet HINWEIS, erhalten HINWEIS
+OK           Shell: Heredoc mit <<\EOF (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Shell: Kommentar direkt nach ; mit Apostroph (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Shell: Zeile in python3 -c '…': erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Shell: nur Kommentar- und Leerzeilen: erwartet OK, erhalten OK
+OK           Python: f.__doc__ gelesen (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: inspect.getdoc gelesen (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: description=__doc__, zweite Zeile geändert (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: __doc__.splitlines()[0], zweite Zeile geändert: erwartet OK, erhalten OK
+OK           Python: __doc__.splitlines()[0], erste Zeile geändert: erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: Kodierungsangabe neu (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: Shebang geändert (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: # ruff: noqa neu (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: noqa an andere Codezeile verschoben: erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: Leerzeichen im Code: erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: Zeichenkette mit # geändert: erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Python: Docstring und Kommentar neu: erwartet OK, erhalten OK
+OK           Modus 100755 -> 100644 (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Symlink-Ziel geändert (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Gitlink geändert (Prüfung zu E49): erwartet ABWEICHUNG, erhalten ABWEICHUNG
+OK           Markdown geändert: erwartet ABWEICHUNG, erhalten ABWEICHUNG
+30 von 30 Fällen wie erwartet
+
+## Geänderte, neue und entfernte Dateien
+OK           .github/dependabot.yml: yaml.safe_load gleich (typ- und reihenfolgetreu)
+OK           .github/workflows/pruefen.yml: yaml.safe_load gleich (typ- und reihenfolgetreu)
+OK           ACKNOWLEDGEMENTS.md: AUSSERHALB E49 geändert (Namensnennung basemap.de), geprüft gegen Zwischenstand: byte-gleich
+OK           DANK.md: AUSSERHALB E49 geändert (Namensnennung basemap.de), geprüft gegen Zwischenstand: byte-gleich
+OK           Dockerfile: 14 Zeilen gleich
+OK           README.en.md: AUSSERHALB E49 geändert (Namensnennung basemap.de), geprüft gegen Zwischenstand: byte-gleich
+OK           README.md: AUSSERHALB E49 geändert (Namensnennung basemap.de), geprüft gegen Zwischenstand: byte-gleich
+BEABSICHTIGT beispielberichte/pruefstand-2026-11-06-e48/README.md: PyPI-Aussage als überholt markiert (E49)
+BEABSICHTIGT beispielberichte/pruefstand-2026-11-06-e48/ZUERST-LESEN.md: entfernt: Inhalt steht in der README dort
+OK           config/beispiel-paging.yaml: yaml.safe_load gleich (typ- und reihenfolgetreu)
+OK           config/deutschland.yaml: yaml.safe_load gleich (typ- und reihenfolgetreu)
+OK           config/europa.yaml: yaml.safe_load gleich (typ- und reihenfolgetreu)
+OK           config/quellen.yaml: yaml.safe_load gleich (typ- und reihenfolgetreu)
+OK           deploy/mosidi/docker-compose.pipeline.yml: yaml.safe_load gleich (typ- und reihenfolgetreu)
+OK           deploy/mosidi/geodaten-import-mosidi.service: 14 Zeilen gleich
+OK           deploy/systemd/geodaten-import-fehler.service: 5 Zeilen gleich
+OK           deploy/systemd/geodaten-import.service: 13 Zeilen gleich
+OK           deploy/systemd/geodaten-import.timer: 8 Zeilen gleich
+OK           docker-compose.yml: yaml.safe_load gleich (typ- und reihenfolgetreu)
+BEABSICHTIGT docs/entscheidungen.md: E49 neu; E48-Aussagen zu PyPI als überholt markiert
+OK           pipeline/__init__.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           pipeline/betrieb.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           pipeline/einrichten.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare, erste Docstring-Zeile gleich
+OK           pipeline/karte.py: AUSSERHALB E49 geändert (Namensnennung basemap.de), geprüft gegen Zwischenstand: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, 2 Pragma-Kommentar(e) an gleicher Stelle
+OK           pipeline/laden.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, 1 Pragma-Kommentar(e) an gleicher Stelle, erste Docstring-Zeile gleich
+OK           pipeline/quellen.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, 2 Pragma-Kommentar(e) an gleicher Stelle
+OK           pipeline/signatur.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           pipeline/sprache.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           pipeline/verzeichnis.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           pipeline/waechter.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           pipeline/ziel.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           pruefen.sh: 23 Zeilen gleich, bash -n und sh -n ohne Fehler
+OK           pyproject.toml: tomllib gleich (typ- und reihenfolgetreu)
+OK           sql/pipeline_meta.sql: Code ohne Kommentare gleich, $$-Körper byte-gleich; Kommentare 47 -> 101; 0 Literale außerhalb von $$-Körpern byte-gleich; 1 $$-Körper, darin Kommentare alt 0, neu 0
+OK           tests/conftest.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_betrieb.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_datenbank.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, 1 Pragma-Kommentar(e) an gleicher Stelle
+OK           tests/test_einrichten.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_geojson.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_karte.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_laden.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_neue_quellen.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_quellen.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_signatur.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_sprache.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_verzeichnis.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_waechter.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+OK           tests/test_xlsx.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, 1 Pragma-Kommentar(e) an gleicher Stelle
+OK           tests/test_ziel.py: Syntaxbaum ohne Docstrings gleich, Codezeilen byte-gleich, keine Pragma-Kommentare
+
+## Je Bereich
+(Wurzel)             OK 8, byte-gleich 9
+.github/             OK 2
+beispielberichte/    BEABSICHTIGT 2, byte-gleich 365
+beispiele/           byte-gleich 2
+berichte/            byte-gleich 1
+config/              OK 4
+deploy/              OK 5, byte-gleich 1
+docs/                BEABSICHTIGT 1, byte-gleich 13
+pipeline/            OK 11, byte-gleich 5
+sql/                 OK 1, byte-gleich 1
+tests/               OK 15, byte-gleich 2
+sql/mosidi/001_bestand.sql: byte-gleich
+
+## --help
+OK           python -m pipeline.laden --help: alt == neu (21 Zeilen)
+OK           python -m pipeline.einrichten --help: alt == neu (8 Zeilen)
+
+## Ergebnis
+448 Dateien: BEABSICHTIGT 3, OK 445
+Nur Kommentare und Docstrings geändert.

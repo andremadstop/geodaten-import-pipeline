@@ -1,0 +1,14 @@
+$ ./pruefen.sh   (05.11.2026 08:58, Git-Baum a9a568bb386694979b8c272707d960be432a8747)
+== ruff
+All checks passed!
+== bandit
+[tester]	WARNING	nosec encountered (B603), but no failed test on file pipeline/quellen.py:741
+== pip-audit
+No known vulnerabilities found
+== pytest
+......ssssssssssssssssssssss............................................ [ 54%]
+.............................................................            [100%]
+111 passed, 22 skipped in 2.30s
+== detect-secrets
+== sbom
+Alles in Ordnung.

@@ -1,0 +1,17 @@
+Import run 20261102T100034Z · 34.62 s
+  alkis_gebaeude_thb       ok     new     0  changed     0  deleted     0  unchanged   882
+      Note: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  kreise_bkg               ok     new     0  changed     0  deleted     0  unchanged    48
+      Note: Dienst meldet ImplementsSorting=FALSE, Seiten ohne feste Reihenfolge
+  gemeinden_lgb            ok     new     0  changed     0  deleted     0  unchanged   413
+      Note: Dienst bietet keine Feldliste (queryables), Felder aus den Objekten
+  bevoelkerung_gemeinden   ok     new     0  changed     0  deleted     0  unchanged   413
+      Note: 7 Zeilen ohne jeden Wert ausgelassen: 12060096, 12067310, 12071185, 12073032, 12073386, 12073505, 12073603
+  flaeche_gemeinden        ok     new     0  changed     0  deleted     0  unchanged   413
+      Note: 7 Zeilen ohne jeden Wert ausgelassen: 12060096, 12067310, 12071185, 12073032, 12073386, 12073505, 12073603
+  kreise_merkmale_csv      ok     new     0  changed     0  deleted     0  unchanged     5
+      Warning: 1 Zeilen ohne passendes Gebiet in 'kreise_bkg' übersprungen: 99999
+  standorte_csv            ok     new     0  changed     0  deleted     0  unchanged     3
+  kaputte_quelle           ERROR ConnectionError: HTTPSConnectionPool(host='wfs.example.invalid', port=443): Max retries exceeded with url: /ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0 (Caused by NameResolutionError("HTTPSConnection(host='wfs.example.invalid', port=443): Failed to resolve 'wfs.example.invalid' ([Errno -2] Name or service not known)"))
+      Draft report to the provider: 20261102T100034Z-meldung-kaputte_quelle.txt
+  Change map: 20261102T100034Z-karte.html

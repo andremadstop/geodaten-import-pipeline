@@ -1,0 +1,35 @@
+# Beispiel: INKAR-Indikatoren des BBSR je Gemeinde in Brandenburg, mit den Gemeindeflächen der LGB.
+# Aufruf: docker compose run --rm -e PIPELINE_CONFIG=/app/config/beispiel-inkar.yaml pipeline
+# Die INKAR-Gesamtdatei ist ein ZIP von rund 430 MB (entpackt rund 6,8 GB). Sie wird nach cache/
+# geladen und nur neu geholt, wenn das BBSR eine neue Fassung bereitstellt (If-Modified-Since).
+berichte: /app/berichte
+quellen:
+  gemeinden_lgb:
+    typ: ogcapi
+    url: https://ogc-api.geobasis-bb.de/datasets/vg/collections/gem
+    id_feld: ags
+    felder: {ags: ags, gem_name: name, gem_art: art, krss: kreisschluessel, gem_aktualitaet: aktualitaet}
+    lizenz: "© GeoBasis-DE/LGB, dl-de/by-2-0"
+  inkar_gemeinden:
+    typ: inkar
+    # {jahr} wird durch das jüngste vorhandene Jahr ersetzt (jahr: neuester) oder fest gesetzt
+    url: https://www.bbr-server.de/imagemap/inkar/download/inkar_{jahr}.zip
+    jahr: neuester
+    max_mb: 600              # Größe des ZIP
+    max_entpackt_mb: 10000   # Größe der CSV im ZIP
+    max_packrate: 100        # Schutz gegen ZIP-Bomben (INKAR: rund 16:1)
+    raumbezug: Gemeinden
+    kennziffer_beginnt: "12" # Brandenburg
+    kennziffer_stellen: 8    # Gemeindeschlüssel, schließt fremde Gebietsarten mit Präfix 12 aus
+    zeitbezug: neuester      # je Indikator das jüngste Jahr; oder eine Jahreszahl
+    indikatoren:             # INKAR-Kürzel -> Feldname in der Datenbank
+      xbev: bevoelkerung
+      q_bev_fl: einwohnerdichte
+      e5_bev: bevoelkerungsentwicklung_5j
+      q_pendlersaldo: pendlersaldo
+      alo: arbeitslose
+    gebiet:
+      geometrie_quelle: gemeinden_lgb
+      schluessel_feld: ags
+    lizenz: "INKAR, © BBSR Bonn 2025, dl-de/by-2-0; Auszug, je Gemeinde zusammengefasst"
+    kontakt: {anbieter: "Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)", email: null}

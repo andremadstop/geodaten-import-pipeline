@@ -1,0 +1,96 @@
+                                                       version                                                        
+----------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+(1 row)
+
+ postgis_lib_version 
+---------------------
+ 3.6.4
+(1 row)
+
+     lauf_id      |         quelle         |                 tabelle                  |    status     | gelesen |  neu  | geaendert | entfernt | unveraendert | uebernommen | zurueckgehalten | dauer_s 
+------------------+------------------------+------------------------------------------+---------------+---------+-------+-----------+----------+--------------+-------------+-----------------+---------
+ 20261103T103625Z | alkis_gebaeude_thb     | Gebäude (ALKIS)                          | ok            |     882 |   882 |         0 |        0 |            0 |           0 |               0 |    3.37
+ 20261103T103625Z | bevoelkerung_gemeinden | dashboard_data_de                        | ok            |     413 |  1239 |         0 |        0 |            0 |           0 |               0 |    1.46
+ 20261103T103625Z | flaeche_gemeinden      | dashboard_data_de                        | ok            |     413 |   413 |         0 |        0 |            0 |           0 |               0 |    0.94
+ 20261103T103625Z | gemeinden_lgb          | Kommunale Gebiete Brandenburg (InNoWest) | ok            |     413 |   413 |         0 |        0 |            0 |           0 |               0 |    4.84
+ 20261103T103625Z | inkar_gemeinden        | dashboard_data_de                        | ok            |   62929 | 57259 |         0 |        0 |            0 |           0 |               0 |  100.67
+ 20261103T103625Z | kreise_lgb             | Landkreis                                | ok            |      18 |    18 |         0 |        0 |            0 |           0 |               0 |    2.13
+ 20261103T103833Z | alkis_gebaeude_thb     | Gebäude (ALKIS)                          | ok            |     882 |     0 |         0 |        0 |          882 |           0 |               0 |    2.73
+ 20261103T103833Z | bevoelkerung_gemeinden | dashboard_data_de                        | ok            |     413 |     0 |         0 |        0 |         1239 |           0 |               0 |    1.34
+ 20261103T103833Z | flaeche_gemeinden      | dashboard_data_de                        | ok            |     413 |     0 |         0 |        0 |          413 |           0 |               0 |    1.34
+ 20261103T103833Z | gemeinden_lgb          | Kommunale Gebiete Brandenburg (InNoWest) | ok            |     413 |     0 |         0 |        0 |          413 |           0 |               0 |    4.76
+ 20261103T103833Z | inkar_gemeinden        | dashboard_data_de                        | ok            |   62929 |     0 |         0 |        0 |        57259 |           0 |               0 |  101.81
+ 20261103T103833Z | kreise_lgb             | Landkreis                                | ok            |      18 |     0 |         0 |        0 |           18 |           0 |               0 |    1.73
+ 20261103T104029Z | alkis_gebaeude_thb     |                                          | nicht_faellig |         |       |           |          |              |             |                 |        
+ 20261103T104029Z | bevoelkerung_gemeinden |                                          | nicht_faellig |         |       |           |          |              |             |                 |        
+ 20261103T104029Z | flaeche_gemeinden      |                                          | nicht_faellig |         |       |           |          |              |             |                 |        
+ 20261103T104029Z | gemeinden_lgb          |                                          | nicht_faellig |         |       |           |          |              |             |                 |        
+ 20261103T104029Z | inkar_gemeinden        |                                          | nicht_faellig |         |       |           |          |              |             |                 |        
+ 20261103T104029Z | kreise_lgb             |                                          | nicht_faellig |         |       |           |          |              |             |                 |        
+(18 rows)
+
+     lauf_id      | quellen | fehler | angehalten | dauer_s 
+------------------+---------+--------+------------+---------
+ 20261103T103625Z |       6 |      0 |          0 |  113.44
+ 20261103T103833Z |       6 |      0 |          0 |  113.73
+ 20261103T104029Z |       0 |      0 |          0 |    0.02
+(3 rows)
+
+                 tabelle                  |         quelle         | count 
+------------------------------------------+------------------------+-------
+ dashboard_data_de                        | bevoelkerung_gemeinden |  1239
+ dashboard_data_de                        | flaeche_gemeinden      |   413
+ dashboard_data_de                        | inkar_gemeinden        | 57259
+ Gebäude (ALKIS)                          | alkis_gebaeude_thb     |   882
+ Kommunale Gebiete Brandenburg (InNoWest) | gemeinden_lgb          |   413
+ Landkreis                                | kreise_lgb             |    18
+(6 rows)
+
+ art | count 
+-----+-------
+ neu | 60224
+(1 row)
+
+ gebaeude | count 
+----------+-------
+      882 |     0
+(1 row)
+
+ gemeinden | count |     min      | min  
+-----------+-------+--------------+------
+       413 |   413 | MULTIPOLYGON | 4326
+(1 row)
+
+ count 
+-------
+    18
+(1 row)
+
+                source                | granularity | count | indikatoren | min  | max  
+--------------------------------------+-------------+-------+-------------+------+------
+ Amt für Statistik Berlin-Brandenburg | Gemeinden   |  1652 |           4 | 2025 | 2025
+ INKAR                                | Gemeinden   | 57259 |           7 | 1995 | 2023
+(2 rows)
+
+                table_name                |   ebene   |                   dct_catalog_publisher                    | geometry_type |                       dct_accrualperiodicity                       | von  | bis  | bbox 
+------------------------------------------+-----------+------------------------------------------------------------+---------------+--------------------------------------------------------------------+------+------+------
+ Gebäude (ALKIS)                          |           | Landesvermessung und Geobasisinformation Brandenburg (LGB) | MultiPolygon  | http://publications.europa.eu/resource/authority/frequency/WEEKLY  |      |      | t
+ Kommunale Gebiete Brandenburg (InNoWest) |           | Landesvermessung und Geobasisinformation Brandenburg (LGB) | MultiPolygon  | http://publications.europa.eu/resource/authority/frequency/MONTHLY |      |      | t
+ Landkreis                                |           | Landesvermessung und Geobasisinformation Brandenburg (LGB) | MultiPolygon  | http://publications.europa.eu/resource/authority/frequency/MONTHLY |      |      | t
+ Arbeitslose                              | Gemeinden | INKAR                                                      | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 1998 | 2023 | f
+ Bevölkerung                              | Gemeinden | INKAR                                                      | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 2017 | 2023 | f
+ Bevölkerung gesamt                       | Gemeinden | INKAR                                                      | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 1995 | 2023 | f
+ Bevölkerung insgesamt (Stichtag 31.12.)  | Gemeinden | Amt für Statistik Berlin-Brandenburg                       | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 2025 | 2025 | f
+ Bevölkerung männlich (Stichtag 31.12.)   | Gemeinden | Amt für Statistik Berlin-Brandenburg                       | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 2025 | 2025 | f
+ Bevölkerungsentwicklung                  | Gemeinden | INKAR                                                      | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 2017 | 2023 | f
+ Bevölkerungsentwicklung (5 Jahre)        | Gemeinden | INKAR                                                      | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 2000 | 2023 | f
+ Bevölkerung weiblich (Stichtag 31.12.)   | Gemeinden | Amt für Statistik Berlin-Brandenburg                       | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 2025 | 2025 | f
+ Einwohnerdichte                          | Gemeinden | INKAR                                                      | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 1996 | 2023 | f
+ Gebietsfläche in km² (Stichtag 31.12.)   | Gemeinden | Amt für Statistik Berlin-Brandenburg                       | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 2025 | 2025 | f
+ Pendlersaldo                             | Gemeinden | INKAR                                                      | Polygon       | http://publications.europa.eu/resource/authority/frequency/MONTHLY | 1997 | 2023 | f
+(14 rows)
+
+-- [Entfernt am 05.11.2026 (E38): elf Kennzahlen einer Gemeinde (Bevölkerung, Fläche, INKAR-Werte) als Einzeldatensätze. Quelldaten werden nicht mit dem Code veröffentlicht
+--  (Antwort 69 der TH); Zählungen und Kennzahlen bleiben stehen.]
+

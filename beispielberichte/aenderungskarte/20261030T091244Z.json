@@ -1,0 +1,169 @@
+{
+  "lauf_id": "20261030T091244Z",
+  "start": "2026-10-30T09:12:44.879479+00:00",
+  "probelauf": false,
+  "quellen": [
+    {
+      "quelle": "alkis_gebaeude_thb",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 1023,
+        "neu": 224,
+        "geaendert": 0,
+        "unveraendert": 799,
+        "geloescht": 83
+      },
+      "warnungen": [],
+      "hinweise": [
+        "Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung"
+      ],
+      "info": {
+        "kontakt": {
+          "anbieter": "Landesvermessung und Geobasisinformation Brandenburg (LGB)",
+          "email": "kundenservice@geobasis-bb.de"
+        },
+        "update_sequence": null,
+        "felder": [
+          "aktualit",
+          "anzahlgs",
+          "funktion",
+          "gebnutzbez",
+          "geometrie",
+          "gfkzshh",
+          "gmdschl",
+          "lagebeztxt",
+          "name",
+          "oid",
+          "rellage"
+        ],
+        "objekte": 1023
+      },
+      "letzte_abfrage": "https://isk.geobasis-bb.de/ows/alkis_vereinf_wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=ave%3AGebaeudeBauwerk&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=10000&BBOX=333100%2C5810200%2C333500%2C5810400%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "laufzeit_s": 3.15
+    },
+    {
+      "quelle": "kreise_bkg",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 48,
+        "neu": 0,
+        "geaendert": 0,
+        "unveraendert": 48,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [],
+      "info": {
+        "kontakt": {
+          "anbieter": "Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie",
+          "email": "dlz@bkg.bund.de"
+        },
+        "update_sequence": "128464",
+        "felder": [
+          "ade",
+          "ags",
+          "ags_0",
+          "ars",
+          "ars_0",
+          "beginn",
+          "bem",
+          "bez",
+          "bsg",
+          "dlm_id",
+          "fk_s3",
+          "gen",
+          "geom",
+          "gf",
+          "ibz",
+          "lkz",
+          "nbd",
+          "nuts",
+          "objid",
+          "sdv_ars",
+          "sn_g",
+          "sn_k",
+          "sn_l",
+          "sn_r",
+          "sn_v1",
+          "sn_v2",
+          "wsk"
+        ],
+        "objekte": 48
+      },
+      "letzte_abfrage": "https://sgx.geodatenzentrum.de/wfs_vg250?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=vg250%3Avg250_krs&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=500&STARTINDEX=0&BBOX=250000%2C5690000%2C480000%2C5940000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "laufzeit_s": 2.13
+    },
+    {
+      "quelle": "kreise_merkmale_csv",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 7,
+        "neu": 1,
+        "geaendert": 1,
+        "unveraendert": 4,
+        "geloescht": 0
+      },
+      "warnungen": [
+        "1 Zeilen ohne passendes Gebiet in 'kreise_bkg' übersprungen: 99999"
+      ],
+      "hinweise": [],
+      "info": {
+        "felder": [
+          "kreis",
+          "kreisfrei",
+          "name"
+        ],
+        "objekte": 6
+      },
+      "letzte_abfrage": null,
+      "laufzeit_s": 0.02
+    },
+    {
+      "quelle": "standorte_csv",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 3,
+        "neu": 1,
+        "geaendert": 1,
+        "unveraendert": 1,
+        "geloescht": 1
+      },
+      "warnungen": [],
+      "hinweise": [],
+      "info": {
+        "felder": [
+          "art",
+          "id",
+          "lat",
+          "lon",
+          "name"
+        ],
+        "objekte": 3
+      },
+      "letzte_abfrage": null,
+      "laufzeit_s": 0.0
+    },
+    {
+      "quelle": "kaputte_quelle",
+      "typ": "wfs",
+      "status": "fehler",
+      "fehler": "ConnectionError: HTTPSConnectionPool(host='wfs.example.invalid', port=443): Max retries exceeded with url: /ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0 (Caused by NameResolutionError(\"HTTPSConnection(host='wfs.example.invalid', port=443): Failed to resolve 'wfs.example.invalid' ([Errno -2] Name or service not known)\"))",
+      "warnungen": [],
+      "hinweise": [],
+      "info": {},
+      "letzte_abfrage": "https://wfs.example.invalid/ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0",
+      "laufzeit_s": 0.01,
+      "meldung": "20261030T091244Z-meldung-kaputte_quelle.txt"
+    }
+  ],
+  "laufzeit_s": 5.34,
+  "fehlgeschlagen": [
+    "kaputte_quelle"
+  ],
+  "angehalten": [],
+  "karte": "20261030T091244Z-karte.html"
+}

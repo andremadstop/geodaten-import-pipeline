@@ -1,0 +1,4 @@
+Importlauf 20261030T074631Z · 0.75 s
+  kreise_bkg               ANGEHALTEN, alter Stand bleibt
+      Warnung: Quelle lieferte 5 statt bisher 48 Objekte (Rückgang über 50%), alter Stand bleibt unverändert
+      Meldungsentwurf an den Anbieter: 20261030T074631Z-meldung-kreise_bkg.txt

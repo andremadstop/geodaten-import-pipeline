@@ -1,0 +1,53 @@
+# Prüfkonfiguration INKAR-Vollumfang (Prüfstand nach E50, Befund W1 „Mengennachweis“). Keine ausgelieferte
+# Konfiguration: Sie liegt bewusst nicht unter config/ und wird von beleg.sh nur lesbar eingehängt.
+#
+# Umfang wie der Import der TH (MOSIDI-ORG/MOSIDI, Commit 26cadbba3d6223c84872987104fc737359bf8bfc,
+# services/backend/src/inkar_import, Antwort 33: „Umfang und Raumebenen … ergeben sich aus den bestehenden
+# Skripten und deren Konfiguration (inkar_import/config.xml)“). config.xml nennt nur die Spaltenzuordnung
+# (Bereich, ID, Indikator, Raumbezug, Kennziffer, Name, Zeitbezug, Wert); Indikatoren, Raumebenen und Länder
+# legt inkar_db_import.py fest:
+#   - Raumbezug nur „Gemeinden“ (Z. 105 bis 107, fest im Code) -> raumbezug: Gemeinden
+#   - keine Auswahl nach Indikator oder Kürzel                  -> indikatoren: alle
+#   - keine Auswahl nach Kennziffer oder Land, ganz Deutschland  -> kennziffer_beginnt: ""
+#   - alle Jahre der Datei                                       -> zeitbezug: alle
+# Ziel und Schlüssel wie in config/deutschland.yaml (E40, Antworten 31, 62, 63), damit der Lauf zeigt, was die
+# ausgelieferte Zuordnung mit dem ganzen Umfang macht.
+#
+# Abweichungen von config/deutschland.yaml, alle nur für diese Messung:
+#   - keine VG250-Quelle und kein ziel.gebiet: gemessen wird nur INKAR; die Verknüpfung mit den Gemeindeflächen
+#     belegt der Lauf deutschland/ (sie ist nur ein Hinweis, kein Filter)
+#   - zeitbudget_min: 240 statt 90: Der Lauf soll die Menge messen, nicht am Budget abbrechen. Ob die
+#     ausgelieferten 90 Minuten reichen, steht im Prüfstand (Laufzeit gegen Budget)
+#   - keine robots_freigabe und keine url-Freigabe nötig: INKAR kommt nur aus PIPELINE_INKAR_DATEI (beleg.sh);
+#     die url steht nur, weil die Quelle sie verlangt, wenn keine Datei konfiguriert ist; ohne Freigabe bliebe
+#     ein Abruf ohnehin gesperrt (ROBOTS_GESPERRT)
+berichte: /app/berichte
+quellen:
+  inkar_gemeinden_vollumfang:
+    titel: "INKAR, alle Indikatoren je Gemeinde in Deutschland (Prüfkonfiguration Vollumfang)"
+    typ: inkar
+    url: https://www.bbr-server.de/imagemap/inkar/download/inkar_{jahr}.zip
+    jahr: neuester
+    max_mb: 600
+    zeitbudget_min: 240
+    max_entpackt_mb: 10000
+    max_packrate: 100
+    form: lang
+    raumbezug: Gemeinden
+    kennziffer_beginnt: ""   # alle Länder, wie der Import der TH
+    kennziffer_stellen: 8
+    zeitbezug: alle
+    schluessel: [Kennziffer, Bereich, Kuerzel, Indikator, Zeitbezug]
+    indikatoren: alle
+    karte: false             # rund 33,5 Mio. Zeilen; eine Änderungskarte wäre hier ohne Aussage
+    lizenz: "INKAR, © BBSR Bonn 2025, dl-de/by-2-0"
+    kontakt: {anbieter: "Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)", email: null}
+    ziel:
+      tabelle: dashboard_data_de
+      schluessel: [kennziffer, indikator, zeitbezug]
+      spalten: {indikator: indikator, kennziffer: kennziffer, wert: wert, zeitbezug: zeitbezug}
+      fest: {source: INKAR, granularity: Gemeindeebene}
+      pflicht: [wert, zeitbezug]
+      zusatz: {spalte: indikator, feld: bereich, ausser: [ZOM]}
+      konstant: {data_type: indikator}
+      metadaten: {je: indikator}

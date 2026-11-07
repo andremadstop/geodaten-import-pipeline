@@ -1,0 +1,21 @@
+ENTWURF, wird nicht automatisch versendet. Vor dem Senden prüfen und Absender ergänzen.
+
+An: nicht ermittelbar (Capabilities nicht erreichbar), `kontakt` in der Konfiguration eintragen
+Betreff: Rückfrage zum Dienst x:y (20261030T074610Z)
+
+Sehr geehrte Damen und Herren,
+
+beim automatischen Abruf Ihres Dienstes ist uns Folgendes aufgefallen:
+
+  Befund:   ConnectionError: HTTPSConnectionPool(host='wfs.example.invalid', port=443): Max retries exceeded with url: /ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0 (Caused by NameResolutionError("HTTPSConnection(host='wfs.example.invalid', port=443): Failed to resolve 'wfs.example.invalid' ([Errno -2] Name or service not known)"))
+  Zeitpunkt: 30.10.2026, 07:46 UTC
+  Abfrage:  https://wfs.example.invalid/ows?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=2.0.0
+
+Die Abfrage lässt sich mit der angegebenen URL nachstellen. Können Sie uns sagen, ob es sich um
+eine Störung oder um eine beabsichtigte Änderung handelt?
+
+Mit freundlichen Grüßen
+
+[Name, Einrichtung]
+
+(Quelle in der Konfiguration: kaputte_quelle; Anbieter laut Dienst: unbekannt)

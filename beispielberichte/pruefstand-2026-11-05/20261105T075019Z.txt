@@ -1,0 +1,21 @@
+Importlauf 20261105T075019Z · 107.73 s
+  alkis_gebaeude_thb       ok     neu   882  geändert     0  gelöscht     0  unverändert     0
+      Warnung: 882 Objekte mit aktualit länger als 10 Zeichen (bis 11), gekürzt gespeichert: DEBBAL010007CHrQBL, DEBBAL010007eR2UBL, DEBBAL010007JH7rBL, DEBBAL010007Kz4kBL, DEBBAL010007Kz4lBL, DEBBAL010007niKABL, DEBBAL010007niKyBL, DEBBAL010007V39SBL, DEBBAL010007V39TBL, DEBBAL010007V39UBL …
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  gemeinden_lgb            ok     neu   413  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  kreise_lgb               ok     neu    18  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung
+  bevoelkerung_gemeinden   ok     neu  1239  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: 7 Zeilen ohne jeden Wert ausgelassen: 12060096, 12067310, 12071185, 12073032, 12073386, 12073505, 12073603
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  flaeche_gemeinden        ok     neu   413  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: 7 Zeilen ohne jeden Wert ausgelassen: 12060096, 12067310, 12071185, 12073032, 12073386, 12073505, 12073603
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+      Hinweis: Flächenprüfung: 413 Gebiete, Abweichung im Median 0.005 %, höchstens 0.161 % (Toleranz 0.5 %)
+  inkar_gemeinden          ok     neu 57259  geändert     0  gelöscht     0  unverändert     0
+      Hinweis: Neueste Datei: inkar_2025.zip
+      Hinweis: Datei unverändert seit dem letzten Abruf: inkar_2025.zip
+      Hinweis: 5670 Zeilen mit gleichem Zielschlüssel und gleichem Wert zusammengeführt
+      Hinweis: 413 von 413 Gebietsschlüsseln haben eine Fläche in „Kommunale Gebiete Brandenburg (InNoWest)“ (nationalco)
+  Änderungskarte: 20261105T075019Z-karte.html

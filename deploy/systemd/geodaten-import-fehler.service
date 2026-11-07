@@ -1,0 +1,13 @@
+# Läuft, wenn ein Lauf mit Exit-Code ungleich 0 endet. Schreibt eine Zeile mit Priorität "err"
+# ins Journal, die jede Überwachung findet (journalctl -p err -t geodaten-import).
+# Eigene Benachrichtigung (Mail, Chat, Ticket) als Drop-in ergänzen:
+#   systemctl edit geodaten-import-fehler.service
+#   [Service]
+#   ExecStart=/usr/local/bin/eigene-meldung "Geodaten-Import: Lauf fehlgeschlagen"
+[Unit]
+Description=Geodaten-Import-Pipeline: Meldung bei fehlgeschlagenem, angehaltenem oder unvollständigem Lauf
+
+[Service]
+# Schreibt nur die Zeile ins Journal und endet; Einzelheiten stehen im Bericht des Laufs
+Type=oneshot
+ExecStart=/usr/bin/logger -p user.err -t geodaten-import "Lauf fehlgeschlagen, Quelle angehalten oder unvollständig: Bericht und Meldungsentwürfe in berichte/ lesen"

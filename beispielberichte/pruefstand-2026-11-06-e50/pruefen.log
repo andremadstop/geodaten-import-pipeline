@@ -1,0 +1,19 @@
+$ ./pruefen.sh   (07.11.2026 02:07 MEZ (Ende), Abgabestand nach E50, gestagt einschließlich dieses Prüfstands mit Belegläufen, Compose-Lauf von MOSIDI, INKAR-Vollumfang, datenbanktests.log und der Dokumentation (Baum f016f2cc550914bc3f90651a2034f078b9090040, ohne diese Datei); keine Änderung an pipeline, sql, tests, config seit den Läufen; uv und pip-audit nutzen PyPI wie in pruefen.sh (E49); Teilbäume aus git write-tree nach dem Stagen: pipeline 0ab429565e82cc9995c08ccab8f05ec231dcc88f, config c6b781315000369f38d5d4c9f67388a6984fb497, sql acacc89bd5167e671bcfb27b511620734f1f55f6, tests a7f801bebed5cbfb4970f3baed9ecc18a2bf441e, Dockerfile 6788a7afeb4041d3c71b517b184d557c44c99762, requirements.txt 3edf4ee3e318de51d0094b6ad08cbc7ddeed8191)
+== ruff
+All checks passed!
+== bandit
+[tester]	WARNING	nosec encountered (B603), but no failed test on file pipeline/quellen.py:2154
+== pip-audit
+No known vulnerabilities found
+== pytest
+..................ssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 15%]
+ssssssssssss............................................................ [ 31%]
+........................................................................ [ 47%]
+........................................................................ [ 63%]
+........................................................................ [ 79%]
+........................................................................ [ 95%]
+....................                                                     [100%]
+386 passed, 66 skipped in 23.35s
+== detect-secrets
+== sbom
+Alles in Ordnung.

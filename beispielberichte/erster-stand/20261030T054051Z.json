@@ -1,0 +1,22 @@
+{
+  "lauf_id": "20261030T054051Z",
+  "start": "2026-10-30T05:40:51.647181+00:00",
+  "quellen": [
+    {
+      "quelle": "standorte_csv",
+      "typ": "csv",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 3,
+        "neu": 1,
+        "geaendert": 2,
+        "unveraendert": 0,
+        "geloescht": 1
+      },
+      "warnungen": [],
+      "laufzeit_s": 0.02
+    }
+  ],
+  "laufzeit_s": 0.04,
+  "fehlgeschlagen": []
+}

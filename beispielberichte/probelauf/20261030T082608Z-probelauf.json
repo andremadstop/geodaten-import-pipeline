@@ -1,0 +1,63 @@
+{
+  "lauf_id": "20261030T082608Z",
+  "start": "2026-10-30T08:26:08.006061+00:00",
+  "probelauf": true,
+  "quellen": [
+    {
+      "quelle": "gemeinden_bkg",
+      "typ": "wfs",
+      "status": "ok",
+      "zaehler": {
+        "gelesen": 14,
+        "neu": 14,
+        "geaendert": 0,
+        "unveraendert": 0,
+        "geloescht": 0
+      },
+      "warnungen": [],
+      "hinweise": [],
+      "info": {
+        "kontakt": {
+          "anbieter": "Dienstleistungszentrum des Bundes für Geoinformation und Geodäsie",
+          "email": "dlz@bkg.bund.de"
+        },
+        "update_sequence": "128512",
+        "felder": [
+          "ade",
+          "ags",
+          "ags_0",
+          "ars",
+          "ars_0",
+          "beginn",
+          "bem",
+          "bez",
+          "bsg",
+          "dlm_id",
+          "fk_s3",
+          "gen",
+          "geom",
+          "gf",
+          "ibz",
+          "lkz",
+          "nbd",
+          "nuts",
+          "objid",
+          "sdv_ars",
+          "sn_g",
+          "sn_k",
+          "sn_l",
+          "sn_r",
+          "sn_v1",
+          "sn_v2",
+          "wsk"
+        ],
+        "objekte": 14
+      },
+      "letzte_abfrage": "https://sgx.geodatenzentrum.de/wfs_vg250?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=vg250%3Avg250_gem&SRSNAME=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833&COUNT=500&STARTINDEX=0&BBOX=360000%2C5800000%2C380000%2C5820000%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25833",
+      "laufzeit_s": 0.96
+    }
+  ],
+  "laufzeit_s": 0.98,
+  "fehlgeschlagen": [],
+  "angehalten": []
+}

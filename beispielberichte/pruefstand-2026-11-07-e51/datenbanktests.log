@@ -1,0 +1,20 @@
+Datenbanktests wie CI-Job datenbank (DATENBANK_TEST=1 pytest tests/test_datenbank.py), je Version ein frisches Wegwerf-Compose-Projekt aus der docker-compose.yml dieses Stands mit zufälligen Passwörtern, nacheinander (nicht gleichzeitig), nach allen Läufen und dem Wertabgleich dieses Prüfstands. Arbeitsstand: Abgabestand nach E51, gestagt einschließlich der Belegläufe dieses Prüfstands; Teilbäume aus git write-tree unmittelbar vor dem Start: pipeline 34175c77b6918e1253e93c1a5ae6eb0b66843b50, config 99237d43e77e50e9fc5764d22afd8dd21bd98144, sql acacc89bd5167e671bcfb27b511620734f1f55f6, tests a0630aa744ec8bf57127fa89ad712ffc7baab474, Dockerfile 6788a7afeb4041d3c71b517b184d557c44c99762, deploy 81041b9892c335ad271544f60e228fca6de4781e, requirements.txt 3edf4ee3e318de51d0094b6ad08cbc7ddeed8191. Die Zeile „Rückgabe“ ist die des Aufrufskripts (Ende einer Pipe), maßgeblich ist die Zeile von pytest.
+
+== PostgreSQL 16: postgis/postgis:16-3.6 (Digest wie in docker-compose.yml festgeschrieben), Datenverzeichnis /var/lib/postgresql/data
+Start 07.11.2026 10:48 CET, Rechnerlast (1/5/15 min) 3.01 5.44 7.11
+PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu
+......................................................................   [100%]
+70 passed in 264.09s (0:04:24)
+aufgeraeumt gip-e42-pg16-825382
+Rückgabe 0
+Ende 07.11.2026 10:52 CET
+
+== PostgreSQL 18: postgis/postgis:latest (POSTGIS_IMAGE), Datenverzeichnis /var/lib/postgresql (PGDATA_MOUNT)
+Start 07.11.2026 10:52 CET, Rechnerlast (1/5/15 min) 5.98 4.97 6.38
+PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu
+......................................................................   [100%]
+70 passed in 244.78s (0:04:04)
+aufgeraeumt gip-e42-pg18-8619db
+Rückgabe 0
+Ende 07.11.2026 10:57 CET
+

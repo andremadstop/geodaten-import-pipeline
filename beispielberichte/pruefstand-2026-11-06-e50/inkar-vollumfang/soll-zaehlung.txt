@@ -1,0 +1,426 @@
+# Soll-Zählung INKAR-Vollumfang, Datei inkar_2025.zip, Laufzeit 114 s, unzip rc=0
+Zeilen der Datei (ohne Kopf): 63426864; mit anderer Spaltenzahl als der Kopf: 0
+
+## Raumbezüge der Datei (45): Zeilen, Kürzel
+Gemeinden: 33547606 Zeilen, 264 Kürzel
+Gemeindeverbände (Verwaltungsgemeinschaft): 11669757 Zeilen, 178 Kürzel
+Kreise: 3292672 Zeilen, 508 Kürzel
+Zentralörtliche Funktion - keine: 3237894 Zeilen, 108 Kürzel
+Kreisregionen: 2737696 Zeilen, 420 Kürzel
+BBSR-Mittelbereiche: 2513619 Zeilen, 262 Kürzel
+Arbeitsmarktregionen: 1700463 Zeilen, 420 Kürzel
+Zentralörtliche Funktion - Grundzentrum: 1143775 Zeilen, 108 Kürzel
+Raumordnungsregionen: 735426 Zeilen, 420 Kürzel
+Zentralörtliche Funktion - Mittelzentrum: 444403 Zeilen, 108 Kürzel
+Siedlungsstruktureller Kreistyp (Bundesländer): 367916 Zeilen, 420 Kürzel
+Siedlungsstruktureller Regionstyp (Bundesländer): 245245 Zeilen, 420 Kürzel
+Regierungsbezirke: 237690 Zeilen, 420 Kürzel
+IHK-Bezirke: 215029 Zeilen, 178 Kürzel
+Städtischer-Ländlicher Raum (Bundesländer): 214593 Zeilen, 420 Kürzel
+Stadt- und Gemeindetyp (Bundesländer): 179384 Zeilen, 178 Kürzel
+Bundesländer: 131584 Zeilen, 506 Kürzel
+Großstadtregionen: 127728 Zeilen, 168 Kürzel
+Metropolregionen: 114724 Zeilen, 420 Kürzel
+Zentralörtliche Funktion - Oberzentrum: 71179 Zeilen, 108 Kürzel
+Siedlungsstruktureller Kreistyp (West-Ost): 61419 Zeilen, 420 Kürzel
+Siedlungsstruktureller Regionstyp (West-Ost): 46068 Zeilen, 420 Kürzel
+Regionalstatistischer Raumtyp 17 (RegioStaR17): 45730 Zeilen, 178 Kürzel
+Braunkohlereviere (auch nicht förderfähige): 38387 Zeilen, 420 Kürzel
+Raumtyp Bezug: Lage (Kreise): 30716 Zeilen, 420 Kürzel
+Siedlungsstruktureller Kreistyp: 30716 Zeilen, 420 Kürzel
+Städtischer-Ländlicher Raum (West-Ost): 30712 Zeilen, 420 Kürzel
+Stadt- und Gemeindetyp (West-Ost): 26875 Zeilen, 178 Kürzel
+Siedlungsstruktureller Regionstyp: 23037 Zeilen, 420 Kürzel
+NUTS2: 20023 Zeilen, 89 Kürzel
+Regionalstatistischer Raumtyp 7 (RegioStaR7): 18830 Zeilen, 178 Kürzel
+Stadt- und Gemeindetyp differenziert: 18830 Zeilen, 178 Kürzel
+Städtischer-Ländlicher Raum: 15358 Zeilen, 420 Kürzel
+West-Ost: 15356 Zeilen, 420 Kürzel
+Regionalstatistischer Raumtyp Gemeindetyp 5 (Regio: 13450 Zeilen, 178 Kürzel
+Stadt- und Gemeindetyp: 13450 Zeilen, 178 Kürzel
+Großstadtregionaler Einzugsbereich: 12525 Zeilen, 168 Kürzel
+Raumtyp Bezug: Lage (Gemeindeverbände): 10760 Zeilen, 178 Kürzel
+NUTS1: 7820 Zeilen, 88 Kürzel
+Bund: 7765 Zeilen, 422 Kürzel
+Regionalstatistischer Raumtyp 2 (RegioStaR2): 5380 Zeilen, 178 Kürzel
+NUTS0: 2398 Zeilen, 89 Kürzel
+Zentralörtliche Einstufung (zusammengefasst): 1864 Zeilen, 108 Kürzel
+Zentrale Orte (ja/nein): 932 Zeilen, 108 Kürzel
+EU27: 80 Zeilen, 80 Kürzel
+
+## Raumbezug Gemeinden (Auswahl in inkar_db_import.py, Z. 107)
+zeilen: 33547606
+kennziffer_nicht_achtstellig: 0
+achtstellig: 33547606
+ohne_wert: 0
+ohne_zeitbezug: 0
+mit_wert_und_zeitbezug: 33547606
+Kennziffern (achtstellig, verschieden): 10978
+Reihen (Bereich, Kürzel, Indikator): 355; Kürzel: 264; Indikatornamen nach E40: 355
+Zeitbezug: 1995 bis 2024 (30 Jahre)
+
+## Zeilen je Bereich
+EU: 65784
+LRB: 26879954
+NA: 21928
+SDG: 1618423
+ZOM: 4961517
+
+## Zeilen je Indikatorname nach E40 (355 Namen, Summe 33547606)
+21538	(SDG 1) Armut - Kinderarmut (SDG)
+87813	(SDG 11) Flächeninanspruchnahme (SDG)
+76843	(SDG 11) Flächenneuinanspruchnahme (SDG)
+86200	(SDG 11) Flächennutzungsintensität (SDG)
+86200	(SDG 11) Naherholungsflächen (SDG)
+160491	(SDG 11) Verunglückte im Verkehr (SDG)
+21728	(SDG 11) Wohnungsnahe Grundversorgung - Supermarkt (SDG)
+312286	(SDG 16) Steuereinnahmen (SDG)
+32583	(SDG 3) Wohnungsnahe Grundversorgung - Apotheke (SDG)
+21724	(SDG 3) Wohnungsnahe Grundversorgung - Hausarzt (SDG)
+10859	(SDG 4) Wohnungsnahe Grundversorgung - Grundschule (SDG)
+236689	(SDG 5) Verhältnis der Beschäftigungsquote von Frauen zu Männern (SDG)
+247814	(SDG 8) Beschäftigungsquote - 15- bis 64-Jährige (SDG)
+161427	(SDG 8) Beschäftigungsquote - 55 Jahre und älter (SDG)
+54228	(SDG 9) Breitbandversorgung privater Haushalte (SDG)
+140033	5- und mehr Raum-Wohnungen (LRB)
+21075	ALG II-Leistungen an SGBII (LRB)
+247824	Abhängigenquote Alte (LRB)
+247824	Abhängigenquote Junge (LRB)
+10964	Absolutzahlen (NA)
+21006	Alleinerziehende erwerbsfähige Leistungsberechtigte (LRB)
+65868	Allgemeinbildende Schulen
+65868	Allgemeinbildende Schulen mit Förderschwerpunkt
+64650	Allgemeinärzte
+86200	Allgemeinärzte (LRB)
+65868	Amtsgerichte
+47593	Anteil Minijobs (Frauen) (LRB)
+47593	Anteil Minijobs (Männer) (LRB)
+56587	Anteil Minijobs (Nebenverdienst) (LRB)
+56674	Anteil Minijobs (Nebenverdienst) an den Beschäftigungsverhältnissen (LRB)
+56713	Anteil Minijobs (ausschließlich) an den Beschäftigungsverhältnissen (LRB)
+56626	Anteil Minijobs (ausschließlich) an geringfügig Beschäftigten (LRB)
+57764	Anteil Minijobs an den Beschäftigungsverhältnissen (LRB)
+278036	Anteil jüngere Arbeitslose (LRB)
+273898	Anteil männliche jüngere Arbeitslose (LRB)
+274751	Anteil männliche ältere Arbeitslose (LRB)
+271202	Anteil weibliche jüngere Arbeitslose (LRB)
+273083	Anteil weibliche ältere Arbeitslose (LRB)
+278036	Anteil ältere Arbeitslose (LRB)
+59054	Apotheken
+32934	Arbeitsagenturen
+284618	Arbeitslose (LRB)
+277958	Arbeitslose Frauen (LRB)
+277976	Arbeitslose Männer (LRB)
+73652	Arbeitslose mit Anforderungsniveau Experte (LRB)
+73652	Arbeitslose mit Anforderungsniveau Fachkraft (LRB)
+73652	Arbeitslose mit Anforderungsniveau Helfer (LRB)
+73652	Arbeitslose mit Anforderungsniveau Spezialist (LRB)
+73683	Arbeitslose ohne Ausbildung (LRB)
+75423	Arbeitslosigkeit
+10964	Arbeitslosigkeit (LRB)
+10964	Arbeitslosigkeit - Allgemein (LRB)
+10964	Arbeitslosigkeit - Altersgruppen (LRB)
+10964	Arbeitslosigkeit - Struktur (LRB)
+32934	Arbeitsmarktverwaltungseinrichtungen
+73023	Arbeitsplatzzentralität
+15744	Ausgaben für Sachinvestitionen (LRB)
+278036	Ausländische Arbeitslose (LRB)
+2247	Ausländische Studierende (LRB)
+259956	Ausländische männliche Arbeitslose (LRB)
+269645	Ausländische weibliche Arbeitslose (LRB)
+289126	Auspendler (LRB)
+32681	Bahn-Abfahrten
+32681	Bahnhaltestellen
+43396	Bandbreitenverfügbarkeit mindestens 1.000 Mbit/s
+43396	Bandbreitenverfügbarkeit mindestens 1.000 Mbit/s (LRB)
+54339	Bandbreitenverfügbarkeit mindestens 100 Mbit/s
+54339	Bandbreitenverfügbarkeit mindestens 100 Mbit/s (LRB)
+54339	Bandbreitenverfügbarkeit mindestens 50 Mbit/s
+54339	Bandbreitenverfügbarkeit mindestens 50 Mbit/s (LRB)
+10964	Bauen und Wohnen (LRB)
+10964	Bauen und Wohnen - Baulandmarkt und Bautätigkeit (LRB)
+10964	Bauen und Wohnen - Gebäude- und Wohnungsbestand (LRB)
+172236	Baugenehmigungen für Wohnungen in Ein- und Zweifamilienhäusern (LRB)
+171507	Baugenehmigungen für Wohnungen in Mehrfamilienhäusern (LRB)
+224379	Baugenehmigungen für Wohnungenje Einwohner (LRB)
+20979	Bedarfsgemeinschaften mit Kindern (LRB)
+54890	Berufsbildende Schulen
+73076	Beschäftigtendichte (AO)
+75415	Beschäftigtendichte (WO)
+247814	Beschäftigtenquote (LRB)
+236992	Beschäftigtenquote Frauen (LRB)
+236981	Beschäftigtenquote Männer (LRB)
+10964	Beschäftigung und Erwerbstätigkeit (LRB)
+10964	Beschäftigung und Erwerbstätigkeit - Atypische Beschäftigung (LRB)
+10964	Beschäftigung und Erwerbstätigkeit - Qualifikation (LRB)
+10964	Beschäftigung und Erwerbstätigkeit – Struktur (LRB)
+10964	Beschäftigung und Erwerbstätigkeit – Wirtschafts- und Berufszweige (LRB)
+76846	Bevölkerung
+10964	Bevölkerung (EU)
+10964	Bevölkerung (LRB)
+318362	Bevölkerung (mit BBSR-Zensuskorrekturen) (LRB)
+10964	Bevölkerung - Natürliche Bevölkerungsbewegungen (LRB)
+318362	Bevölkerung gesamt (LRB)
+53875	Bevölkerung in Mittelzentren (LRB)
+53875	Bevölkerung in Oberzentren (LRB)
+318361	Bevölkerung männlich (LRB)
+318361	Bevölkerung weiblich (LRB)
+10964	Bevölkerung – Altersstruktur (LRB)
+10964	Bevölkerung – Bevölkerungsstruktur (LRB)
+10964	Bevölkerung – Wanderungen (LRB)
+75425	Bevölkerungsentwicklung
+204749	Bevölkerungsentwicklung (10 Jahre) (LRB)
+258624	Bevölkerungsentwicklung (5 Jahre) (LRB)
+43912	Bibliotheken
+43912	Bibliotheksentleihungen
+10964	Bildung (EU)
+10964	Bildung (LRB)
+10964	Bildung - Schulische Bildung (LRB)
+10964	Bildung – Ausbildungsangebot (LRB)
+10964	Bildungsversorgungs- und Kulturfunktion
+76846	Bodenfläche gesamt qkm
+208582	Bodenfläche gesamt qkm (LRB)
+10964	Bundestagswahlen (LRB)
+32681	Bus-Abfahrten
+32681	Bushaltestellen
+21956	Bäder
+247837	Durchschnittsalter der Bevölkerung (LRB)
+140041	Ein- und Zweifamilienhäuser (LRB)
+138073	Ein- und Zweiraumwohnungen (LRB)
+312497	Einkommensteuer (LRB)
+275714	Einpendler (LRB)
+20979	Einpersonen-Bedarfsgemeinschaften (LRB)
+118481	Einpersonenhaushalte (LRB)
+247837	Einwohner 65 Jahre und älter (LRB)
+247811	Einwohner 65 Jahre und älter, Frauen (LRB)
+247837	Einwohner 75 Jahre und älter (LRB)
+247745	Einwohner 75 Jahre und älter, Frauen (LRB)
+35414	Einwohner je Arzt
+247837	Einwohner unter 3 Jahren (LRB)
+247837	Einwohner unter 6 Jahre (LRB)
+247837	Einwohner von 18 bis unter 25 Jahren (LRB)
+247532	Einwohner von 18 bis unter 25 Jahren, Frauen (LRB)
+247837	Einwohner von 25 bis unter 30 Jahren (LRB)
+247250	Einwohner von 25 bis unter 30 Jahren, Frauen (LRB)
+247837	Einwohner von 3 bis unter 6 Jahren (LRB)
+247837	Einwohner von 30 bis unter 50 Jahren (LRB)
+247837	Einwohner von 50 bis unter 65 Jahren (LRB)
+247837	Einwohner von 6 bis unter 18 Jahren (LRB)
+247837	Einwohner von 65 bis unter 75 Jahren (LRB)
+247734	Einwohner von 65 bis unter 75 Jahren, Frauen (LRB)
+194623	Einwohner-Arbeitsplatz-Dichte (LRB)
+76843	Einwohnerdichte
+208153	Einwohnerdichte (LRB)
+86178	Einzelhandelsrelevante Kaufkraft (LRB)
+10856	Entfernung zum Hausarzt (LRB)
+10859	Entfernung zum Supermarkt/Discounter (LRB)
+10857	Entfernung zur Apotheke (LRB)
+10859	Entfernung zur Grundschule (LRB)
+10847	Entfernung zur ÖV Haltestelle (LRB)
+87813	Erholungsfläche (LRB)
+86200	Erholungsfläche je Einwohner (LRB)
+10964	Erreichbarkeit (LRB)
+10775	Erreichbarkeit Autobahnen
+10775	Erreichbarkeit Flughäfen
+10978	Erreichbarkeit KV-Terminal
+10775	Erreichbarkeit von Autobahnen (LRB)
+10775	Erreichbarkeit von Flughäfen (LRB)
+10775	Erreichbarkeit von IC-/EC-/ICE-Bahnhöfen
+10775	Erreichbarkeit von IC/EC/ICE-Bahnhöfen (LRB)
+10978	Erreichbarkeit von Mittelzentren
+10978	Erreichbarkeit von Mittelzentren (LRB)
+10978	Erreichbarkeit von Oberzentren
+10978	Erreichbarkeit von Oberzentren (LRB)
+252494	Erwerbsfähige Bevölkerung (15 bis unter 65 Jahre) (LRB)
+21006	Erwerbsfähige Leistungsberechtigte (Frauen) (LRB)
+21046	Erwerbsfähige Leistungsberechtigte (LRB)
+137985	Fertiggestellte Wohnungen je Wohnung im Bestand (LRB)
+21956	Finanzämter
+76843	Flächenneuinanspruchnahme (LRB)
+10964	Flächennutzung (LRB)
+10964	Flächennutzung und Umwelt (LRB)
+312499	Frauenanteil (LRB)
+247802	Frauenanteil 20 bis unter 40 Jahre (LRB)
+87813	Freifläche (LRB)
+86200	Freifläche je Einwohner (LRB)
+301303	Geborene (LRB)
+43912	Gemeindeverwaltungen
+65868	Gerichte
+312408	Gesamtwanderungssaldo (LRB)
+312499	Gestorbene (LRB)
+10964	Gesundheit (EU)
+10964	Gesundheitsversorgungsfunktion
+171266	Getötete im Straßenverkehr (LRB)
+312344	Gewerbesteuer (LRB)
+20979	Große Bedarfsgemeinschaften (LRB)
+65868	Grundschulen
+84887	Gästeübernachtungen in Beherbergungsbetrieben (LRB)
+118481	Haushalte mit Kindern (LRB)
+118481	Haushalte mit hohem Einkommen (LRB)
+118481	Haushalte mit mittlerem Einkommen (LRB)
+118481	Haushalte mit niedrigem Einkommen (LRB)
+118481	Haushaltsgröße (LRB)
+64650	Hausärzte
+86200	Hausärzte (LRB)
+21956	Hochschulen gesamt
+64650	Internisten
+86200	Internisten (LRB)
+32934	Jobcenter
+21006	Junge erwerbsfähige Leistungsberechtigte (LRB)
+247690	Jüngere Arbeitslose (LRB)
+118500	Kaufkraft (LRB)
+21538	Kinderarmut (LRB)
+76846	Kindertagesstätten
+64614	Kinderärzte
+86154	Kinderärzte (LRB)
+21925	Kinos
+21925	Kinositzplätze
+21925	Kinosäle
+23142	Krankenhausbetten
+22735	Krankenhausbetten je 1.000 Einwohner
+23142	Krankenhäuser der Basisnotfallversorgung
+23142	Krankenhäuser der Erweiterten Notfallversorgung
+23142	Krankenhäuser der Umfassenden Notfallversorgung
+23142	Krankenhäuser insgesamt
+23142	Krankenhäuser mit Nofallversorgung Kinder
+23142	Krankenhäuser mit Schlaganfallversorgung
+23142	Krankenhäuser mit Schwerverletztenversorgung
+23142	Krankenhäuser mit Spezialversorgung
+23142	Krankenhäuser mit Versorgung für akute Herzerkrankungen
+23142	Krankenhäuser ohne allg. stationäre Notfallversorgung
+43912	Kreisverwaltungen
+65868	Landgerichte
+87813	Landwirtschaftsfläche (LRB)
+278036	Langzeitarbeitslose (LRB)
+21075	Leistungen für Unterkunft an SGBII (LRB)
+53875	Ländlichkeit (LRB)
+10964	Medizinische Versorgung (LRB)
+10964	Medizinische und soziale Versorgung (LRB)
+140041	Mehrfamilienhäuser (LRB)
+275252	Männliche Langzeitarbeitslose (LRB)
+2247	Männliche Studierende (LRB)
+245478	Männliche jüngere Arbeitslose (LRB)
+246564	Männliche ältere Arbeitslose (LRB)
+10964	NA (NA)
+10857	Nahversorgung Apotheke
+10857	Nahversorgung Apotheke (LRB)
+10859	Nahversorgung Grundschule (LRB)
+10856	Nahversorgung Hausarzt (LRB)
+10859	Nahversorgung Supermarkt/Discounter (LRB)
+10847	Nahversorgung ÖV Haltestelle (LRB)
+87813	Naturnähere Fläche (LRB)
+86200	Naturnähere Fläche je Einwohner (LRB)
+301303	Natürlicher Saldo (LRB)
+65868	Nebenstelle eines Amtsgerichts
+65868	Nebenstelle eines Landgerichts
+65868	Nebenstelle eines Oberlandesgerichts
+72181	Neubauwohnungen in Ein- und Zweifamilienhäusern (LRB)
+165250	Neubauwohnungen in Ein- und Zweifamilienhäusern je Einwohner (LRB)
+285721	Neubauwohnungen in Mehrfamilienhäusern je Einwohner (LRB)
+224226	Neubauwohnungen je Einwohner (LRB)
+168865	Neue Ein- und Zweifamilienhäuser (LRB)
+21956	Nicht öffentliche Bäder
+65868	Oberlandesgerichte
+53831	Pendler mit Arbeitsweg 150 km und mehr (LRB)
+53831	Pendler mit Arbeitsweg 300 km und mehr (LRB)
+53831	Pendler mit Arbeitsweg 50 km und mehr (LRB)
+65835	Pendlersaldo
+275714	Pendlersaldo (LRB)
+21550	Personen in Bedarfsgemeinschaften (LRB)
+10978	Polizeidienststellen
+10978	Polizeidienststellen, durchgehend besetzt
+10978	Polizeidienststellen, teilweise besetzt
+27494	Postagenturen der Deutschen Post AG
+27494	Postfilialen der Deutschen Post AG
+10978	Postfillialen insgesamt
+10964	Privateinkommen und private Schulden (LRB)
+161427	Quote ältere Beschäftigte (LRB)
+10964	Raumwirksame Mittel (LRB)
+108184	Schlafgelegenheiten in Beherbergungsbetrieben (LRB)
+14729	Schlüsselzuweisungen (LRB)
+65868	Schüler an Grundschulen
+64650	Schüler an Grundschulen je 1.000 Einwohner
+65868	Schüler an allgemeinbildenden Schulen
+64650	Schüler an allgemeinbildenden Schulen je 1.000 Einwohner
+65868	Schüler an allgemeinbildenden Schulen mit Förderschwerpunkt
+64650	Schüler an allgemeinbildenden Schulen mit Förderschwerpunkt je 1.000 Einwohner
+54890	Schüler an berufsbildenden Schulen
+53875	Schüler an berufsbildenden Schulen je 1.000 Einwohner
+65868	Schüler an weiterführenden Schulen
+64650	Schüler an weiterführenden Schulen je 1.000 Einwohner
+10978	Seniorenheime
+10964	Sicherheit (LRB)
+76843	Siedlungs- und Verkehrsfläche
+87813	Siedlungs- und Verkehrsfläche (LRB)
+76814	Siedlungsdichte in km²
+87781	Siedlungsdichte in km² (LRB)
+10964	Siedlungsstruktur (EU)
+10964	Siedlungsstruktur (LRB)
+32934	Sonstige Arbeitsmarktverwaltungseinrichtungen
+10964	Soziale Versorgung (LRB)
+10964	Sozialleistungen (LRB)
+10964	Sozialleistungen - Leistungsempfänger (LRB)
+10964	Sozialleistungen - Transferleistungen (LRB)
+10964	Sozialleistungen – Bedarfsgemeinschaften (LRB)
+293853	Sozialversicherungspflichtig Beschäftigte am Arbeitsort (LRB)
+296396	Sozialversicherungspflichtig Beschäftigte am Wohnort (LRB)
+43912	Spezialbibliotheken
+312286	Steuereinnahmen (LRB)
+312279	Steuerkraft (LRB)
+171266	Straßenverkehrsunfälle (LRB)
+86200	Studierende (LRB)
+193955	Studierende an FH (LRB)
+75425	Studierende an Fachhochschulen je 1.000 Einwohner
+76846	Studierende an Hochschulen
+75425	Studierende an Hochschulen je 1.000 Einwohner
+2247	Studierende im 1. Semester (LRB)
+86066	Studierende je 100 Einwohner 18 bis 25 Jahre (LRB)
+32681	U-/Strassenbahnhaltestellen
+32681	U-/Straßenbahn-Abfahrten
+312492	Umsatzsteuer (LRB)
+10964	Umwelt (LRB)
+247569	Verhältnis junge zu alte Erwerbsfähige (LRB)
+10964	Verkehr (EU)
+10964	Verkehr und Erreichbarkeit (LRB)
+10964	Verkehr und Erreichbarkeit - Pendler (LRB)
+10964	Verkehr und Erreichbarkeit - Straßenverkehr (LRB)
+10964	Verkehrs- und Kommunikationsfunktion
+160491	Verunglückte im Straßenverkehr (LRB)
+54066	Verweildauer in Beherbergungsbetrieben (LRB)
+87813	Waldfläche (LRB)
+87813	Wasserfläche (LRB)
+263623	Weibliche Langzeitarbeitslose (LRB)
+2247	Weibliche Studierende (LRB)
+243290	Weibliche jüngere Arbeitslose (LRB)
+245429	Weibliche ältere Arbeitslose (LRB)
+65868	Weiterführende Schulen
+10964	Wirtschaft (EU)
+10964	Wirtschaft (LRB)
+10964	Wirtschaft – Fremdenverkehr (LRB)
+10964	Wirtschaft – Wirtschaftliche Leistung (LRB)
+10964	Wirtschafts- und Arbeitsmarktfunktion
+43912	Wissenschaftliche Bibliotheken
+140041	Wohnungen in Ein- und Zweifamilienhäusern (LRB)
+83226	Wohnungen in Mehrfamilienhäusern (LRB)
+15250	Zuweisungen für Investitionsfördermaßnahmen (LRB)
+21703	hochfrequentierte Bahnhaltestellen
+21703	hochfrequentierte Bushaltestellen
+21703	hochfrequentierte U-/Strassenbahnhaltestellen
+21703	hochfrequentierte ÖV-Haltestellen
+75584	sozialversicherungspflichtig Beschäftigte Auspendler
+72800	sozialversicherungspflichtig Beschäftigte Binnenpendler
+73995	sozialversicherungspflichtig Beschäftigte Einpendler
+74294	sozialversicherungspflichtig Beschäftigte am Arbeitsort
+76836	sozialversicherungspflichtig Beschäftigte am Wohnort
+247767	Ältere Arbeitslose (LRB)
+21006	Ältere erwerbsfähige Leistungsberechtigte (LRB)
+64650	Ärzte
+86200	Ärzte (LRB)
+32681	ÖV-Abfahrten
+32681	ÖV-Haltestellen
+43912	Öffentliche Bibliotheken
+21956	Öffentliche Bäder
+10964	Öffentliche Finanzen (LRB)
+10964	Öffentliche Verwaltungsfunktion
+# Messung: rc=0, Wandzeit 114.6 s, maxrss (größter Kindprozess) 17704 KiB
+# 1-Minuten-Last vor dem Aufruf (1/5/15 min): 1.59 1.41 1.70

@@ -1,0 +1,23 @@
+# pipeline 34175c77b6918e1253e93c1a5ae6eb0b66843b50
+# config 99237d43e77e50e9fc5764d22afd8dd21bd98144
+# sql acacc89bd5167e671bcfb27b511620734f1f55f6
+# tests a0630aa744ec8bf57127fa89ad712ffc7baab474
+# Dockerfile 6788a7afeb4041d3c71b517b184d557c44c99762
+# deploy 81041b9892c335ad271544f60e228fca6de4781e
+PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+POSTGIS="3.6.4 94d984b" [EXTENSION] PGSQL="160" GEOS="3.14.1-CAPI-1.20.5" (compiled against GEOS 3.13.1) PROJ="9.8.1 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/var/lib/postgresql/.local/share/proj DATABASE_PATH=/usr/share/proj/proj.db" (compiled against PROJ 9.6.0) LIBXML="2.9.14" LIBJSON="0.18" LIBPROTOBUF="1.5.1" WAGYU="0.5.0 (Internal)"
+einrichten rc=0
+Konfiguration /app/config/quellen.yaml
+Namensauflösung im Container: www.bbr-server.de -> 0.0.0.0
+Namensauflösung im Container: www.regionalstatistik.de -> 0.0.0.0
+lauf1: Wartezeit wegen Rechnerlast über 8: 0 s
+lauf1: Rechnerlast davor (1/5/15 min): 2.13 1.87 1.85
+lauf1: Argumente '--alle', Rückgabe 0, Wandzeit 7787.145835256 s (einschließlich Containerstart), Rechnerlast danach (1/5/15 min): 3.70 6.03 6.21, 16 Kerne
+lauf1: Ausfuhr für den Wertabgleich (Rückgabe psql 0): 33547606 Zeilen, sha256 der entpackten CSV 9fe1af8afed5275e595adb51e2479bf68fd81962d5cc259a7e1fedf9f7ea3afb
+lauf2: Wartezeit wegen Rechnerlast über 8: 0 s
+lauf2: Rechnerlast davor (1/5/15 min): 3.84 5.90 6.17
+lauf2: Argumente '--alle', Rückgabe 0, Wandzeit 9587.791626627 s (einschließlich Containerstart), Rechnerlast danach (1/5/15 min): 6.04 5.93 8.26, 16 Kerne
+lauf3: Wartezeit wegen Rechnerlast über 8: 0 s
+lauf3: Rechnerlast davor (1/5/15 min): 6.04 5.93 8.26
+lauf3: Argumente '', Rückgabe 0, Wandzeit 2.863276555 s (einschließlich Containerstart), Rechnerlast danach (1/5/15 min): 7.08 6.15 8.32, 16 Kerne
+fertig

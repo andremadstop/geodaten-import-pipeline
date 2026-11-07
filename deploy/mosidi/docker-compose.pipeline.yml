@@ -1,0 +1,88 @@
+# Die Pipeline als zusätzlicher Dienst im Compose-Setup von MOSIDI (Antworten 36 und 53 der TH):
+# gleiche Datenbank (Dienst brandenburg_db), eigenes Schema pipeline_meta, Bestandstabellen
+# unverändert. Getestet mit der docker-compose.yml aus MOSIDI-ORG/MOSIDI (Stand 02.11.2026),
+# Ablauf und Ergebnis in deploy/mosidi/README.md.
+#
+# Aufruf im MOSIDI-Verzeichnis (dort liegen docker-compose.yml und .env):
+#   export PIPELINE_DIR=/pfad/zu/geodaten-import-pipeline        # absoluter Pfad
+#   alias dcp='docker compose -f docker-compose.yml -f "$PIPELINE_DIR/deploy/mosidi/docker-compose.pipeline.yml"'
+#   dcp run --rm pipeline-einrichten     # einmal, und nach jeder Änderung an den Zielen
+#   dcp run --rm pipeline                # ein Lauf; Zeitplan z. B. per systemd-Timer (deploy/systemd/)
+#
+# Bei mehreren -f gelten relative Pfade relativ zur ersten Datei (also zu MOSIDI), deshalb
+# PIPELINE_DIR. In die .env von MOSIDI gehören zusätzlich IMPORT_PASSWORD und LESE_PASSWORD
+# (je ein eigenes, zufälliges Passwort, z. B. openssl rand -base64 24).
+# Beide Dienste haben das Profil „pipeline“: `docker compose up` von MOSIDI startet sie nicht mit.
+services:
+  pipeline-einrichten:
+    # Legt pipeline_meta, die Rollen pipeline_import/mosidi_lesen und deren Rechte an
+    # (pipeline/einrichten.py). Meldet sich dafür als Administrator der MOSIDI-Datenbank an.
+    # Ohne --haerten: in der gemeinsamen Datenbank bleiben die Rechte anderer Dienste unberührt.
+    # Gebaut aus dem Verzeichnis der Pipeline (Dockerfile dort); ohne PIPELINE_DIR bricht Compose
+    # mit Meldung ab
+    build: ${PIPELINE_DIR:?PIPELINE_DIR auf das Verzeichnis der Pipeline setzen}
+    image: geodaten-import-pipeline:lokal
+    # Nur auf ausdrücklichen Aufruf (`dcp run --rm pipeline-einrichten`), nicht mit `docker compose up`
+    profiles: ["pipeline"]
+    entrypoint: ["python", "-m", "pipeline.einrichten"]
+    command: ["--config", "/app/config/quellen.yaml"]
+    # Datenbank und Administrator aus der .env von MOSIDI; IMPORT_PASSWORD und LESE_PASSWORD werden die
+    # Passwörter der beiden Rollen
+    environment:
+      PGHOST: brandenburg_db
+      PGDATABASE: ${POSTGRES_DB}
+      PGUSER: ${POSTGRES_USER}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      IMPORT_PASSWORD: ${IMPORT_PASSWORD:?IMPORT_PASSWORD in der .env von MOSIDI setzen}
+      LESE_PASSWORD: ${LESE_PASSWORD:?LESE_PASSWORD in der .env von MOSIDI setzen}
+    volumes:
+      - ${PIPELINE_DIR}/config:/app/config:ro
+    # Gehärtet: Dateisystem nur lesbar (außer /tmp), keine Linux-Capabilities, keine Rechteausweitung
+    read_only: true
+    tmpfs: ["/tmp"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    # Startet die Datenbank von MOSIDI mit, wartet aber nicht auf ihre Bereitschaft: brandenburg_db hat
+    # keinen Healthcheck (deploy/mosidi/README.md). Die Einrichtung wartet beim Verbinden selbst bis zu 60 s
+    depends_on: [brandenburg_db]
+
+  # Ein Lauf der Pipeline gegen brandenburg_db; beendet sich danach.
+  # Zeitplan: deploy/mosidi/geodaten-import-mosidi.service
+  pipeline:
+    build: ${PIPELINE_DIR:?PIPELINE_DIR auf das Verzeichnis der Pipeline setzen}
+    image: geodaten-import-pipeline:lokal
+    profiles: ["pipeline"]
+    environment:
+      # Mit der Import-Rolle, nicht als Administrator
+      PGHOST: brandenburg_db
+      PGDATABASE: ${POSTGRES_DB}
+      PGUSER: pipeline_import
+      PGPASSWORD: ${IMPORT_PASSWORD:?IMPORT_PASSWORD in der .env von MOSIDI setzen}
+      # Konfiguration und Cache wie in docker-compose.yml der Pipeline (Erläuterung dort)
+      PIPELINE_CONFIG: /app/config/quellen.yaml
+      PIPELINE_CACHE: /app/cache
+      HTTPS_PROXY: ${HTTPS_PROXY:-}
+      HTTP_PROXY: ${HTTP_PROXY:-}
+      # Ausnahmen vom Proxy für die HTTP-Abrufe (requests); die Datenbankverbindung nutzt keinen HTTP-Proxy
+      NO_PROXY: brandenburg_db,localhost,127.0.0.1${NO_PROXY:+,${NO_PROXY}}
+      PIPELINE_KENNUNG: ${PIPELINE_KENNUNG:-}
+      # Optional: abgelegte INKAR-Gesamtdatei statt Abruf per URL, etwa für Prüfläufe (E48, E50), z. B.
+      # PIPELINE_INKAR_DATEI=/app/cache/inkar_2025.zip in .env und die Datei unter cache/. Leer = Abruf per URL
+      # mit der Freigabe aus der Konfiguration (Regelbetrieb)
+      PIPELINE_INKAR_DATEI: ${PIPELINE_INKAR_DATEI:-}
+    # Ablagen im Verzeichnis der Pipeline, nicht in dem von MOSIDI: Konfiguration nur lesbar, berichte/ und
+    # cache/ beschreibbar (für UID 1000 im Container, siehe Dockerfile)
+    volumes:
+      - ${PIPELINE_DIR}/config:/app/config:ro
+      - ${PIPELINE_DIR}/berichte:/app/berichte
+      - ${PIPELINE_DIR}/cache:/app/cache
+    # Gehärtet wie in docker-compose.yml der Pipeline: nur lesbar, keine Capabilities, Speicher- und
+    # Prozessgrenze
+    read_only: true
+    tmpfs: ["/tmp"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 1g
+    pids_limit: 128
+    # Wie oben: Datenbank mitstarten; auf ihre Bereitschaft wartet der Lauf beim Verbinden bis zu 30 s
+    depends_on: [brandenburg_db]
