@@ -12,7 +12,7 @@
 services:
   # PostGIS-Datenbank nur für Entwicklung und Tests; im Betrieb bei der TH ist es brandenburg_db von MOSIDI
   db:
-    image: ${POSTGIS_IMAGE:-postgis/postgis:16-3.6@sha256:d07ce3f06f657b6516c7511412232e97174d7e9dcf4c9fe520109b682b44a201}
+    image: ${POSTGIS_IMAGE:-postgis/postgis:18-3.6@sha256:4a43e3c3e5d55b9208240fc71db543b79c638766280c625a425bd0a2390989c4}
     # Datenbankname und Administrator der Testdatenbank; das Passwort muss in .env stehen, sonst bricht
     # docker compose mit einer Meldung ab (keine Vorgabe in dieser Datei)
     environment:
