@@ -23,7 +23,7 @@ jobs:
           # Das Token nicht in .git/config ablegen; kein späterer Schritt braucht es
           persist-credentials: false
       # uv/uvx für pruefen.sh
-      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d  # v10.4.0
       - name: Prüfungen
         run: ./pruefen.sh
       # Belegt, dass das Dockerfile mit den festgeschriebenen Prüfsummen baut (nur bauen, kein Push)
@@ -58,7 +58,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
         with:
           persist-credentials: false
-      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d  # v10.4.0
       # Eine .env nur für diesen Lauf, nur für den Eigentümer lesbar (umask 077); die Werte gibt es
       # nirgends sonst, und GitHub schwärzt sie in allen Ausgaben (add-mask)
       - name: Zufällige Passwörter nur für diesen Lauf
