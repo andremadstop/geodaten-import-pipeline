@@ -70,7 +70,7 @@ Grenzen, die bleiben:
 
 ## Neu seit dem Stand nach E51 (E52, 08.11.2026)
 
-Vier Ideen aus der Sichtung öffentlicher Repositories anderer Anbieter, auf eigene Art gebaut, kein fremder Code ([`docs/entscheidungen.md`](docs/entscheidungen.md), E52):
+Vier Erweiterungen vom 08.11.2026 ([`docs/entscheidungen.md`](docs/entscheidungen.md), E52):
 
 - **Unveränderte Lieferung überspringen** (`unveraendert_ueberspringen`, ausgeliefert nur für INKAR): byte-gleiche Datei, gleicher Fingerabdruck aus Konfiguration und Code, Zählprüfung bestanden und letzter Vollabgleich jünger als `vollabgleich_tage`, dann keine Schreibvorgänge in den Fachdaten; `--vollabgleich` erzwingt den vollen Abgleich. Dauer eines übersprungenen INKAR-Laufs im Vollumfang: 2,9 min statt 159,7 min nach E51 (INKAR 111,6 s statt 9 493,0 s; Prüfsumme und Zählprüfung, [Prüfstand nach E52](beispielberichte/pruefstand-2026-11-08-e52/README.md)).
 - **Katalog nach der Art von MOSIDI:** `REFRESH MATERIALIZED VIEW CONCURRENTLY`, wo die View den eindeutigen Index hat; Bericht vor der Berechnung; eigenes Zeitlimit (`katalog_zeitlimit_min`, Standard 20 min); `dcat_ap_id` nach der Formel von MOSIDI, nur wo leer.

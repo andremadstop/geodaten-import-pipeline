@@ -1,6 +1,6 @@
 """Umfangsänderung einer Quelle sperren, bis jemand bestätigt (E52).
 
-Anlass (Mitbewerber-Sichtung 08.11.2026): Ändert jemand die Konfiguration einer schon geladenen Quelle so,
+Anlass (E52, 08.11.2026): Ändert jemand die Konfiguration einer schon geladenen Quelle so,
 dass sie einen anderen Ausschnitt beschreibt (andere Adresse, anderer Feature-Typ, kleinere BBOX, andere
 Indikatoren, anderer Schlüssel, andere Zieltabelle oder Raumebene), sieht der nächste vollständige Lauf die
 bisherigen Zeilen als „nicht mehr in der Quelle“ und löscht sie. Der Rückgang-Schutz (E4) fängt das nur ab,

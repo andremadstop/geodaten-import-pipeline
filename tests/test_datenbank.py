@@ -1831,7 +1831,7 @@ SG_INDEX = ("CREATE UNIQUE INDEX e52_sg_eindeutig "
 
 
 def test_katalog_gleichzeitig_mit_eindeutigem_index(tmp_path, als_import, monkeypatch):
-    """E52 (Mitbewerber-Sichtung 08.11.): Hat die View einen eindeutigen Index wie bei MOSIDI, aktualisiert
+    """E52: Hat die View einen eindeutigen Index wie bei MOSIDI, aktualisiert
     katalog_aktualisieren() sie gleichzeitig (CONCURRENTLY): Ein Leser, der die View in einer offenen
     Transaktion hält, blockiert sie nicht mehr; ohne Index scheiterte derselbe Aufruf an der Wartegrenze
     (test_katalog_wird_nach_gescheitertem_aufruf_nachgeholt). Eine View ohne Daten (WITH NO DATA) kann
@@ -1918,7 +1918,7 @@ def test_katalog_zeitlimit_laesst_den_katalog_offen(tmp_path, als_import):
 
 
 def test_dcat_ap_id_nach_mosidi_nur_wo_leer(tmp_path, als_import):
-    """E52 (Mitbewerber-Sichtung 08.11.): In der Fassung von table_metadata aus dem Skript von MOSIDI gibt es
+    """E52: In der Fassung von table_metadata aus dem Skript von MOSIDI gibt es
     dcat_ap_id und dcat_ap_title (im öffentlichen Schema nicht; der Test ergänzt beide und entfernt sie
     wieder). Die Pipeline setzt dcat_ap_id ihrer Indikatorzeilen nach der Formel von MOSIDI
     (Indikator_Raumebene_Herausgeber): beim Anlegen, und beim Aktualisieren nur, wo sie leer ist. Ein Wert,

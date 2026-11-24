@@ -1578,7 +1578,7 @@ def metadaten_schreiben(cur, name: str, qcfg: dict, z: Ziel, prot, jetzt: dateti
     Seiteneffekte: UPDATE und INSERT in public.table_metadata (nur Spalten aus META_SPALTEN, dazu bei
     Indikatoren dcat_ap_id, E52); bei Indikatoren zusätzlich die Warnung aus verwaiste_melden.
 
-    dcat_ap_id (E52, Mitbewerber-Sichtung 08.11.2026): Gibt es die Spalte (Fassung des MOSIDI-Skripts) und
+    dcat_ap_id (E52): Gibt es die Spalte (Fassung des MOSIDI-Skripts) und
     darf die Importrolle sie schreiben, bekommt jede Indikatorzeile die Kennung nach der Formel von MOSIDI
     (Indikator_Raumebene_Herausgeber, _metadaten_zeilen): beim Anlegen immer, beim Aktualisieren nur, wo sie
     NULL ist. Ein vorhandener Wert bleibt, ebenso dcat_ap_title (nie geschrieben). Geometriezeilen bekommen

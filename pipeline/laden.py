@@ -1081,7 +1081,7 @@ def katalog_aktualisieren(conn, lauf_id: str = "", aenderung: bool = True, *,
     der Aufruf oder fehlt die View, wird die Liste in derselben Transaktion geleert. Rückgabe: Eintrag für
     den Bericht, mit `nachgeholt` (frühere Läufe), oder None, wenn nichts zu tun war.
 
-    Seit E52 (Mitbewerber-Sichtung 08.11.2026; Prüfbericht 07.11., K1) in zwei Transaktionen:
+    Seit E52 (Prüfbericht 07.11., K1) in zwei Transaktionen:
       1. katalog_offen lesen (schon mit den Grenzen aus 3.); ist nichts zu tun, Ende ohne weitere Anweisung.
       2. `vorab` mit dem Eintrag „ausstehend“ aufrufen (laden._lauf schreibt damit den Bericht, bevor die
          Berechnung beginnt; scheitert der Prozess währenddessen, steht der Bericht mit allen Quellen da und

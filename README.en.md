@@ -72,7 +72,7 @@ Limits that remain:
 
 ## New since the state after E51 (E52, 8 November 2026)
 
-Four ideas from a review of other providers' public repositories, built our own way, no foreign code ([`docs/entscheidungen.md`](docs/entscheidungen.md), E52, German):
+Four extensions of 8 November 2026 ([`docs/entscheidungen.md`](docs/entscheidungen.md), E52, German):
 
 - **Skip an unchanged delivery** (`unveraendert_ueberspringen`, shipped only for INKAR): byte-identical file, same fingerprint of configuration and code, count check passed and last full reconciliation younger than `vollabgleich_tage`, then no writes to the data; `--vollabgleich` forces the full reconciliation. Duration of a skipped INKAR run in full scope: 2.9 min instead of 159.7 min after E51 (INKAR 111.6 s instead of 9,493.0 s; checksum and count check, [test record after E52](beispielberichte/pruefstand-2026-11-08-e52/README.md)).
 - **Catalogue the MOSIDI way:** `REFRESH MATERIALIZED VIEW CONCURRENTLY` where the view has the unique index; report before the computation; own time limit (`katalog_zeitlimit_min`, default 20 min); `dcat_ap_id` by MOSIDI's formula, only where empty.

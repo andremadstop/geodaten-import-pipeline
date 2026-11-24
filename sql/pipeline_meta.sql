@@ -139,7 +139,7 @@ ALTER TABLE pipeline_meta.quellenstand ADD COLUMN IF NOT EXISTS umfang jsonb;
 -- katalog_zeitlimit_min; E52), damit weder ein Leser der View noch eine lange Berechnung den Lauf beliebig
 -- lange aufhält.
 --
--- Seit E52 (Mitbewerber-Sichtung 08.11.2026) ohne Sperre für Leser, wo es geht: Hat die View einen
+-- Seit E52 ohne Sperre für Leser, wo es geht: Hat die View einen
 -- eindeutigen Index, den REFRESH … CONCURRENTLY nutzen kann (nur Spalten, kein Ausdruck, kein WHERE,
 -- gültig; das Skript von MOSIDI legt einen über source, indikator, granularity an), und ist sie befüllt
 -- (CONCURRENTLY verweigert eine View, die mit WITH NO DATA angelegt ist), wird sie gleichzeitig

@@ -1243,7 +1243,7 @@ def test_wfs_kennung_gml_id_auch_in_gml_31_und_nur_dieses_attribut(monkeypatch):
             list(quellen.wfs({**_KACHEL, "id_feld": falsch}, Protokoll()))
 
 
-# --- E52: Gesamtzahl vor und nach dem Paging (Mitbewerber-Sichtung 08.11.2026) ---
+# --- E52: Gesamtzahl vor und nach dem Paging ---
 
 def _dienst_mit_gesamtzahl(seiten: dict[int, list[str]], gesamt: dict[int, str], anfragen: list):
     """WFS 2.0 mit Paging (ohne Sortierung), der je startIndex die Seite aus `seiten` liefert und als

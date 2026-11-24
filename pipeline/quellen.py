@@ -975,7 +975,7 @@ def wfs(cfg: dict, prot: Protokoll) -> Iterator[dict]:
     gesamtzahlen: list[int] = []
 
     def gesamtzahl_pruefen(root: etree._Element, start: int) -> None:
-        """Paging (E52, Mitbewerber-Sichtung 08.11.2026): Nennt eine Seite eine andere Gesamtzahl als die
+        """Paging (E52): Nennt eine Seite eine andere Gesamtzahl als die
         erste, hat sich der Dienst während des seitenweisen Abrufs geändert. Die Seiten stammen dann aus
         verschiedenen Ständen: Ein Objekt kann von einer noch nicht abgerufenen auf eine schon abgerufene
         Seite gerückt sein und fehlen, und die Abbruchbedingung des Pagings (Gesamtzahl der ersten Seite)
