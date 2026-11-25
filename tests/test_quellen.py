@@ -232,6 +232,117 @@ def test_wfs_warnt_wenn_seiten_objekte_verlieren(monkeypatch):
     assert any("Nur 3 von 5" in w for w in prot.warnungen)
 
 
+# Capabilities ohne Paging (wie LGB alkis_vereinf_wfs, Abruf 25.11.2026), für die Tests zu E53
+_CAP_OHNE_PAGING = b"""<wfs:WFS_Capabilities xmlns:wfs="http://www.opengis.net/wfs/2.0"
+ xmlns:ows="http://www.opengis.net/ows/1.1"><ows:OperationsMetadata>
+<ows:Constraint name="ImplementsResultPaging"><ows:NoValues/>
+<ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+</ows:OperationsMetadata></wfs:WFS_Capabilities>"""
+
+
+def _abrufen_mit_seiten(seiten, anfragen, gesamt=None):
+    """abrufen-Ersatz: Capabilities ohne Paging, kein Schema, GetFeature aus `seiten` nach STARTINDEX (fehlt
+    STARTINDEX, die Seite 0); mit `gesamt` nennt jede Seite numberMatched."""
+    def abrufen(url, params, cfg, prot):
+        if params["REQUEST"] == "GetCapabilities":
+            return _CAP_OHNE_PAGING
+        if params["REQUEST"] == "DescribeFeatureType":
+            raise RuntimeError("kein Schema im Test")
+        anfragen.append(params)
+        seite = _gml_seite(seiten[params.get("STARTINDEX", 0)])
+        if gesamt is not None:
+            seite = seite.replace(b"numberReturned", f'numberMatched="{gesamt}" numberReturned'.encode())
+        return seite
+    return abrufen
+
+
+def test_wfs_paging_per_konfiguration_trotz_capabilities(monkeypatch):
+    """E53: paging: true blättert per STARTINDEX über die ganze BBOX, obwohl der Dienst
+    ImplementsResultPaging=FALSE meldet; keine Kachelung, Hinweis im Protokoll, vollständig belegt über
+    numberMatched."""
+    anfragen = []
+    monkeypatch.setattr(quellen, "abrufen",
+                        _abrufen_mit_seiten({0: ["a", "b"], 2: ["c", "d"], 4: ["e"]}, anfragen, gesamt=5))
+    cfg = {"url": "https://dienst.example/ows", "typename": "x:o", "id_feld": "oid", "geometrie_feld": "geom",
+           "bbox": [0, 0, 1000, 1000], "kachel_m": 400, "seitengroesse": 2, "paging": True}
+    prot = Protokoll()
+    assert [o["objekt_id"] for o in quellen.wfs(cfg, prot)] == ["a", "b", "c", "d", "e"]
+    assert [a["STARTINDEX"] for a in anfragen] == [0, 2, 4]
+    assert all(a["BBOX"].startswith("0,0,1000,1000,") for a in anfragen)
+    assert any("trotzdem per Paging" in h for h in prot.hinweise)
+    assert not any("per Kachelung" in h for h in prot.hinweise)
+    assert not prot.unvollstaendig
+
+
+def test_wfs_ohne_schalter_bleibt_kachelung(monkeypatch):
+    """E53: Ohne paging (oder mit false) bleibt es bei der Kachelung wie vor E53."""
+    for wert in (None, False):
+        anfragen = []
+        monkeypatch.setattr(quellen, "abrufen", _abrufen_mit_seiten({0: ["a"]}, anfragen, gesamt=1))
+        cfg = {"url": "https://dienst.example/ows", "typename": "x:o", "id_feld": "oid",
+               "geometrie_feld": "geom", "bbox": [0, 0, 1000, 1000], "kachel_m": 500}
+        if wert is not None:
+            cfg["paging"] = wert
+        prot = Protokoll()
+        assert [o["objekt_id"] for o in quellen.wfs(cfg, prot)] == ["a"]
+        assert len(anfragen) == 4 and all("STARTINDEX" not in a for a in anfragen)
+        assert any("per Kachelung" in h for h in prot.hinweise)
+
+
+def test_wfs_paging_erzwungen_dienst_uebergeht_startindex(monkeypatch):
+    """E53: Übergeht der Dienst STARTINDEX trotz paging: true (jede Seite gleich), endet der Abruf als
+    unvollständig statt endlos zu blättern."""
+    anfragen = []
+
+    def abrufen(url, params, cfg, prot):
+        if params["REQUEST"] == "GetCapabilities":
+            return _CAP_OHNE_PAGING
+        if params["REQUEST"] == "DescribeFeatureType":
+            raise RuntimeError("kein Schema im Test")
+        anfragen.append(params)
+        return _gml_seite(["a", "b"])
+
+    monkeypatch.setattr(quellen, "abrufen", abrufen)
+    cfg = {"url": "https://dienst.example/ows", "typename": "x:o", "id_feld": "oid", "geometrie_feld": "geom",
+           "bbox": [0, 0, 1, 1], "seitengroesse": 2, "paging": True}
+    prot = Protokoll()
+    assert [o["objekt_id"] for o in quellen.wfs(cfg, prot)] == ["a", "b"]
+    assert len(anfragen) == 2
+    assert prot.unvollstaendig
+    assert any("kein neues Objekt" in w for w in prot.warnungen)
+
+
+def test_wfs_paging_erzwungen_ohne_sortierung_zaehlt_verschiedene(monkeypatch):
+    """E53: Erzwungenes Paging ohne Sortierung (die LGB meldet keine): Ein zwischen zwei Seiten gerutschtes
+    Objekt fällt über den Abgleich mit numberMatched auf, der Abruf ist unvollständig."""
+    anfragen = []
+    monkeypatch.setattr(quellen, "abrufen",
+                        _abrufen_mit_seiten({0: ["a", "b"], 2: ["b", "d"], 4: []}, anfragen, gesamt=5))
+    cfg = {"url": "https://dienst.example/ows", "typename": "x:o", "id_feld": "oid", "geometrie_feld": "geom",
+           "bbox": [0, 0, 1, 1], "seitengroesse": 2, "paging": True}
+    prot = Protokoll()
+    assert [o["objekt_id"] for o in quellen.wfs(cfg, prot)] == ["a", "b", "d"]
+    assert all("SORTBY" not in a for a in anfragen)
+    assert prot.unvollstaendig
+    assert any("Nur 3 von 5" in w for w in prot.warnungen)
+
+
+@pytest.mark.parametrize("wert, version, text", [
+    ("ja", "2.0.0", "true oder false"), (1, "2.0.0", "true oder false"),
+    (True, "1.1.0", "WFS 1.1.0")])
+def test_wfs_paging_schalter_ungueltig_vor_dem_abruf(monkeypatch, wert, version, text):
+    """E53: Ein anderer Wert als true/false oder paging: true mit WFS 1.1.0 wird vor dem ersten Abruf
+    abgelehnt."""
+    def abrufen(*a):
+        raise AssertionError("kein Abruf erwartet")
+
+    monkeypatch.setattr(quellen, "abrufen", abrufen)
+    cfg = {"url": "https://dienst.example/ows", "typename": "x:o", "id_feld": "oid", "geometrie_feld": "geom",
+           "bbox": [0, 0, 1, 1], "version": version, "paging": wert}
+    with pytest.raises(QuellenFehler, match=text):
+        list(quellen.wfs(cfg, Protokoll()))
+
+
 def test_wfs_paging_ohne_gesamtzahl_und_sortierung_prueft_doppelte(monkeypatch):
     """Nachprüfung zu E47 (zu Befund 9, gleiche Lücke im Blätterzweig): Ohne numberMatched und ohne
     Sortierung belegte die leere Seite das Ende, auch wenn ein Objekt zwischen zwei Seiten gerutscht war (es

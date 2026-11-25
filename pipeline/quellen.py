@@ -590,6 +590,20 @@ def _kachel_m_pruefen(kachel_m) -> None:
                             f"nicht {kachel_m!r}")
 
 
+def _paging_pruefen(wert, v11: bool) -> bool:
+    """Schalter `paging` einer WFS-Quelle (E53): None oder False = nach Capabilities, True = Paging auch bei
+    ImplementsResultPaging=FALSE. Rückgabe: True, wenn Paging erzwungen ist.
+    Ausnahme: QuellenFehler bei einem anderen Wert als True/False (auch "ja" oder 1) und bei True mit
+    WFS 1.1.0, das kein STARTINDEX kennt. Aufgerufen von wfs vor dem ersten Abruf."""
+    if wert is None or wert is False:
+        return False
+    if wert is not True:
+        raise QuellenFehler(f"paging muss true oder false sein, nicht {wert!r}")
+    if v11:
+        raise QuellenFehler("paging: true geht nur mit WFS 2.0.0; WFS 1.1.0 kennt kein STARTINDEX")
+    return True
+
+
 def _kacheln(bbox: list[float], kachel_m: float):
     """Das Suchrechteck [xmin, ymin, xmax, ymax] zeilenweise in Quadrate der Kantenlänge kachel_m zerlegen
     (Einheit des Koordinatensystems, bei EPSG:25833 Meter). Die letzte Kachel einer Zeile oder Spalte endet
@@ -794,6 +808,13 @@ def wfs(cfg: dict, prot: Protokoll) -> Iterator[dict]:
     übergeht (meist einer mit ImplementsResultPaging=FALSE, also gerade der, der in die Kachelung führt),
     belegt Vollständigkeit nur über numberMatched oder CountDefault; kleinere Kacheln helfen dann nicht.
 
+    Paging per Konfiguration (E53): `paging: true` blättert per STARTINDEX, obwohl die Capabilities
+    ImplementsResultPaging=FALSE melden. Gedacht für Dienste, deren Betreiber Paging ausdrücklich zusagt
+    (LGB, alkis_vereinf_wfs, Auskunft vom 25.11.2026). Die Prüfungen des Pagings bleiben dieselben: Übergeht
+    der Dienst STARTINDEX doch, endet der Abruf als unvollständig, ebenso mit weniger verschiedenen Objekten
+    als numberMatched. Nur WFS 2.0; mit WFS 1.1.0 oder einem anderen Wert als true/false lehnt der Adapter
+    vor dem ersten Abruf ab (_paging_pruefen).
+
     Konfiguration: url, typename, id_feld, geometrie_feld, bbox; optional version, crs, felder (Quellfeld ->
     Zielfeld), seitengroesse, kachel_m, max_je_kachel, pause_s (E36). id_feld ist ein Kindelement des Features
     oder "@gml:id" für das Attribut gml:id des Features (E51, _kennung); mit "@gml:id" entfällt SORTBY (eine
@@ -818,6 +839,7 @@ def wfs(cfg: dict, prot: Protokoll) -> Iterator[dict]:
     # bevor er gemeldet wird; geprüft auch, wenn der Dienst später blättert statt zu kacheln
     _kachel_m_pruefen(cfg.get("kachel_m", 500))
     v11 = version.startswith("1.1")
+    paging_erzwungen = _paging_pruefen(cfg.get("paging"), v11)
     typ_param = "TYPENAME" if v11 else "TYPENAMES"
     anzahl_param = "MAXFEATURES" if v11 else "COUNT"
     seitengroesse = cfg.get("seitengroesse", 500)
@@ -853,7 +875,13 @@ def wfs(cfg: dict, prot: Protokoll) -> Iterator[dict]:
                      beschreibung=cap["beschreibung"],
                      update_sequence=cap["update_sequence"])
     paging = cap["paging"] and not v11
-    if not paging and not v11:
+    if not paging and paging_erzwungen:
+        # E53: Der Betreiber sagt Paging zu, die Capabilities melden es nicht. Geblättert wird mit denselben
+        # Prüfungen wie sonst; übergeht der Dienst STARTINDEX, endet der Abruf als unvollständig
+        paging = True
+        prot.hinweise.append("Dienst meldet ImplementsResultPaging=FALSE, Abruf trotzdem per Paging "
+                             "(paging: true in der Konfiguration)")
+    elif not paging and not v11:
         prot.hinweise.append("Dienst meldet ImplementsResultPaging=FALSE, Abruf per Kachelung")
 
     try:

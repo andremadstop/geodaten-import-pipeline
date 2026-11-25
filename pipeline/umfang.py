@@ -23,10 +23,11 @@ ohne Wirkung und kann entfernt werden, eine spätere Änderung sperrt wieder. Je
 als Warnung im Bericht und damit in pipeline_meta.quellenlauf.
 
 Was zum Umfang gehört: jeder Schlüssel der Quelle und ihres Ziels außer denen in UNERHEBLICH bzw.
-ZIEL_UNERHEBLICH (Beschreibung, Rhythmus, Zeitgrenzen, Größen- und Seitengrenzen, Schutzschwellen, Karte und
-die Schalter von E52). Auch unbekannte und künftige Schlüssel zählen: lieber einmal zu viel bestätigen als
-eine Änderung des Ausschnitts übersehen. Anders als der Fingerabdruck in unveraendert geht der Code der
-Pipeline nicht ein; ein Update der Pipeline ändert den Umfang einer Quelle nicht.
+ZIEL_UNERHEBLICH (Beschreibung, Rhythmus, Zeitgrenzen, Größen- und Seitengrenzen, Schutzschwellen, Karte,
+die Schalter von E52 und `paging` aus E53). Auch unbekannte und künftige Schlüssel zählen: lieber einmal
+zu viel bestätigen als eine Änderung des Ausschnitts übersehen. Anders als der Fingerabdruck in
+unveraendert geht der Code der Pipeline nicht ein; ein Update der Pipeline ändert den Umfang einer Quelle
+nicht.
 
 Gespeichert wird nicht die Konfiguration selbst, sondern je Schlüssel eine Prüfsumme seines Werts (teile);
 so nennt der Bericht, welche Schlüssel sich geändert haben, ohne Adressen oder Pfade in der Datenbank
@@ -49,13 +50,13 @@ from .unveraendert import summe
 
 # Schlüssel einer Quelle, die nicht bestimmen, welche Objekte sie liefert und wohin sie geschrieben werden:
 # Beschreibung und Lizenz (gehen nur nach table_metadata), Rhythmus, Zeitgrenzen, Pausen, Größen- und
-# Seitengrenzen der Abrufe, Schutzschwellen, Karte und die Schalter von E52. Alles andere zählt, auch was
-# hier niemand vorhergesehen hat
+# Seitengrenzen der Abrufe, Schutzschwellen, Karte, die Schalter von E52 und der Abrufweg `paging` (E53).
+# Alles andere zählt, auch was hier niemand vorhergesehen hat
 UNERHEBLICH = frozenset({
     "titel", "beschreibung", "lizenz", "kontakt", "rhythmus", "aktiv", "zeitbudget_min", "db_sperre_max_s",
     "pause_s", "seitengroesse", "max_je_kachel", "max_mb", "max_entpackt_mb", "max_packrate", "max_objekt_mb",
     "cache", "robots_freigabe", "max_rueckgang", "karte", "karte_max_objekte", "unveraendert_ueberspringen",
-    "vollabgleich_tage", "umfang_bestaetigt"})
+    "vollabgleich_tage", "umfang_bestaetigt", "paging"})
 # Unter `ziel`: nur der Metadatensatz (table_metadata) gehört nicht zum Umfang der Fachdaten
 ZIEL_UNERHEBLICH = frozenset({"metadaten"})
 

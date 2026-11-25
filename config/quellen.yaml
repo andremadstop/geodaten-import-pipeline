@@ -44,6 +44,9 @@
 #   felder               Quellfeld: Name in der Pipeline; nur diese werden übernommen (ohne Angabe alle)
 #   kachel_m             Kantenlänge der Kacheln in Metern, wenn der Dienst kein Paging kann
 #                        (Standard 500); sonst seitenweise mit `seitengroesse` Objekten (Standard 500)
+#   paging               true: seitenweise, obwohl die Capabilities kein Paging melden; nur, wenn der
+#                        Betreiber es zusagt, und nur WFS 2.0 (E53). Übergeht der Dienst STARTINDEX doch,
+#                        endet der Abruf als unvollständig
 # Je Quelle außerdem `titel` und `beschreibung` für den Metadatensatz in table_metadata; ohne Angabe
 # nimmt die Pipeline, was der Dienst über sich sagt.
 #
@@ -82,6 +85,9 @@ quellen:
     geometrie_feld: geometrie
     crs: urn:ogc:def:crs:EPSG::25833
     bbox: [332000, 5809400, 333200, 5810400]
+    # Capabilities melden kein Paging, die LGB sagt es aber zu (Auskunft 25.11.2026, E53): seitenweise
+    # statt in Kacheln, ohne Dubletten an Kachelgrenzen. kachel_m gilt nur, wenn paging entfällt
+    paging: true
     kachel_m: 400
     felder: {aktualit: aktualit, gebnutzbez: gebnutzbez, funktion: funktion, name: name,
              anzahlgs: anzahlgs, lagebeztxt: lagebeztxt}
@@ -110,8 +116,8 @@ quellen:
     id_feld: ags
     geometrie_feld: geom
     crs: urn:ogc:def:crs:EPSG::25833
-    bbox: [250000, 5690000, 480000, 5940000]   # ganz Brandenburg; Dienst kann kein Paging
-    kachel_m: 250000                            # eine Abfrage für das ganze Land
+    bbox: [250000, 5690000, 480000, 5940000]   # ganz Brandenburg; meldet kein Paging, braucht keins
+    kachel_m: 250000                            # eine Abfrage für das ganze Land (CountDefault 100.000)
     felder: {gem_name: name, krss: kreisschluessel, gem_aktualitaet: aktualitaet}
     rhythmus: monatlich
     lizenz: "© GeoBasis-DE/LGB, dl-de/by-2-0"

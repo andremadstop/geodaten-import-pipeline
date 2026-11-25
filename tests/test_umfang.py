@@ -38,7 +38,8 @@ def test_unerhebliche_schluessel_aendern_den_umfang_nicht():
                              ("max_je_kachel", 5), ("max_mb", 1), ("max_rueckgang", None), ("karte", False),
                              ("karte_max_objekte", 1), ("robots_freigabe", "x"),
                              ("umfang_bestaetigt", "a" * 12),
-                             ("unveraendert_ueberspringen", True), ("vollabgleich_tage", 3)):
+                             ("unveraendert_ueberspringen", True), ("vollabgleich_tage", 3),
+                             ("paging", True)):
         assert _abdruck({**WFS, schluessel: wert}) == basis, schluessel
     assert _abdruck({**WFS, "ziel": {**WFS["ziel"], "metadaten": {"je": "indikator"}}}) == basis
     assert _abdruck(dict(reversed(list(WFS.items())))) == basis
